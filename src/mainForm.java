@@ -14,7 +14,7 @@ public class mainForm extends JFrame {
         setLocationRelativeTo(null);
 
         // Window Icon
-     /*   String imagePath = "C:\\Users\\Tamara\\Downloads\\𝐕𝐢𝐧𝐜𝐞𝐧𝐭 𝐕𝐚𝐧 𝐆𝐨𝐠𝐡 𝐢𝐜𝐨𝐧💙.jpg";
+        String imagePath = "C:\\Users\\Tamara\\Downloads\\𝐕𝐢𝐧𝐜𝐞𝐧𝐭 𝐕𝐚𝐧 𝐆𝐨𝐠𝐡 𝐢𝐜𝐨𝐧💙.jpg";
         try {
             ImageIcon logoIcon = new ImageIcon(imagePath);
             Image logoImage = logoIcon.getImage();
@@ -22,7 +22,7 @@ public class mainForm extends JFrame {
         } catch (Exception e) {
             System.err.println("Error loading image: " + e.getMessage());
             e.printStackTrace();
-        }*/
+        }
 
         // Menu Bar
         JMenuBar bar = new JMenuBar();
@@ -93,6 +93,13 @@ public class mainForm extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+            }
+        });
+
+        sysItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new systemClass();
             }
         });
 
