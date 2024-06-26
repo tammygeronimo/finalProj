@@ -23,7 +23,7 @@ public class systemClass extends JFrame {
         add(sysHead);
 
         divider.setBounds(30, 105, 940, 2);
-        divider.setBackground(Color.GRAY);
+        divider.setBackground(Color.LIGHT_GRAY);
         add(divider);
 
         sysSubHead.setBounds(100, 115, 500, 35);
