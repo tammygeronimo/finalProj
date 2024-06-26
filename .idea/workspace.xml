@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="deleted trial classes">
-      <change afterPath="$PROJECT_DIR$/src/systemClass.java" afterDir="false" />
+    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="added system frame">
+      <change afterPath="$PROJECT_DIR$/src/ListFonts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/finalProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/systemClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systemClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ListFonts.executor": "Run",
     "Application.mainForm.executor": "Run",
+    "Application.systemClass.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
@@ -110,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719403547899</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added system frame">
+      <option name="closed" value="true" />
+      <created>1719417330888</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719417330888</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -119,6 +128,7 @@
     <MESSAGE value="import lib and classes" />
     <MESSAGE value="category txt" />
     <MESSAGE value="deleted trial classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted trial classes" />
+    <MESSAGE value="added system frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="added system frame" />
   </component>
 </project>
