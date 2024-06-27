@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
@@ -16,21 +17,31 @@ public class packagingForm extends JFrame {
 
     public packagingForm() {
         setTitle("Product Information : Packaging");
-        setSize(300, 190);
+        setSize(295, 190);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
 
         pCodeLabel.setBounds(10, 20, 100, 25);
         pCodeField.setBounds(120, 20, 150, 25);
+        pCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        pCodeLabel.setForeground(Color.decode("#31C198"));
         add(pCodeLabel); add(pCodeField);
 
-        pNameLabel.setBounds(10, 60, 100, 25);
+        pNameLabel.setBounds(10, 60, 105, 25);
         pNameField.setBounds(120, 60, 150, 25);
+        pNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        pNameLabel.setForeground(Color.decode("#31C198"));
         add(pNameLabel); add(pNameField);
 
         addButton.setBounds(30, 110, 100, 25);
         backButton.setBounds(150, 110, 100, 25);
+        addButton.setBackground(Color.decode("#31C198"));
+        addButton.setForeground(Color.decode("#1E1E1F"));
+        addButton.setFont(new Font("Poppins", Font.BOLD,12));
+        backButton.setBackground(Color.decode("#31C198"));
+        backButton.setForeground(Color.decode("#1E1E1F"));
+        backButton.setFont(new Font("Poppins", Font.PLAIN,12));
         add(addButton);add(backButton);
 
         // Action Listeners
@@ -59,7 +70,7 @@ public class packagingForm extends JFrame {
     // Writing to "Package.txt"
     private void addPackageToFile(String packageCode, String packageName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Package.txt", true))) {
-            writer.write(packageCode + "\n" + packageName);
+            writer.write(packageCode + ", " + packageName);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
