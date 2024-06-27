@@ -114,7 +114,30 @@ public class mainForm extends JFrame {
         delItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new deliveryFrame();
+                new deliveryForm();
+            }
+        });
+
+        varItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new variantForm();
+            }
+        });
+
+
+        orderItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new orderForm();
+            }
+        });
+
+
+        suppItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new supplierForm();
             }
         });
 
