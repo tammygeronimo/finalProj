@@ -3,7 +3,8 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 
 public class mainForm extends JFrame {
@@ -28,14 +29,15 @@ public class mainForm extends JFrame {
         // Menu Bar
         JMenuBar bar = new JMenuBar();
         bar.setOpaque(true);
-        bar.setBackground(Color.decode("#050505"));
+        bar.setBackground(Color.decode("#31C198"));
+        bar.setFont(new Font("Poppins", Font.PLAIN, 13));
 
         // Menu/SubMenu
-        JMenu fileMenu = createColoredMenu("File", Color.decode("#F9FAFA"));
+        JMenu fileMenu = createColoredMenu("File", Color.decode("#1E1E1F"));
         JMenu prodSubMenu = new JMenu("Product Information");
-        JMenu transMenu = createColoredMenu("Transaction", Color.decode("#F9FAFA"));
-        JMenu repMenu = createColoredMenu("Report", Color.decode("#F9FAFA"));
-        JMenu aboutMenu = createColoredMenu("About", Color.decode("#F9FAFA"));
+        JMenu transMenu = createColoredMenu("Transaction", Color.decode("#1E1E1F"));
+        JMenu repMenu = createColoredMenu("Report", Color.decode("#1E1E1F"));
+        JMenu aboutMenu = createColoredMenu("About", Color.decode("#1E1E1F"));
 
         // Menu Items
         JMenuItem catItem = new JMenuItem("Category");
@@ -148,12 +150,12 @@ public class mainForm extends JFrame {
         def_label.setFont(new Font("Verdana", Font.ITALIC, 11));
         def_label.setForeground(Color.GRAY);
         textArea.add(def_label);
-        textArea.setBackground(Color.decode("#F9FAFA"));
+        textArea.setBackground(Color.decode("#323232"));
 
         // Set custom border color
-        textArea.setBorder(BorderFactory.createLineBorder(Color.decode("#050505"), 5));
+        // textArea.setBorder(BorderFactory.createLineBorder(Color.decode("#050505"), 5));
 
-        textArea.setEditable(false);
+        textArea.setEnabled(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
@@ -167,7 +169,6 @@ public class mainForm extends JFrame {
 
         // Create a panel with FlowLayout to add spacing around the centered panel
         JPanel outerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        outerPanel.setBackground(Color.WHITE);
         outerPanel.setBorder(BorderFactory.createEmptyBorder(50, 20, 20, 20));
         outerPanel.add(centerPanel);
 
@@ -179,7 +180,7 @@ public class mainForm extends JFrame {
     }
 
     public static void main(String[] args) {
-        FlatLightLaf.setup();
+        FlatMacDarkLaf.setup();
 
     /*    // Create and show the splash screen
         SplashScreen splash = new SplashScreen();
