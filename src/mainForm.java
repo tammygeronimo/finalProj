@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.formdev.flatlaf.FlatLightLaf;
 
+
 public class mainForm extends JFrame {
 
     public mainForm() {
@@ -103,6 +104,20 @@ public class mainForm extends JFrame {
             }
         });
 
+        prodItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new productFrame();
+            }
+        });
+
+        delItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new deliveryFrame();
+            }
+        });
+
         // JTextArea & JScrollPane
         JTextArea textArea = new JTextArea(28, 75);
         JLabel def_label = new JLabel("[ Display reports here via the Report Menu ]");
@@ -157,6 +172,7 @@ public class mainForm extends JFrame {
         // Close the splash screen
         splash.dispose(); */
 
+
         // Start the main application
         SwingUtilities.invokeLater(() -> new mainForm());
     }
@@ -185,7 +201,6 @@ public class mainForm extends JFrame {
 
 @SuppressWarnings("serial")
 class SplashScreen extends JWindow {
-
     public SplashScreen() {
         // Set the size of the splash screen
         setSize(600, 600);
