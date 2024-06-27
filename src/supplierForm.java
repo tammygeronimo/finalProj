@@ -1,17 +1,20 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
+import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.BufferedWriter;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class supplierForm extends JFrame {
 
+    // components
     JLabel sCodeLabel = new JLabel("Supplier Code:");
     JLabel sNameLabel = new JLabel("Supplier Name:");
+
     JTextField sCodeField = new JTextField();
     JTextField sNameField = new JTextField();
+
     JButton addButton = new JButton("Add");
     JButton backButton = new JButton("Back");
 
@@ -22,16 +25,27 @@ public class supplierForm extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
+        // Window Icon
+        String imagePath = "media/tempcon.jpg";
+        try {
+            ImageIcon logoIcon = new ImageIcon(imagePath);
+            Image logoImage = logoIcon.getImage();
+            setIconImage(logoImage);
+        } catch (Exception e) {
+            System.err.println("Error loading image: " + e.getMessage());
+            e.printStackTrace();
+        }
+
         sCodeLabel.setBounds(10, 20, 100, 25);
-        sCodeField.setBounds(120, 20, 150, 25);
         sCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
         sCodeLabel.setForeground(Color.decode("#31C198"));
+        sCodeField.setBounds(120, 20, 150, 25);
         add(sCodeLabel); add(sCodeField);
 
         sNameLabel.setBounds(10, 60, 100, 25);
-        sNameField.setBounds(120, 60, 150, 25);
         sNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
         sNameLabel.setForeground(Color.decode("#31C198"));
+        sNameField.setBounds(120, 60, 150, 25);
         add(sNameLabel); add(sNameField);
 
         addButton.setBounds(30, 110, 100, 25);
@@ -42,9 +56,9 @@ public class supplierForm extends JFrame {
         backButton.setBackground(Color.decode("#31C198"));
         backButton.setForeground(Color.decode("#1E1E1F"));
         backButton.setFont(new Font("Poppins", Font.PLAIN,12));
-        add(addButton);add(backButton);
+        add(addButton); add(backButton);
 
-        // Action Listeners
+        // ACTION LISTENERS
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String supplierCode = sCodeField.getText();

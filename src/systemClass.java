@@ -15,10 +15,20 @@ public class systemClass extends JFrame {
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        getContentPane().setLayout(null);
-        getContentPane().setBackground(Color.decode("#EAE5DF"));
-        sysHead.setHorizontalAlignment(SwingConstants.RIGHT);
+        setLayout(null);
 
+        // Window Icon
+        String imagePath = "media/tempcon.jpg";
+        try {
+            ImageIcon logoIcon = new ImageIcon(imagePath);
+            Image logoImage = logoIcon.getImage();
+            setIconImage(logoImage);
+        } catch (Exception e) {
+            System.err.println("Error loading image: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        sysHead.setHorizontalAlignment(SwingConstants.RIGHT);
         sysHead.setBounds(467, 10, 489, 93);
         sysHead.setFont(new Font("Segoe UI", Font.BOLD, 55));
         sysHead.setForeground(Color.decode("#1C1F20"));

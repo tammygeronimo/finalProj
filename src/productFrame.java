@@ -39,10 +39,21 @@ public class productFrame extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        // Window Icon
+        String imagePath = "media/tempcon.jpg";
+        try {
+            ImageIcon logoIcon = new ImageIcon(imagePath);
+            Image logoImage = logoIcon.getImage();
+            setIconImage(logoImage);
+        } catch (Exception e) {
+            System.err.println("Error loading image: " + e.getMessage());
+            e.printStackTrace();
+        }
+
         JPanel head = new JPanel();
         head.setPreferredSize(new Dimension(700, 35));
 
-        JLabel titleHead = new JLabel("Product Form");
+        JLabel titleHead = new JLabel("Product");
         titleHead.setFont(new Font("Verdana", Font.BOLD, 25));
         head.add(titleHead);
         add(head);

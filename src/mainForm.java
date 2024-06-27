@@ -16,7 +16,7 @@ public class mainForm extends JFrame {
         setLocationRelativeTo(null);
 
         // Window Icon
-        String imagePath = "C:\\Users\\Tamara\\Downloads\\𝐕𝐢𝐧𝐜𝐞𝐧𝐭 𝐕𝐚𝐧 𝐆𝐨𝐠𝐡 𝐢𝐜𝐨𝐧💙.jpg";
+        String imagePath = "media/tempcon.jpg";
         try {
             ImageIcon logoIcon = new ImageIcon(imagePath);
             Image logoImage = logoIcon.getImage();
