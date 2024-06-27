@@ -15,7 +15,7 @@ public class supplierForm extends JFrame {
     JButton backButton = new JButton("Back");
 
     public supplierForm() {
-        setTitle("Product Information : Supplier");
+        setTitle("Supplier Information");
         setSize(300, 190);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

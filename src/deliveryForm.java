@@ -1,12 +1,8 @@
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 import com.formdev.flatlaf.FlatLightLaf;
+
+import java.awt.*;
 
 @SuppressWarnings("serial")
 class deliveryForm extends JFrame {
@@ -22,7 +18,8 @@ class deliveryForm extends JFrame {
 
     JLabel prodLabel = new JLabel("Product");
     JLabel descLabel = new JLabel("Description:");
-    JLabel quantityLabel = new JLabel("Quantity Delivered:");
+    JLabel quantityLabel = new JLabel("Quantity");
+    JLabel delLabel = new JLabel("Delivered:");
     JTextArea prodDescField = new JTextArea();
     JTextField quantityField = new JTextField();
 
@@ -32,13 +29,14 @@ class deliveryForm extends JFrame {
     JButton addButton = new JButton("Add");
     JButton backButton = new JButton("Back");
 
-
     public deliveryForm() {
         setTitle("Delivery Information");
         setSize(565,330);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
+
+        getContentPane().setBackground(Color.decode("#EAE5DF"));
 
         sCodeLabel.setBounds(28, 30, 86, 14);cmbSupplier.setBounds(112, 26, 137, 22);
         sNameLabel.setBounds(272, 30, 97, 14);sNameField.setBounds(379, 27, 137, 20);sNameField.setEnabled(false);
@@ -48,13 +46,17 @@ class deliveryForm extends JFrame {
         pNameLabel.setBounds(272, 70, 97, 14);pNameField.setBounds(379, 67, 137, 20);pNameField.setEnabled(false);
         add(pCodeLabel);add(cmbProduct);add(pNameLabel);add(pNameField);
 
-        prodLabel.setBounds(28, 110, 86, 14);descLabel.setBounds(28, 125, 87, 14);prodDescField.setBounds(112, 110, 137, 49);prodDescField.setEnabled(false);
-        quantityLabel.setBounds(272, 110, 97, 14);quantityField.setBounds(379, 110, 86, 20);
-        add(prodLabel);add(descLabel);add(prodDescField);add(quantityLabel);add(quantityField);
+        prodLabel.setBounds(28, 110, 86, 14);prodDescField.setBounds(112, 110, 137, 49); descLabel.setBounds(28, 125, 87, 14);
+        prodDescField.setEnabled(false); prodDescField.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+        quantityLabel.setBounds(272, 110, 97, 14);delLabel.setBounds(272,125,97,14); quantityField.setBounds(379, 110, 86, 20);
+        add(prodLabel);add(descLabel);add(prodDescField); add(quantityLabel); add(delLabel); add(quantityField);
 
         textArea.setBounds(28, 186, 488, 33);
-        add(textArea);
+        textArea.setEnabled(false); textArea.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY)); add(textArea);
 
+        newButton.setBackground(Color.decode("#450202"));newButton.setForeground(Color.WHITE);
+        addButton.setBackground(Color.decode("#450202"));addButton.setForeground(Color.WHITE);
+        backButton.setBackground(Color.decode("#B19C8F"));
         newButton.setBounds(45, 244, 89, 23);addButton.setBounds(224, 244, 89, 23);backButton.setBounds(413, 244, 89, 23);
         add(newButton);add(addButton);add(backButton);
 
@@ -98,7 +100,7 @@ class deliveryForm extends JFrame {
         TODO Create an ActionEventListener for AddBtn that appends the details
 
         Details Contains:
-            1.  Product Code
+            1. Product Code
             2. Name
             3. Description
             4. Quantity

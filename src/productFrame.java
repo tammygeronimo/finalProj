@@ -1,4 +1,3 @@
-
 import javax.print.attribute.standard.JobName;
 import javax.swing.*;
 import java.awt.*;
@@ -105,8 +104,8 @@ public class productFrame extends JFrame{
         add(panel3);
         add(panel4);
 
-        add(priceLabel);
-        add(priceField);
+        add(priceLabel); // TODO wag natin pantay sa buttons
+        add(priceField); // TODO wag natin pantay sa buttons
 
         add(addBtn);
         add(backBtn);
