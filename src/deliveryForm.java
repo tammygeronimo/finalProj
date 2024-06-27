@@ -1,8 +1,9 @@
 import javax.swing.*;
-
-import com.formdev.flatlaf.FlatLightLaf;
-
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 class deliveryForm extends JFrame {
@@ -20,9 +21,10 @@ class deliveryForm extends JFrame {
     JLabel descLabel = new JLabel("Description:");
     JLabel quantityLabel = new JLabel("Quantity");
     JLabel delLabel = new JLabel("Delivered:");
-    JTextArea prodDescField = new JTextArea();
+    JTextField prodDescField = new JTextField();
     JTextField quantityField = new JTextField();
 
+    JLabel disLabel = new JLabel("Display");
     JTextArea textArea = new JTextArea();
 
     JButton newButton = new JButton("New");
@@ -31,41 +33,81 @@ class deliveryForm extends JFrame {
 
     public deliveryForm() {
         setTitle("Delivery Information");
-        setSize(565,330);
+        setSize(565,360);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
 
-        getContentPane().setBackground(Color.decode("#EAE5DF"));
+        sCodeLabel.setBounds(28, 30, 100, 14); cmbSupplier.setBounds(130, 26, 137, 22);
+        sCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        sCodeLabel.setForeground(Color.decode("#31C198"));
+        sNameLabel.setBounds(280, 30, 100, 14);
+        sNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        sNameLabel.setForeground(Color.decode("#31C198"));
+        sNameField.setBounds(383, 27, 137, 22); sNameField.setEnabled(false);
+        add(sCodeLabel); add(cmbSupplier); add(sNameLabel); add(sNameField);
 
-        sCodeLabel.setBounds(28, 30, 86, 14);cmbSupplier.setBounds(112, 26, 137, 22);
-        sNameLabel.setBounds(272, 30, 97, 14);sNameField.setBounds(379, 27, 137, 20);sNameField.setEnabled(false);
-        add(sCodeLabel);add(cmbSupplier);add(sNameLabel);add(sNameField);
-
-        pCodeLabel.setBounds(28, 70, 86, 14);cmbProduct.setBounds(112, 66, 137, 22);
-        pNameLabel.setBounds(272, 70, 97, 14);pNameField.setBounds(379, 67, 137, 20);pNameField.setEnabled(false);
+        pCodeLabel.setBounds(28, 70, 100, 14); cmbProduct.setBounds(130, 66, 137, 22);
+        pCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        pCodeLabel.setForeground(Color.decode("#31C198"));
+        pNameLabel.setBounds(280, 70, 97, 14);
+        pNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        pNameLabel.setForeground(Color.decode("#31C198"));
+        pNameField.setBounds(383, 67, 137, 22);
+        pNameField.setEnabled(false);
         add(pCodeLabel);add(cmbProduct);add(pNameLabel);add(pNameField);
 
-        prodLabel.setBounds(28, 110, 86, 14);prodDescField.setBounds(112, 110, 137, 49); descLabel.setBounds(28, 125, 87, 14);
-        prodDescField.setEnabled(false); prodDescField.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
-        quantityLabel.setBounds(272, 110, 97, 14);delLabel.setBounds(272,125,97,14); quantityField.setBounds(379, 110, 86, 20);
+        prodLabel.setBounds(28, 110, 86, 14);
+        prodLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        prodLabel.setForeground(Color.decode("#31C198"));
+        descLabel.setBounds(28, 125, 87, 14);
+        descLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        descLabel.setForeground(Color.decode("#31C198"));
+        prodDescField.setBounds(130, 110, 137, 60);
+        prodDescField.setEnabled(false); // prodDescField.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+
+        quantityLabel.setBounds(280, 110, 97, 14);
+        quantityLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        quantityLabel.setForeground(Color.decode("#31C198"));
+        delLabel.setBounds(280,125,97,14);
+        delLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        delLabel.setForeground(Color.decode("#31C198"));
+        quantityField.setBounds(383, 110, 86, 22);
         add(prodLabel);add(descLabel);add(prodDescField); add(quantityLabel); add(delLabel); add(quantityField);
 
-        textArea.setBounds(28, 186, 488, 33);
-        textArea.setEnabled(false); textArea.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY)); add(textArea);
+        disLabel.setBounds(28,170,488,33);
+        disLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        disLabel.setForeground(Color.decode("#31C198"));
+        textArea.setBounds(28, 198, 488, 70);
+        textArea.setEnabled(false); //textArea.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+        add(disLabel); add(textArea);
 
-        newButton.setBackground(Color.decode("#450202"));newButton.setForeground(Color.WHITE);
-        addButton.setBackground(Color.decode("#450202"));addButton.setForeground(Color.WHITE);
-        backButton.setBackground(Color.decode("#B19C8F"));
-        newButton.setBounds(45, 244, 89, 23);addButton.setBounds(224, 244, 89, 23);backButton.setBounds(413, 244, 89, 23);
+        newButton.setBounds(45, 285, 89, 23);
+        newButton.setBackground(Color.decode("#31C198"));
+        newButton.setForeground(Color.decode("#1E1E1F"));
+        addButton.setBounds(224, 285, 89, 23);
+        addButton.setBackground(Color.decode("#31C198"));
+        addButton.setForeground(Color.decode("#1E1E1F"));
+        backButton.setBounds(413, 285, 89, 23);
+        backButton.setBackground(Color.decode("#31C198"));
+        backButton.setForeground(Color.decode("#1E1E1F"));
         add(newButton);add(addButton);add(backButton);
+
+        // ACTION LISTENERS
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
 
         setResizable(false);
         setVisible(true);
+
+
     }
 
     public static void main(String[] args) {
-        FlatLightLaf.setup();
+        FlatMacDarkLaf.setup();
         SwingUtilities.invokeLater(() -> new deliveryForm());
     }
 

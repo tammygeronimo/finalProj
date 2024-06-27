@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
@@ -7,10 +8,10 @@ import java.io.IOException;
 
 public class supplierForm extends JFrame {
 
-    JLabel cCodeLabel = new JLabel("Supplier Code:");
-    JLabel cNameLabel = new JLabel("Supplier Name:");
-    JTextField cCodeField = new JTextField();
-    JTextField cNameField = new JTextField();
+    JLabel sCodeLabel = new JLabel("Supplier Code:");
+    JLabel sNameLabel = new JLabel("Supplier Name:");
+    JTextField sCodeField = new JTextField();
+    JTextField sNameField = new JTextField();
     JButton addButton = new JButton("Add");
     JButton backButton = new JButton("Back");
 
@@ -21,28 +22,38 @@ public class supplierForm extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
-        cCodeLabel.setBounds(10, 20, 100, 25);
-        cCodeField.setBounds(120, 20, 150, 25);
-        add(cCodeLabel); add(cCodeField);
+        sCodeLabel.setBounds(10, 20, 100, 25);
+        sCodeField.setBounds(120, 20, 150, 25);
+        sCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        sCodeLabel.setForeground(Color.decode("#31C198"));
+        add(sCodeLabel); add(sCodeField);
 
-        cNameLabel.setBounds(10, 60, 100, 25);
-        cNameField.setBounds(120, 60, 150, 25);
-        add(cNameLabel); add(cNameField);
+        sNameLabel.setBounds(10, 60, 100, 25);
+        sNameField.setBounds(120, 60, 150, 25);
+        sNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        sNameLabel.setForeground(Color.decode("#31C198"));
+        add(sNameLabel); add(sNameField);
 
         addButton.setBounds(30, 110, 100, 25);
+        addButton.setBackground(Color.decode("#31C198"));
+        addButton.setForeground(Color.decode("#1E1E1F"));
+        addButton.setFont(new Font("Poppins", Font.BOLD,12));
         backButton.setBounds(150, 110, 100, 25);
+        backButton.setBackground(Color.decode("#31C198"));
+        backButton.setForeground(Color.decode("#1E1E1F"));
+        backButton.setFont(new Font("Poppins", Font.PLAIN,12));
         add(addButton);add(backButton);
 
         // Action Listeners
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String categoryCode = cCodeField.getText();
-                String categoryName = cNameField.getText();
-                addCategoryToFile(categoryCode, categoryName);
-                JOptionPane.showMessageDialog(null,  "Supplier successfully recorded.", "Processed!",
+                String supplierCode = sCodeField.getText();
+                String supplierName = sNameField.getText();
+                addSupplierToFile(supplierCode, supplierName);
+                JOptionPane.showMessageDialog(null,  "Supplier successfully added.", "Recorded!",
                         JOptionPane.INFORMATION_MESSAGE);
-                cCodeField.setText("");
-                cNameField.setText("");
+                sCodeField.setText("");
+                sNameField.setText("");
             }
         });
 
@@ -56,17 +67,13 @@ public class supplierForm extends JFrame {
         setVisible(true);
     }
 
-    // Writing to "Category.txt"
-    private void addCategoryToFile(String categoryCode, String categoryName) {
+    // Writing to "Supplier.txt"
+    private void addSupplierToFile(String supplierCode, String supplierName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Supplier.txt", true))) {
-            writer.write(categoryCode + "," + categoryName);
+            writer.write(supplierCode + "," + supplierName);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-
-    //TODO Create A functions thats write the informations into 'Supplier.txt'
-    //TODO Create ActionEventListener for add and Back buttons
 }

@@ -50,7 +50,7 @@ public class packagingForm extends JFrame {
                 String packageCode = pCodeField.getText();
                 String packageName = pNameField.getText();
                 addPackageToFile(packageCode, packageName);
-                JOptionPane.showMessageDialog(null,  "Package successfully recorded.", "Packaging",
+                JOptionPane.showMessageDialog(null,  "Package successfully added.", "Recorded!",
                         JOptionPane.INFORMATION_MESSAGE);
                 pCodeField.setText("");
                 pNameField.setText("");

@@ -1,13 +1,6 @@
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.SwingUtilities;
-
-import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 class orderForm extends JFrame{
     JLabel nameLabel = new JLabel("Customer Name:");
@@ -72,7 +65,7 @@ class orderForm extends JFrame{
     }
 
     public static void main(String[] args) {
-        FlatLightLaf.setup();
+        FlatMacDarkLaf.setup();
         SwingUtilities.invokeLater(() -> new orderForm());
     }
 

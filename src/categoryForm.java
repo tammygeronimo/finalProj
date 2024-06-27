@@ -22,7 +22,6 @@ public class categoryForm extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
-
         cCodeLabel.setBounds(10, 20, 115, 25);
         cCodeField.setBounds(120, 20, 150, 25);
         cCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
