@@ -1,4 +1,3 @@
-import javax.print.attribute.standard.JobName;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,13 +20,11 @@ public class productFrame extends JFrame{
     JLabel variantNameLabel = new JLabel("Variant Name: ");
     JLabel productNameLabel = new JLabel("Product Name: ");
 
-    static String[] categoryList;
+    private static String[] categList;
+    private JComboBox<String> categoryBox;
 
-    JComboBox categoryBox = new JComboBox(categoryList);
     JComboBox packageBox = new JComboBox();
     JComboBox variantBox = new JComboBox();
-
-    static String[] categList;
 
     JTextField productCodeField = new JTextField(11);
     JTextField CategoryNameField = new JTextField(20);
@@ -53,9 +50,8 @@ public class productFrame extends JFrame{
         setLocationRelativeTo(null);
 
         categoryInfo();
+        categoryBox = new JComboBox<>(categList);
 
-//        comboItems comboActions = new comboItems();
-//        categoryBox.addActionListener(comboActions);
 
         JPanel head = new JPanel();
         head.setPreferredSize(new Dimension(700, 35));
@@ -139,6 +135,7 @@ public class productFrame extends JFrame{
     private static void categoryInfo() {
         try{
             BufferedReader br = new BufferedReader(new FileReader(categoryFile));
+
             String addCategory2 = "";
 
             while((addCategory = br.readLine()) != null)
@@ -153,15 +150,6 @@ public class productFrame extends JFrame{
         }
         catch(IOException e){
             e.printStackTrace();
-        }
-    }
-
-    public class comboAcations implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if(e.getSource() == categoryBox){
-
-            }
         }
     }
 
