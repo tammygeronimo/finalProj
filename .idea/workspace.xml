@@ -4,32 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="Added new Classes for GUI">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_28_2024_9_48_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_28_2024_9_48_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_26_2024_11_37_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_26_2024_11_37_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_27_2024_10_36_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_27_2024_10_36_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_27_2024_4_48_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_27_2024_4_48_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_27_2024_8_51_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_27_2024_8_51_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_13_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_13_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_37_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_37_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_39_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_39_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_40_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_40_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_41_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_41_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_49_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_49_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_49_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_49_AM__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_50_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_50_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_50_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_50_AM__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_52_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Rebasing_at_6_28_2024_9_52_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="polished deliveryForm">
+      <change afterPath="$PROJECT_DIR$/src/ListFonts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_4_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_4_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Category.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Category.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Package.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Package.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supplier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Supplier.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Variant.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Variant.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/categoryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/supplierForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supplierForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/variantForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/variantForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/systemClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systemClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +26,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/master" />
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="Functionalities-Branch" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -64,18 +48,17 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.deliveryForm.executor&quot;: &quot;Run&quot;,
     &quot;Application.mainForm.executor&quot;: &quot;Run&quot;,
     &quot;Application.systemClass.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Add-Branch&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Justine Apdal/Downloads/flatlaf-3.4.1.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tamara/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
   <component name="RunManager">
@@ -88,7 +71,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.mainForm" />
         <item itemvalue="Application.mainForm" />
       </list>
     </recent_temporary>
@@ -110,68 +92,13 @@
       <option name="project" value="LOCAL" />
       <updated>1719451733643</updated>
     </task>
-    <task id="LOCAL-00002" summary="Added new Classes for GUI">
-      <option name="closed" value="true" />
-      <created>1719536891418</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1719536891418</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added new Classes for GUI">
-      <option name="closed" value="true" />
-      <created>1719537198799</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1719537198799</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added new Classes for GUI">
-      <option name="closed" value="true" />
-      <created>1719539607505</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1719539607505</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Added new Classes for GUI">
-      <option name="closed" value="true" />
-      <created>1719539630058</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1719539630058</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JUSTINE FILE" />
-    <MESSAGE value="Added new Classes for GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new Classes for GUI" />
+    <MESSAGE value="polished deliveryForm" />
+    <option name="LAST_COMMIT_MESSAGE" value="polished deliveryForm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -180,11 +107,6 @@
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>11</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/productFrame.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
