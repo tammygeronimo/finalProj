@@ -56,23 +56,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.deliveryForm.executor": "Run",
-    "Application.mainForm.executor": "Run",
-    "Application.orderForm.executor": "Run",
-    "Application.systemClass.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Justine Apdal/Downloads/flatlaf-3.4.1.jar",
-    "onboarding.tips.debug.path": "C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.deliveryForm.executor&quot;: &quot;Run&quot;,
+    &quot;Application.mainForm.executor&quot;: &quot;Run&quot;,
+    &quot;Application.orderForm.executor&quot;: &quot;Run&quot;,
+    &quot;Application.systemClass.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Justine Apdal/Downloads/flatlaf-3.4.1.jar&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Justine Apdal\IdeaProjects\finalProj\finalProj\File Handling" />
@@ -166,7 +166,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719569329443</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Delivery Form and Product Functionalities">
+      <option name="closed" value="true" />
+      <created>1719577806571</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719577806571</updated>
+    </task>
+    <task id="LOCAL-00010" summary="File Handling">
+      <option name="closed" value="true" />
+      <created>1719578071942</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719578071942</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,7 +205,8 @@
     <MESSAGE value="layout except product and order form" />
     <MESSAGE value="guipolish_codecleaning" />
     <MESSAGE value="Delivery Form and Product Functionalities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delivery Form and Product Functionalities" />
+    <MESSAGE value="File Handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="File Handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
