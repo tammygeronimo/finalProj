@@ -1,6 +1,13 @@
 import javax.print.attribute.standard.JobName;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 
 public class productFrame extends JFrame{
 
@@ -8,17 +15,19 @@ public class productFrame extends JFrame{
     JLabel packageLabel = new JLabel("Package Code: ");
     JLabel variantLabel = new JLabel("Variant Code: ");
     JLabel productCodeLabel = new JLabel("Product Code: ");
-
+    JLabel priceLabel = new JLabel("Price: ");
     JLabel categoryNameLabel = new JLabel("Category Name: ");
     JLabel packageNameLabel = new JLabel("Package Name: ");
     JLabel variantNameLabel = new JLabel("Variant Name: ");
     JLabel productNameLabel = new JLabel("Product Name: ");
 
-    JLabel priceLabel = new JLabel("Price: ");
+    static String[] categoryList;
 
-    JComboBox categoryBox = new JComboBox();
+    JComboBox categoryBox = new JComboBox(categoryList);
     JComboBox packageBox = new JComboBox();
     JComboBox variantBox = new JComboBox();
+
+    static String[] categList;
 
     JTextField productCodeField = new JTextField(11);
     JTextField CategoryNameField = new JTextField(20);
@@ -30,6 +39,10 @@ public class productFrame extends JFrame{
     JButton addBtn = new JButton("Add");
     JButton backBtn = new JButton("Back");
 
+
+    static String addCategory = "";
+    static File categoryFile = new File("Category.txt");
+
     productFrame() {
 
         setTitle("Product Form");
@@ -39,21 +52,15 @@ public class productFrame extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Window Icon
-        String imagePath = "media/tempcon.jpg";
-        try {
-            ImageIcon logoIcon = new ImageIcon(imagePath);
-            Image logoImage = logoIcon.getImage();
-            setIconImage(logoImage);
-        } catch (Exception e) {
-            System.err.println("Error loading image: " + e.getMessage());
-            e.printStackTrace();
-        }
+        categoryInfo();
+
+//        comboItems comboActions = new comboItems();
+//        categoryBox.addActionListener(comboActions);
 
         JPanel head = new JPanel();
         head.setPreferredSize(new Dimension(700, 35));
 
-        JLabel titleHead = new JLabel("Product");
+        JLabel titleHead = new JLabel("Product Form");
         titleHead.setFont(new Font("Verdana", Font.BOLD, 25));
         head.add(titleHead);
         add(head);
@@ -121,9 +128,46 @@ public class productFrame extends JFrame{
         add(addBtn);
         add(backBtn);
 
+
         setResizable(false);
         setVisible(true);
+
+
+
     }
+
+    private static void categoryInfo() {
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(categoryFile));
+            String addCategory2 = "";
+
+            while((addCategory = br.readLine()) != null)
+            {
+                String[] categoryBox = addCategory.split("\t");
+                addCategory2 += categoryBox[0] + " ";
+
+            }
+
+            categList = addCategory2.split(" ");
+            br.close();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public class comboAcations implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == categoryBox){
+
+            }
+        }
+    }
+
+
+
+
 
     //TODO Create A Function that Read the 'Package.txt' for and setText the Package Name
     //TODO Create A Function that Read the 'Package.txt' and added and trim the items to JComboBox [Product Code]
