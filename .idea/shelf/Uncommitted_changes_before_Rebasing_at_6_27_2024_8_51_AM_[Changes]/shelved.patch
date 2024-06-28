@@ -1,0 +1,384 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_22\" default=\"true\" project-jdk-name=\"openjdk-22\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision db37fbc543518fc62e06baf917d80f91e1198432)
++++ b/.idea/misc.xml	(date 1719416250885)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: finalProject.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/finalProject.iml b/finalProject.iml
+--- a/finalProject.iml	(revision db37fbc543518fc62e06baf917d80f91e1198432)
++++ b/finalProject.iml	(date 1719416380702)
+@@ -7,5 +7,6 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="flatlaf-3.4.1" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: src/mainForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\nimport javax.swing.plaf.basic.BasicScrollBarUI;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport com.formdev.flatlaf.FlatLightLaf;\r\n\r\npublic class mainForm extends JFrame {\r\n\r\n    public mainForm() {\r\n        setTitle(\"Home\");\r\n        setSize(1000, 600);\r\n        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n\r\n        // Window Icon\r\n     /*   String imagePath = \"C:\\\\Users\\\\Tamara\\\\Downloads\\\\\uD835\uDC15\uD835\uDC22\uD835\uDC27\uD835\uDC1C\uD835\uDC1E\uD835\uDC27\uD835\uDC2D \uD835\uDC15\uD835\uDC1A\uD835\uDC27 \uD835\uDC06\uD835\uDC28\uD835\uDC20\uD835\uDC21 \uD835\uDC22\uD835\uDC1C\uD835\uDC28\uD835\uDC27\uD83D\uDC99.jpg\";\r\n        try {\r\n            ImageIcon logoIcon = new ImageIcon(imagePath);\r\n            Image logoImage = logoIcon.getImage();\r\n            setIconImage(logoImage);\r\n        } catch (Exception e) {\r\n            System.err.println(\"Error loading image: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }*/\r\n\r\n        // Menu Bar\r\n        JMenuBar bar = new JMenuBar();\r\n        bar.setOpaque(true);\r\n        bar.setBackground(Color.decode(\"#050505\"));\r\n\r\n        // Menu/SubMenu\r\n        JMenu fileMenu = createColoredMenu(\"File\", Color.decode(\"#F9FAFA\"));\r\n        JMenu prodSubMenu = new JMenu(\"Product Information\");\r\n        JMenu transMenu = createColoredMenu(\"Transaction\", Color.decode(\"#F9FAFA\"));\r\n        JMenu repMenu = createColoredMenu(\"Report\", Color.decode(\"#F9FAFA\"));\r\n        JMenu aboutMenu = createColoredMenu(\"About\", Color.decode(\"#F9FAFA\"));\r\n\r\n        // Menu Items\r\n        JMenuItem catItem = new JMenuItem(\"Category\");\r\n        JMenuItem packItem = new JMenuItem(\"Packaging\");\r\n        JMenuItem varItem = new JMenuItem(\"Variant\");\r\n        JMenuItem prodItem = new JMenuItem(\"Product\");\r\n        JMenuItem suppItem = new JMenuItem(\"Supplier Information\");\r\n        JMenuItem exitItem = new JMenuItem(\"Exit\");\r\n        JMenuItem delItem = new JMenuItem(\"Delivery\");\r\n        JMenuItem orderItem = new JMenuItem(\"Order\");\r\n        JMenuItem repProdItem = new JMenuItem(\"Product\");\r\n        JMenuItem repSalesItem = new JMenuItem(\"Sales\");\r\n        JMenuItem sysItem = new JMenuItem(\"System\");\r\n        JMenuItem authorsItem = new JMenuItem(\"Authors\");\r\n\r\n        prodSubMenu.add(catItem);\r\n        prodSubMenu.add(packItem);\r\n        prodSubMenu.add(varItem);\r\n        prodSubMenu.add(prodItem);\r\n\r\n        fileMenu.add(prodSubMenu);\r\n        fileMenu.add(suppItem);\r\n        fileMenu.add(exitItem);\r\n\r\n        transMenu.add(delItem);\r\n        transMenu.add(orderItem);\r\n\r\n        repMenu.add(repProdItem);\r\n        repMenu.add(repSalesItem);\r\n\r\n        aboutMenu.add(sysItem);\r\n        aboutMenu.add(authorsItem);\r\n\r\n        bar.add(fileMenu);\r\n        bar.add(transMenu);\r\n        bar.add(repMenu);\r\n        bar.add(aboutMenu);\r\n        setJMenuBar(bar);\r\n\r\n        // Add ActionListener to catItem\r\n        catItem.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                new categoryForm();\r\n            }\r\n        });\r\n\r\n        packItem.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                new packagingForm();\r\n            }\r\n        });\r\n\r\n        exitItem.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                dispose();\r\n            }\r\n        });\r\n\r\n        // JTextArea & JScrollPane\r\n        JTextArea textArea = new JTextArea(28, 75);\r\n        JLabel def_label = new JLabel(\"[ Display reports here via the Report Menu ]\");\r\n        def_label.setBounds(255, 220, 300, 15);\r\n        def_label.setFont(new Font(\"Verdana\", Font.ITALIC, 11));\r\n        def_label.setForeground(Color.GRAY);\r\n        textArea.add(def_label);\r\n        textArea.setBackground(Color.decode(\"#F9FAFA\"));\r\n\r\n        // Set custom border color\r\n        textArea.setBorder(BorderFactory.createLineBorder(Color.decode(\"#050505\"), 5));\r\n\r\n        textArea.setEditable(false);\r\n        JScrollPane scrollPane = new JScrollPane(textArea);\r\n        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);\r\n\r\n        // Customize the scrollbar appearance\r\n        JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();\r\n        verticalScrollBar.setUI(new CustomScrollBarUI());\r\n\r\n        // Create a panel with BorderLayout to center the scroll pane\r\n        JPanel centerPanel = new JPanel(new BorderLayout());\r\n        centerPanel.add(scrollPane, BorderLayout.CENTER);\r\n\r\n        // Create a panel with FlowLayout to add spacing around the centered panel\r\n        JPanel outerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));\r\n        outerPanel.setBackground(Color.WHITE);\r\n        outerPanel.setBorder(BorderFactory.createEmptyBorder(50, 20, 20, 20));\r\n        outerPanel.add(centerPanel);\r\n\r\n        getContentPane().setLayout(new BorderLayout());\r\n        getContentPane().add(outerPanel, BorderLayout.CENTER);\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        FlatLightLaf.setup();\r\n\r\n    /*    // Create and show the splash screen\r\n        SplashScreen splash = new SplashScreen();\r\n        splash.setVisible(true);\r\n\r\n        // Simulate some startup work (e.g., loading resources)\r\n        try {\r\n            Thread.sleep(3000); // Simulate loading time\r\n        } catch (InterruptedException e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n        // Close the splash screen\r\n        splash.dispose(); */\r\n\r\n        // Start the main application\r\n        SwingUtilities.invokeLater(() -> new mainForm());\r\n    }\r\n\r\n    // Custom BasicScrollBarUI to customize scrollbar appearance\r\n    private static class CustomScrollBarUI extends BasicScrollBarUI {\r\n        @Override\r\n        protected void configureScrollBarColors() {\r\n            // Change scrollbar colors here\r\n            thumbColor = new Color(200, 200, 200);\r\n            thumbHighlightColor = new Color(220, 220, 220);\r\n            thumbDarkShadowColor = new Color(150, 150, 150);\r\n            thumbLightShadowColor = new Color(180, 180, 180);\r\n            trackColor = new Color(240, 240, 240);\r\n        }\r\n    }\r\n\r\n    private JMenu createColoredMenu(String title, Color bgColor) {\r\n        JMenu menu = new JMenu(title);\r\n        menu.setOpaque(true);\r\n        menu.setBackground(bgColor);\r\n        return menu;\r\n    }\r\n}\r\n\r\n\r\n@SuppressWarnings(\"serial\")\r\nclass SplashScreen extends JWindow {\r\n\r\n    public SplashScreen() {\r\n        // Set the size of the splash screen\r\n        setSize(600, 600);\r\n\r\n        // Center the splash screen on the screen\r\n        setLocationRelativeTo(null);\r\n\r\n        // Create a panel to hold the splash screen contents\r\n        JPanel content = new JPanel(new BorderLayout());\r\n        content.setBackground(Color.WHITE);\r\n\r\n        // Load the image\r\n        String imagePath = \"C:\\\\Users\\\\Tamara\\\\Downloads\\\\yoga.jpg\";\r\n        ImageIcon imageIcon = new ImageIcon(imagePath);\r\n        JLabel imageLabel = new JLabel(imageIcon, SwingConstants.CENTER);\r\n\r\n        // Add an image or text to the splash screen\r\n        JLabel label = new JLabel(\"Loading, please wait...\", SwingConstants.CENTER);\r\n        label.setFont(new Font(\"Sans-Serif\", Font.BOLD, 20));\r\n        content.add(imageLabel, BorderLayout.CENTER);\r\n        content.add(label, BorderLayout.SOUTH);\r\n\r\n        // Add the content to the splash screen\r\n        getContentPane().add(content);\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/mainForm.java b/src/mainForm.java
+--- a/src/mainForm.java	(revision db37fbc543518fc62e06baf917d80f91e1198432)
++++ b/src/mainForm.java	(date 1719444411445)
+@@ -92,7 +92,16 @@
+         exitItem.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
++
+                 dispose();
++
++            }
++        });
++
++        prodItem.addActionListener(new ActionListener() {
++            @Override
++            public void actionPerformed(ActionEvent e) {
++                new productFrame();
+             }
+         });
+ 
+@@ -178,7 +187,6 @@
+ 
+ @SuppressWarnings("serial")
+ class SplashScreen extends JWindow {
+-
+     public SplashScreen() {
+         // Set the size of the splash screen
+         setSize(600, 600);
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1719418165944)
++++ b/.idea/uiDesigner.xml	(date 1719418165944)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9dee99c0-e3b6-45fa-bb2f-671313585466\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 1\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2iPmUTVH6qzUPwhUpk9EuqtMmIh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"onboarding.tips.debug.path\": \"C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9dee99c0-e3b6-45fa-bb2f-671313585466\" name=\"Changes\" comment=\"\" />\r\n      <created>1719400601562</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1719400601562</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Main.java</url>\r\n          <line>11</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision db37fbc543518fc62e06baf917d80f91e1198432)
++++ b/.idea/workspace.xml	(date 1719444056770)
+@@ -1,32 +1,90 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="" />
++    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="JUSTINE FILE">
++      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_4_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_4_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/finalProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/finalProject.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="master" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 1
+-}]]></component>
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;justineapdal&quot;
++  }
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/justineapdal/finalProj.git&quot;,
++    &quot;accountId&quot;: &quot;afcb2256-6f47-4f63-b3d3-78c77cad7bd0&quot;
++  }
++}</component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 1
++}</component>
+   <component name="ProjectId" id="2iPmUTVH6qzUPwhUpk9EuqtMmIh" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="1" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "Application.mainForm.executor": "Run",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "master",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
++    "git-widget-placeholder": "Add-Branch",
+     "kotlin-language-version-configured": "true",
+-    "onboarding.tips.debug.path": "C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java"
++    "last_opened_file_path": "C:/Users/Justine Apdal/Downloads/flatlaf-3.4.1.jar",
++    "onboarding.tips.debug.path": "C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java",
++    "project.structure.last.edited": "Libraries",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "preferences.pluginManager"
+   }
+ }]]></component>
++  <component name="RunManager">
++    <configuration name="mainForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="mainForm" />
++      <module name="finalProject" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.mainForm" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -36,17 +94,38 @@
+       <option name="presentableId" value="Default" />
+       <updated>1719400601562</updated>
+     </task>
++    <task id="LOCAL-00001" summary="JUSTINE FILE">
++      <option name="closed" value="true" />
++      <created>1719400903211</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1719400903211</updated>
++    </task>
++    <task id="LOCAL-00002" summary="JUSTINE FILE">
++      <option name="closed" value="true" />
++      <created>1719401211095</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1719401211095</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/Main.java</url>
+-          <line>11</line>
+-          <option name="timeStamp" value="1" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="JUSTINE FILE" />
++    <option name="LAST_COMMIT_MESSAGE" value="JUSTINE FILE" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/libraries/flatlaf_3_4_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"flatlaf-3.4.1\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/flatlaf_3_4_1.xml b/.idea/libraries/flatlaf_3_4_1.xml
+--- a/.idea/libraries/flatlaf_3_4_1.xml	(revision db37fbc543518fc62e06baf917d80f91e1198432)
++++ b/.idea/libraries/flatlaf_3_4_1.xml	(date 1719416439169)
+@@ -1,7 +1,7 @@
+ <component name="libraryTable">
+   <library name="flatlaf-3.4.1">
+     <CLASSES>
+-      <root url="jar://$USER_HOME$/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar!/" />
++      <root url="jar://$USER_HOME$/Downloads/flatlaf-3.4.1.jar!/" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES />
