@@ -1,0 +1,529 @@
+Index: src/productFrame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.print.attribute.standard.JobName;\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\n\r\npublic class productFrame extends JFrame{\r\n\r\n    JLabel categoryLabel = new JLabel(\"Category Code: \");\r\n    JLabel packageLabel = new JLabel(\"Package Code: \");\r\n    JLabel variantLabel = new JLabel(\"Variant Code: \");\r\n    JLabel productCodeLabel = new JLabel(\"Product Code: \");\r\n\r\n    JLabel categoryNameLabel = new JLabel(\"Category Name: \");\r\n    JLabel packageNameLabel = new JLabel(\"Package Name: \");\r\n    JLabel variantNameLabel = new JLabel(\"Variant Name: \");\r\n    JLabel productNameLabel = new JLabel(\"Product Name: \");\r\n\r\n    JLabel priceLabel = new JLabel(\"Price: \");\r\n\r\n    JComboBox categoryBox = new JComboBox();\r\n    JComboBox packageBox = new JComboBox();\r\n    JComboBox variantBox = new JComboBox();\r\n\r\n    JTextField productCodeField = new JTextField(11);\r\n    JTextField CategoryNameField = new JTextField(20);\r\n    JTextField packageField = new JTextField(20);\r\n    JTextField variantField = new JTextField(20);\r\n    JTextField productNameField = new JTextField(20);\r\n    JTextField priceField = new JTextField(17);\r\n\r\n    JButton addBtn = new JButton(\"Add\");\r\n    JButton backBtn = new JButton(\"Back\");\r\n\r\n    productFrame() {\r\n\r\n        setTitle(\"Product Form\");\r\n        setSize(700, 400);\r\n        setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));\r\n\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n\r\n        // Window Icon\r\n        String imagePath = \"media/tempcon.jpg\";\r\n        try {\r\n            ImageIcon logoIcon = new ImageIcon(imagePath);\r\n            Image logoImage = logoIcon.getImage();\r\n            setIconImage(logoImage);\r\n        } catch (Exception e) {\r\n            System.err.println(\"Error loading image: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n\r\n        JPanel head = new JPanel();\r\n        head.setPreferredSize(new Dimension(700, 35));\r\n\r\n        JLabel titleHead = new JLabel(\"Product\");\r\n        titleHead.setFont(new Font(\"Verdana\", Font.BOLD, 25));\r\n        head.add(titleHead);\r\n        add(head);\r\n\r\n        JPanel panel1 = new JPanel();\r\n        panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 33));\r\n        panel1.setPreferredSize(new Dimension(120, 240));\r\n\r\n        panel1.add(categoryLabel);\r\n        panel1.add(packageLabel);\r\n        panel1.add(variantLabel);\r\n        panel1.add(productCodeLabel);\r\n\r\n        JPanel panel2 = new JPanel();\r\n        panel2.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));\r\n        panel2.setPreferredSize(new Dimension(135, 240));\r\n\r\n        categoryBox.setPreferredSize(new Dimension(125, 30));\r\n        packageBox.setPreferredSize(new Dimension(125, 30));\r\n        variantBox.setPreferredSize(new Dimension(125, 30));\r\n        productCodeField.setPreferredSize(new Dimension(125, 30));\r\n\r\n        panel2.add(categoryBox);\r\n        panel2.add(packageBox);\r\n        panel2.add(variantBox);\r\n        panel2.add(productCodeField);\r\n\r\n        JPanel panel3 = new JPanel();\r\n        panel3.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 33));\r\n        panel3.setPreferredSize(new Dimension(105, 240));\r\n\r\n        panel3.add(categoryNameLabel);\r\n        panel3.add(packageNameLabel);\r\n        panel3.add(variantNameLabel);\r\n        panel3.add(productNameLabel);\r\n\r\n        JPanel panel4 = new JPanel();\r\n        panel4.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));\r\n        panel4.setPreferredSize(new Dimension(250, 240));\r\n\r\n        CategoryNameField.setPreferredSize(new Dimension(245, 30));\r\n        CategoryNameField.setEditable(false);\r\n\r\n        packageField.setPreferredSize(new Dimension(245, 30));\r\n        packageField.setEditable(false);\r\n\r\n        variantField.setPreferredSize(new Dimension(245, 30));\r\n        variantField.setEditable(false);\r\n\r\n        productNameField.setPreferredSize(new Dimension(245, 30));\r\n\r\n        panel4.add(CategoryNameField);\r\n        panel4.add(packageField);\r\n        panel4.add(variantField);\r\n        panel4.add(productNameField);\r\n\r\n        add(panel1);\r\n        add(panel2);\r\n        add(panel3);\r\n        add(panel4);\r\n\r\n        add(priceLabel); // TODO wag natin pantay sa buttons\r\n        add(priceField); // TODO wag natin pantay sa buttons\r\n\r\n        add(addBtn);\r\n        add(backBtn);\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    //TODO Create A Function that Read the 'Package.txt' for and setText the Package Name\r\n    //TODO Create A Function that Read the 'Package.txt' and added and trim the items to JComboBox [Product Code]\r\n\r\n    //TODO Create A Function that Read the 'Category.txt' for and setText the Category Name\r\n    //TODO Create A Function that Read the 'Category.txt' and added and trim the items to JComboBox [Category Code]\r\n\r\n    //TODO Create A Function that Read the 'Variant.txt' for and setText the Variant Name\r\n    //TODO Create A Function that Read the 'Variant.txt' and added and trim the items to JComboBox [Variant Code]\r\n\r\n    //TODO Create A Function that Write Information in 'Product.txt' for and setText the Product Code & Name\r\n    // when clicked\r\n\r\n\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/productFrame.java b/src/productFrame.java
+--- a/src/productFrame.java	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
++++ b/src/productFrame.java	(date 1719562058093)
+@@ -1,6 +1,10 @@
+-import javax.print.attribute.standard.JobName;
+ import javax.swing.*;
+ import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++import java.io.*;
++import java.util.ArrayList;
++
+ 
+ public class productFrame extends JFrame{
+ 
+@@ -8,17 +12,23 @@
+     JLabel packageLabel = new JLabel("Package Code: ");
+     JLabel variantLabel = new JLabel("Variant Code: ");
+     JLabel productCodeLabel = new JLabel("Product Code: ");
+-
++    JLabel priceLabel = new JLabel("Price: ");
+     JLabel categoryNameLabel = new JLabel("Category Name: ");
+     JLabel packageNameLabel = new JLabel("Package Name: ");
+     JLabel variantNameLabel = new JLabel("Variant Name: ");
+     JLabel productNameLabel = new JLabel("Product Name: ");
+ 
+-    JLabel priceLabel = new JLabel("Price: ");
++    private static String[] categList;
++    static JComboBox<String> categoryComboBox;
++    static JComboBox<String> packageBox;
++    static JComboBox<String> variantBox;
+ 
+-    JComboBox categoryBox = new JComboBox();
+-    JComboBox packageBox = new JComboBox();
+-    JComboBox variantBox = new JComboBox();
++    private static ArrayList<String> categoryCodes = new ArrayList<>();
++    private static ArrayList<String> categoryNames = new ArrayList<>();
++    private static ArrayList<String> packageCodes = new ArrayList<>();
++    private static ArrayList<String> packageNames = new ArrayList<>();
++    private static ArrayList<String> variantCodes = new ArrayList<>();
++    private static ArrayList<String> variantNames = new ArrayList<>();
+ 
+     JTextField productCodeField = new JTextField(11);
+     JTextField CategoryNameField = new JTextField(20);
+@@ -30,6 +40,14 @@
+     JButton addBtn = new JButton("Add");
+     JButton backBtn = new JButton("Back");
+ 
++    static File categoryFile = new File("Category.txt");
++    static File packageFile = new File("Package.txt");
++    static File variantFile = new File("Variant.txt");
++
++    static String infoWrite;
++    static String categoryInfo, packageInfo, variantInfo, productCode, productName;
++    static int productPrice;
++
+     productFrame() {
+ 
+         setTitle("Product Form");
+@@ -39,21 +57,16 @@
+         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+         setLocationRelativeTo(null);
+ 
+-        // Window Icon
+-        String imagePath = "media/tempcon.jpg";
+-        try {
+-            ImageIcon logoIcon = new ImageIcon(imagePath);
+-            Image logoImage = logoIcon.getImage();
+-            setIconImage(logoImage);
+-        } catch (Exception e) {
+-            System.err.println("Error loading image: " + e.getMessage());
+-            e.printStackTrace();
+-        }
++        categoryComboBox = new JComboBox<>();
++        packageBox = new JComboBox<>();
++        variantBox = new JComboBox<>();
++
++        infoLoads();
+ 
+         JPanel head = new JPanel();
+         head.setPreferredSize(new Dimension(700, 35));
+ 
+-        JLabel titleHead = new JLabel("Product");
++        JLabel titleHead = new JLabel("Product Form");
+         titleHead.setFont(new Font("Verdana", Font.BOLD, 25));
+         head.add(titleHead);
+         add(head);
+@@ -71,12 +84,17 @@
+         panel2.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));
+         panel2.setPreferredSize(new Dimension(135, 240));
+ 
+-        categoryBox.setPreferredSize(new Dimension(125, 30));
++        comboActions infoBox = new comboActions();
++        categoryComboBox.addActionListener(infoBox);
++        packageBox.addActionListener(infoBox);
++        variantBox.addActionListener(infoBox);
++
++        categoryComboBox.setPreferredSize(new Dimension(125, 30));
+         packageBox.setPreferredSize(new Dimension(125, 30));
+         variantBox.setPreferredSize(new Dimension(125, 30));
+         productCodeField.setPreferredSize(new Dimension(125, 30));
+ 
+-        panel2.add(categoryBox);
++        panel2.add(categoryComboBox);
+         panel2.add(packageBox);
+         panel2.add(variantBox);
+         panel2.add(productCodeField);
+@@ -95,13 +113,13 @@
+         panel4.setPreferredSize(new Dimension(250, 240));
+ 
+         CategoryNameField.setPreferredSize(new Dimension(245, 30));
+-        CategoryNameField.setEditable(false);
++        CategoryNameField.setEditable(false); CategoryNameField.setEnabled(false);
+ 
+         packageField.setPreferredSize(new Dimension(245, 30));
+-        packageField.setEditable(false);
++        packageField.setEditable(false); packageField.setEnabled(false);
+ 
+         variantField.setPreferredSize(new Dimension(245, 30));
+-        variantField.setEditable(false);
++        variantField.setEditable(false); variantField.setEnabled(false);
+ 
+         productNameField.setPreferredSize(new Dimension(245, 30));
+ 
+@@ -118,11 +136,167 @@
+         add(priceLabel); // TODO wag natin pantay sa buttons
+         add(priceField); // TODO wag natin pantay sa buttons
+ 
++        buttonActions btnFunction = new buttonActions();
++        addBtn.addActionListener(btnFunction);
++        backBtn.addActionListener(btnFunction);
++
+         add(addBtn);
+         add(backBtn);
+ 
+         setResizable(false);
+         setVisible(true);
++
++    }
++
++    public class buttonActions implements ActionListener{
++
++        @Override
++        public void actionPerformed(ActionEvent e) {
++
++            if(e.getSource() == addBtn){
++
++
++                productName = productNameField.getText();
++                productCode = productCodeField.getText();
++                productPrice = Integer.parseInt(priceField.getText());
++
++                infoWrite = categoryInfo + "\t" + packageInfo + "\t" + variantInfo + "\t" + productCode + "\t" + productName + "\t" + productPrice;
++                System.out.println(infoWrite);
++
++                JOptionPane.showMessageDialog(null,  "Product successfully added.", "Recorded!",
++                        JOptionPane.INFORMATION_MESSAGE);
++
++                try (BufferedWriter writer = new BufferedWriter(new FileWriter("Product.txt", true))) {
++                    writer.write(infoWrite + "\n");
++                    writer.newLine();
++
++                } catch (IOException ae) {
++                    ae.printStackTrace();
++                }
++
++                categoryComboBox.setSelectedIndex(0);
++                CategoryNameField.setText("");
++                packageBox.setSelectedIndex(0);
++                packageField.setText("");
++                variantBox.setSelectedIndex(0);
++                variantField.setText("");
++                productCodeField.setText("");
++                productNameField.setText("");
++                priceField.setText("");
++
++
++
++            } else {
++                dispose();
++
++            }
++
++        }
++    }
++
++    public class comboActions implements ActionListener{
++        @Override
++        public void actionPerformed(ActionEvent e) {
++            if (e.getSource() == categoryComboBox){
++                int categoryIndex = categoryComboBox.getSelectedIndex();
++
++                if(categoryIndex != -1){
++
++                    String catCode = (String) categoryComboBox.getSelectedItem();
++                    String catName = categoryNames.get(categoryIndex);
++                    CategoryNameField.setText(catName);
++
++                    categoryInfo = catCode + "\t" + catName;
++
++                }
++
++            } else if (e.getSource() == packageBox) {
++                int packageIndex = packageBox.getSelectedIndex();
++
++                if (packageIndex != -1) {
++
++                    String packCode = (String) packageBox.getSelectedItem();
++                    String packName = packageNames.get(packageIndex);
++                    packageField.setText(packName);
++
++                    packageInfo = packCode + "\t" + packName;
++                }
++
++            } else if (e.getSource() == variantBox) {
++                int variantIndex = variantBox.getSelectedIndex();
++
++                if(variantIndex != -1){
++
++                    String varCode = (String) variantBox.getSelectedItem();
++                    String varName = variantNames.get(variantIndex);
++                    variantField.setText(varName);
++
++                    variantInfo = varCode + "\t" + varName;
++                }
++            }
++
++        }
++    }
++
++    public static void infoLoads() {
++        try(BufferedReader br = new BufferedReader(new FileReader(categoryFile))){
++            String line;
++            while((line = br.readLine()) != null) {
++                String[] categoryBox = line.split("\t");
++
++                if (categoryBox.length >= 2) {
++                    String CategoryCode = categoryBox[0];
++                    String CategoryName = categoryBox[1];
++
++                    categoryCodes.add(CategoryCode);
++                    categoryNames.add(CategoryName);
++                    categoryComboBox.addItem(CategoryCode);
++                }
++            }
++        }
++        catch(IOException e){
++            e.printStackTrace();
++        }
++
++        try(BufferedReader br = new BufferedReader((new FileReader(packageFile)))){
++            String line;
++            while ((line = br.readLine()) != null){
++                String[] packBox = line.split("\t");
++
++                if (packBox.length >= 2){
++                    String packCode = packBox[0];
++                    String packName = packBox[1];
++
++                    packageCodes.add(packCode);
++                    packageNames.add(packName);
++                    packageBox.addItem(packCode);
++                }
++            }
++        }
++        catch(IOException e){
++            e.printStackTrace();
++        }
++
++
++        try(BufferedReader br = new BufferedReader(new FileReader(variantFile))){
++            String line;
++            while ((line = br.readLine()) != null){
++                String[] varBox = line.split("\t");
++
++                if (varBox.length >= 2){
++
++                    String varCode = varBox[0];
++                    String varName = varBox[1];
++
++                    variantCodes.add(varCode);
++                    variantNames.add(varName);
++                    variantBox.addItem(varCode);
++                }
++            }
++        }
++        catch(IOException e){
++            e.printStackTrace();
++        }
+     }
+ 
+     //TODO Create A Function that Read the 'Package.txt' for and setText the Package Name
+Index: src/deliveryFrame.java
+===================================================================
+diff --git a/src/deliveryFrame.java b/src/deliveryFrame.java
+deleted file mode 100644
+--- a/src/deliveryFrame.java	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
++++ /dev/null	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
+@@ -1,58 +0,0 @@
+-
+-import javax.swing.*;
+-import java.awt.*;
+-
+-public class deliveryFrame extends JFrame{
+-
+-    JLabel supplierCodeLabel = new JLabel("Supplier Code: ");
+-    JLabel productCodeLabel = new JLabel("Product Code: ");
+-    JLabel productDescLabel = new JLabel("Product Descriptions: ");
+-    JLabel supplierNameLabel = new JLabel("Supplier Name: ");
+-    JLabel productNameLabel = new JLabel("Product Name: ");
+-    JLabel quantityDelLabel = new JLabel("Quantity Delivered");
+-
+-    JComboBox supplierBox = new JComboBox();
+-    JComboBox productCodeBox = new JComboBox();
+-
+-    JTextField descriptionField = new JTextField(10);
+-    JTextField supplierField = new JTextField(10);
+-    JTextField productField = new JTextField(10);
+-    JTextField quantityField = new JTextField(10);
+-
+-    JTextArea detailsArea = new JTextArea(10, 10);
+-
+-    deliveryFrame(){
+-        setTitle("Delivery Form");
+-        setSize(650, 400);
+-        setLocationRelativeTo(null);
+-        setLayout(null);
+-
+-
+-        supplierCodeLabel.setBounds(20, 20, 100, 50);
+-        productCodeLabel.setBounds(20, 80, 100, 50);
+-        productDescLabel.setBounds(20, 140, 120, 50);
+-
+-        supplierBox.setBounds(120, 27, 150, 35);
+-        productCodeBox.setBounds(120, 87, 150, 35 );
+-
+-        descriptionField.setBounds(145, 147, 200, 75);
+-
+-
+-        supplierNameLabel.setBounds(275, 20, 100, 50);
+-
+-
+-
+-        add(supplierCodeLabel);
+-        add(productCodeLabel);
+-        add(productDescLabel);
+-
+-        add(supplierBox);
+-        add(productCodeBox);
+-        add(descriptionField);
+-
+-        add(supplierNameLabel);
+-
+-        setVisible(true);
+-        setResizable(false);
+-    }
+-}
+Index: .idea/libraries/flatlaf_3_4_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/flatlaf_3_4_1.xml b/.idea/libraries/flatlaf_3_4_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/flatlaf_3_4_1.xml	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
++++ /dev/null	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
+@@ -1,9 +0,0 @@
+-<component name="libraryTable">
+-  <library name="flatlaf-3.4.1">
+-    <CLASSES>
+-      <root url="jar://$USER_HOME$/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
+Index: src/categoryForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.awt.*;\r\nimport javax.swing.*;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\nimport java.io.BufferedWriter;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\npublic class categoryForm extends JFrame {\r\n\r\n    // components\r\n    JLabel cCodeLabel = new JLabel(\"Category Code:\");\r\n    JLabel cNameLabel = new JLabel(\"Category Name:\");\r\n\r\n    JTextField cCodeField = new JTextField();\r\n    JTextField cNameField = new JTextField();\r\n\r\n    JButton addButton = new JButton(\"Add\");\r\n    JButton backButton = new JButton(\"Back\");\r\n\r\n    public categoryForm() {\r\n        setTitle(\"Product Information : Category\");\r\n        setSize(300, 190);\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n        setLayout(null);\r\n\r\n        // Window Icon\r\n        String imagePath = \"media/tempcon.jpg\";\r\n        try {\r\n            ImageIcon logoIcon = new ImageIcon(imagePath);\r\n            Image logoImage = logoIcon.getImage();\r\n            setIconImage(logoImage);\r\n        } catch (Exception e) {\r\n            System.err.println(\"Error loading image: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n\r\n        cCodeLabel.setBounds(10, 20, 115, 25);\r\n        cCodeLabel.setFont(new Font(\"Poppins\", Font.PLAIN, 13));\r\n        cCodeLabel.setForeground(Color.decode(\"#31C198\"));\r\n        cCodeField.setBounds(120, 20, 150, 25);\r\n        add(cCodeLabel); add(cCodeField);\r\n\r\n        cNameLabel.setBounds(10, 60, 115, 25);\r\n        cNameLabel.setFont(new Font(\"Poppins\", Font.PLAIN, 13));\r\n        cNameLabel.setForeground(Color.decode(\"#31C198\"));\r\n        cNameField.setBounds(120, 60, 150, 25);\r\n        add(cNameLabel); add(cNameField);\r\n\r\n        addButton.setBounds(30, 110, 100, 25);\r\n        addButton.setBackground(Color.decode(\"#31C198\"));\r\n        addButton.setForeground(Color.decode(\"#1E1E1F\"));\r\n        addButton.setFont(new Font(\"Poppins\", Font.BOLD,12));\r\n        backButton.setBounds(150, 110, 100, 25);\r\n        backButton.setBackground(Color.decode(\"#31C198\"));\r\n        backButton.setForeground(Color.decode(\"#1E1E1F\"));\r\n        backButton.setFont(new Font(\"Poppins\", Font.PLAIN,12));\r\n        add(addButton); add(backButton);\r\n\r\n        // ACTION LISTENERS\r\n        addButton.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent e) {\r\n                String categoryCode = cCodeField.getText();\r\n                String categoryName = cNameField.getText();\r\n                addCategoryToFile(categoryCode, categoryName);\r\n                JOptionPane.showMessageDialog(null,  \"Category successfully added.\", \"Recorded!\",\r\n                        JOptionPane.INFORMATION_MESSAGE);\r\n                cCodeField.setText(\"\");\r\n                cNameField.setText(\"\");\r\n            }\r\n        });\r\n\r\n        backButton.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent e) {\r\n                dispose();\r\n            }\r\n        });\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    // Writing to \"Category.txt\"\r\n    private void addCategoryToFile(String categoryCode, String categoryName) {\r\n        try (BufferedWriter writer = new BufferedWriter(new FileWriter(\"Category.txt\", true))) {\r\n            writer.write(categoryCode + \", \" + categoryName);\r\n            writer.newLine();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/categoryForm.java b/src/categoryForm.java
+--- a/src/categoryForm.java	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
++++ b/src/categoryForm.java	(date 1719561890409)
+@@ -84,7 +84,7 @@
+     // Writing to "Category.txt"
+     private void addCategoryToFile(String categoryCode, String categoryName) {
+         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Category.txt", true))) {
+-            writer.write(categoryCode + ", " + categoryName);
++            writer.write(categoryCode + "\t" + categoryName);
+             writer.newLine();
+         } catch (IOException e) {
+             e.printStackTrace();
+Index: src/variantForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.awt.*;\r\nimport javax.swing.*;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\nimport java.io.BufferedWriter;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\npublic class variantForm extends JFrame {\r\n\r\n    // components\r\n    JLabel vCodeLabel = new JLabel(\"Variant Code:\");\r\n    JLabel vNameLabel = new JLabel(\"Variant Name:\");\r\n\r\n    JTextField vCodeField = new JTextField();\r\n    JTextField vNameField = new JTextField();\r\n\r\n    JButton addButton = new JButton(\"Add\");\r\n    JButton backButton = new JButton(\"Back\");\r\n\r\n    public variantForm() {\r\n        setTitle(\"Product Information : Variant\");\r\n        setSize(295, 190);\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n        setLayout(null);\r\n\r\n        // Window Icon\r\n        String imagePath = \"media/tempcon.jpg\";\r\n        try {\r\n            ImageIcon logoIcon = new ImageIcon(imagePath);\r\n            Image logoImage = logoIcon.getImage();\r\n            setIconImage(logoImage);\r\n        } catch (Exception e) {\r\n            System.err.println(\"Error loading image: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n\r\n        vCodeLabel.setBounds(10, 20, 100, 25);\r\n        vCodeLabel.setFont(new Font(\"Poppins\", Font.PLAIN, 13));\r\n        vCodeLabel.setForeground(Color.decode(\"#31C198\"));\r\n        vCodeField.setBounds(120, 20, 150, 25);\r\n        add(vCodeLabel); add(vCodeField);\r\n\r\n        vNameLabel.setBounds(10, 60, 100, 25);\r\n        vNameLabel.setFont(new Font(\"Poppins\", Font.PLAIN, 13));\r\n        vNameLabel.setForeground(Color.decode(\"#31C198\"));\r\n        vNameField.setBounds(120, 60, 150, 25);\r\n        add(vNameLabel); add(vNameField);\r\n\r\n        addButton.setBounds(30, 110, 100, 25);\r\n        addButton.setBackground(Color.decode(\"#31C198\"));\r\n        addButton.setForeground(Color.decode(\"#1E1E1F\"));\r\n        addButton.setFont(new Font(\"Poppins\", Font.BOLD,12));\r\n        backButton.setBounds(150, 110, 100, 25);\r\n        backButton.setBackground(Color.decode(\"#31C198\"));\r\n        backButton.setForeground(Color.decode(\"#1E1E1F\"));\r\n        backButton.setFont(new Font(\"Poppins\", Font.PLAIN,12));\r\n        add(addButton); add(backButton);\r\n\r\n        // ACTION LISTENERS\r\n        addButton.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent e) {\r\n                String variantCode = vCodeField.getText();\r\n                String variantName = vNameField.getText();\r\n                addVariantToFile(variantCode, variantName);\r\n                JOptionPane.showMessageDialog(null,  \"Variant successfully added.\", \"Recorded!\",\r\n                        JOptionPane.INFORMATION_MESSAGE);\r\n                vCodeField.setText(\"\");\r\n                vNameField.setText(\"\");\r\n            }\r\n        });\r\n\r\n        backButton.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent e) {\r\n                dispose();\r\n            }\r\n        });\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    // Writing to \"Variant.txt\"\r\n    private void addVariantToFile(String variantCode, String variantName) {\r\n        try (BufferedWriter writer = new BufferedWriter(new FileWriter(\"Variant.txt\", true))) {\r\n            writer.write(variantCode + \",\" + variantName);\r\n            writer.newLine();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/variantForm.java b/src/variantForm.java
+--- a/src/variantForm.java	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
++++ b/src/variantForm.java	(date 1719561929400)
+@@ -84,7 +84,7 @@
+     // Writing to "Variant.txt"
+     private void addVariantToFile(String variantCode, String variantName) {
+         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Variant.txt", true))) {
+-            writer.write(variantCode + "," + variantName);
++            writer.write(variantCode + "\t" + variantName);
+             writer.newLine();
+         } catch (IOException e) {
+             e.printStackTrace();
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_22\" default=\"true\" project-jdk-name=\"openjdk-22\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
++++ b/.idea/misc.xml	(date 1719561724275)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9dee99c0-e3b6-45fa-bb2f-671313585466\" name=\"Changes\" comment=\"guipolish_codecleaning\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/ListFonts.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/deliveryForm.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/deliveryForm.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Merge.Settings\">\r\n    <option name=\"BRANCH\" value=\"origin/master\" />\r\n  </component>\r\n  <component name=\"Git.Rebase.Settings\">\r\n    <option name=\"NEW_BASE\" value=\"origin/master\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;tammygeronimo&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/tammygeronimo/finalProj.git&quot;,\r\n    &quot;accountId&quot;: &quot;7c6004ae-545e-4a13-af95-76edeae08802&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2iPmUTVH6qzUPwhUpk9EuqtMmIh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.deliveryForm.executor\": \"Run\",\r\n    \"Application.mainForm.executor\": \"Run\",\r\n    \"Application.orderForm.executor\": \"Run\",\r\n    \"Application.systemClass.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/Tamara/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar\",\r\n    \"onboarding.tips.debug.path\": \"C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java\",\r\n    \"project.structure.last.edited\": \"Libraries\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"mainForm\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"mainForm\" />\r\n      <module name=\"finalProject\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.mainForm\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9dee99c0-e3b6-45fa-bb2f-671313585466\" name=\"Changes\" comment=\"\" />\r\n      <created>1719400601562</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1719400601562</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"JUSTINE FILE\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719451733643</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719451733643</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"polished deliveryForm\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719476021975</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719476021975</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"dark mode-mainForm\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719479499768</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719479499768</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"dark mode-categoryForm\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719480947304</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719480947304</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"dark mode-packagingForm\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719481628264</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719481628264</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"layout except product and order form\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719490700927</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719490700927</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"guipolish_codecleaning\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719519340797</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719519340797</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"JUSTINE FILE\" />\r\n    <MESSAGE value=\"polished deliveryForm\" />\r\n    <MESSAGE value=\"dark mode-mainForm\" />\r\n    <MESSAGE value=\"dark mode-categoryForm\" />\r\n    <MESSAGE value=\"dark mode-packagingForm\" />\r\n    <MESSAGE value=\"layout except product and order form\" />\r\n    <MESSAGE value=\"guipolish_codecleaning\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"guipolish_codecleaning\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Main.java</url>\r\n          <line>11</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
++++ b/.idea/workspace.xml	(date 1719562046408)
+@@ -5,9 +5,13 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="guipolish_codecleaning">
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_4_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ListFonts.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/categoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/categoryForm.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/deliveryFrame.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/packagingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packagingForm.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/variantForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/variantForm.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -28,6 +32,11 @@
+     <option name="NEW_BASE" value="origin/master" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="master" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+@@ -36,12 +45,12 @@
+     &quot;assignee&quot;: &quot;tammygeronimo&quot;
+   }
+ }</component>
+-  <component name="GithubPullRequestsUISettings">{
+-  &quot;selectedUrlAndAccountId&quot;: {
+-    &quot;url&quot;: &quot;https://github.com/tammygeronimo/finalProj.git&quot;,
+-    &quot;accountId&quot;: &quot;7c6004ae-545e-4a13-af95-76edeae08802&quot;
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/tammygeronimo/finalProj.git",
++    "accountId": "afcb2256-6f47-4f63-b3d3-78c77cad7bd0"
+   }
+-}</component>
++}]]></component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 1
+ }</component>
+@@ -60,10 +69,10 @@
+     "Application.orderForm.executor": "Run",
+     "Application.systemClass.executor": "Run",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "master",
++    "git-widget-placeholder": "Clean-Up-Branch",
+     "ignore.virus.scanning.warn.message": "true",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/Tamara/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar",
++    "last_opened_file_path": "C:/Users/Justine Apdal/Downloads/flatlaf-3.4.1.jar",
+     "onboarding.tips.debug.path": "C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java",
+     "project.structure.last.edited": "Libraries",
+     "project.structure.proportion": "0.15",
+Index: src/packagingForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.awt.*;\r\nimport javax.swing.*;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\nimport java.io.BufferedWriter;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\npublic class packagingForm extends JFrame {\r\n\r\n    // components\r\n    JLabel pCodeLabel = new JLabel(\"Package Code:\");\r\n    JLabel pNameLabel = new JLabel(\"Package Name:\");\r\n\r\n    JTextField pCodeField = new JTextField();\r\n    JTextField pNameField = new JTextField();\r\n\r\n    JButton addButton = new JButton(\"Add\");\r\n    JButton backButton = new JButton(\"Back\");\r\n\r\n    public packagingForm() {\r\n        setTitle(\"Product Information : Packaging\");\r\n        setSize(300, 190);\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n        setLayout(null);\r\n\r\n        // Window Icon\r\n        String imagePath = \"media/tempcon.jpg\";\r\n        try {\r\n            ImageIcon logoIcon = new ImageIcon(imagePath);\r\n            Image logoImage = logoIcon.getImage();\r\n            setIconImage(logoImage);\r\n        } catch (Exception e) {\r\n            System.err.println(\"Error loading image: \" + e.getMessage());\r\n            e.printStackTrace();\r\n        }\r\n\r\n        pCodeLabel.setBounds(10, 20, 100, 25);\r\n        pCodeLabel.setFont(new Font(\"Poppins\", Font.PLAIN, 13));\r\n        pCodeLabel.setForeground(Color.decode(\"#31C198\"));\r\n        pCodeField.setBounds(120, 20, 150, 25);\r\n        add(pCodeLabel); add(pCodeField);\r\n\r\n        pNameLabel.setBounds(10, 60, 105, 25);\r\n        pNameLabel.setFont(new Font(\"Poppins\", Font.PLAIN, 13));\r\n        pNameLabel.setForeground(Color.decode(\"#31C198\"));\r\n        pNameField.setBounds(120, 60, 150, 25);\r\n        add(pNameLabel); add(pNameField);\r\n\r\n        addButton.setBounds(30, 110, 100, 25);\r\n        addButton.setBackground(Color.decode(\"#31C198\"));\r\n        addButton.setForeground(Color.decode(\"#1E1E1F\"));\r\n        addButton.setFont(new Font(\"Poppins\", Font.BOLD,12));\r\n        backButton.setBounds(150, 110, 100, 25);\r\n        backButton.setBackground(Color.decode(\"#31C198\"));\r\n        backButton.setForeground(Color.decode(\"#1E1E1F\"));\r\n        backButton.setFont(new Font(\"Poppins\", Font.PLAIN,12));\r\n        add(addButton); add(backButton);\r\n\r\n        // ACTION LISTENERS\r\n        addButton.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent e) {\r\n                String packageCode = pCodeField.getText();\r\n                String packageName = pNameField.getText();\r\n                addPackageToFile(packageCode, packageName);\r\n                JOptionPane.showMessageDialog(null,  \"Package successfully added.\", \"Recorded!\",\r\n                        JOptionPane.INFORMATION_MESSAGE);\r\n                pCodeField.setText(\"\");\r\n                pNameField.setText(\"\");\r\n            }\r\n        });\r\n\r\n        backButton.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent e) {\r\n                dispose();\r\n            }\r\n        });\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    // Writing to \"Package.txt\"\r\n    private void addPackageToFile(String packageCode, String packageName) {\r\n        try (BufferedWriter writer = new BufferedWriter(new FileWriter(\"Package.txt\", true))) {\r\n            writer.write(packageCode + \", \" + packageName);\r\n            writer.newLine();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/packagingForm.java b/src/packagingForm.java
+--- a/src/packagingForm.java	(revision 88e6d77ec6c9fe2a3884b652f174bd2f5e5325f4)
++++ b/src/packagingForm.java	(date 1719561936232)
+@@ -84,7 +84,7 @@
+     // Writing to "Package.txt"
+     private void addPackageToFile(String packageCode, String packageName) {
+         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Package.txt", true))) {
+-            writer.write(packageCode + ", " + packageName);
++            writer.write(packageCode + "\t" + packageName);
+             writer.newLine();
+         } catch (IOException e) {
+             e.printStackTrace();
