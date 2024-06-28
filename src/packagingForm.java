@@ -59,7 +59,7 @@ public class packagingForm extends JFrame {
     // Writing to "Package.txt"
     private void addPackageToFile(String packageCode, String packageName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Package.txt", true))) {
-            writer.write(packageCode + "\n" + packageName);
+            writer.write(packageCode + "\t" + packageName);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();

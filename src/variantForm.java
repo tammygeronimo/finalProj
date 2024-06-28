@@ -60,7 +60,7 @@ public class variantForm extends JFrame {
     // Writing to "Package.txt"
     private void addVariantToFile(String packageCode, String packageName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Variant.txt", true))) {
-            writer.write(packageCode + "," + packageName);
+            writer.write(packageCode + "\t" + packageName);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
