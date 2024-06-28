@@ -79,7 +79,7 @@ public class mainForm extends JFrame {
         JTextArea textArea = new JTextArea(28, 75);
         JLabel def_label = new JLabel("[ Display reports here via the Report Menu ]");
         def_label.setBounds(255, 220, 300, 15);
-        def_label.setFont(new Font("Verdana", Font.ITALIC, 11));
+        def_label.setFont(new Font("Poppins", Font.ITALIC, 11));
         def_label.setForeground(Color.GRAY);
         textArea.add(def_label);
         textArea.setBackground(Color.decode("#323232"));
