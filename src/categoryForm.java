@@ -84,7 +84,7 @@ public class categoryForm extends JFrame {
     // Writing to "Category.txt"
     private void addCategoryToFile(String categoryCode, String categoryName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Category.txt", true))) {
-            writer.write(categoryCode + ", " + categoryName);
+            writer.write(categoryCode + "\t" + categoryName);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();

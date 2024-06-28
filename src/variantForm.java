@@ -84,7 +84,7 @@ public class variantForm extends JFrame {
     // Writing to "Variant.txt"
     private void addVariantToFile(String variantCode, String variantName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Variant.txt", true))) {
-            writer.write(variantCode + "," + variantName);
+            writer.write(variantCode + "\t" + variantName);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
