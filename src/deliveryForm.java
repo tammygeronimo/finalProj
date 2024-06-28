@@ -1,69 +1,305 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
-import com.formdev.flatlaf.FlatLightLaf;
+// toDos are on end of class
 
 @SuppressWarnings("serial")
 class deliveryForm extends JFrame {
+
+    // components
+    JLabel delHead = new JLabel("Delivery Form");
     JLabel sCodeLabel = new JLabel("Supplier Code:");
     JLabel sNameLabel = new JLabel("Supplier Name:");
-    JComboBox cmbSupplier = new JComboBox();
-    JTextField sNameField = new JTextField();
-
     JLabel pCodeLabel = new JLabel("Product Code:");
     JLabel pNameLabel = new JLabel("Product Name:");
-    JComboBox cmbProduct = new JComboBox();
-    JTextField pNameField = new JTextField();
-
     JLabel prodLabel = new JLabel("Product");
     JLabel descLabel = new JLabel("Description:");
-    JLabel quantityLabel = new JLabel("Quantity Delivered:");
-    JTextArea prodDescField = new JTextArea();
-    JTextField quantityField = new JTextField();
+    JLabel quantityLabel = new JLabel("Quantity");
+    JLabel delLabel = new JLabel("Delivered:");
+    JLabel disLabel = new JLabel("Display");
 
+    JComboBox cmbSupplier = new JComboBox();
+    JComboBox cmbProduct = new JComboBox();
+
+    JTextField sNameField = new JTextField();
+    JTextField pNameField = new JTextField();
+    JTextField prodDescField = new JTextField();
+    JTextField quantityField = new JTextField();
     JTextArea textArea = new JTextArea();
 
     JButton newButton = new JButton("New");
     JButton addButton = new JButton("Add");
     JButton backButton = new JButton("Back");
 
+    private List<String[]> supplierData;
+    private List<String[]> productData;
+    private List<String> deliveryData = new ArrayList<>();
 
     public deliveryForm() {
-        setTitle("Delivery Information");
-        setSize(565,330);
+
+        supplierData = loadDataFromFile("Supplier.txt");
+        productData = loadDataFromFile("Product.txt");
+
+        setTitle("Delivery");
+        setSize(565,420);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
 
-        sCodeLabel.setBounds(28, 30, 86, 14);cmbSupplier.setBounds(112, 26, 137, 22);
-        sNameLabel.setBounds(272, 30, 97, 14);sNameField.setBounds(379, 27, 137, 20);sNameField.setEnabled(false);
-        add(sCodeLabel);add(cmbSupplier);add(sNameLabel);add(sNameField);
+        // Window Icon
+        String imagePath = "media/tempcon.jpg";
+        try {
+            ImageIcon logoIcon = new ImageIcon(imagePath);
+            Image logoImage = logoIcon.getImage();
+            setIconImage(logoImage);
+        } catch (Exception e) {
+            System.err.println("Error loading image: " + e.getMessage());
+            e.printStackTrace();
+        }
 
-        pCodeLabel.setBounds(28, 70, 86, 14);cmbProduct.setBounds(112, 66, 137, 22);
-        pNameLabel.setBounds(272, 70, 97, 14);pNameField.setBounds(379, 67, 137, 20);pNameField.setEnabled(false);
-        add(pCodeLabel);add(cmbProduct);add(pNameLabel);add(pNameField);
+        delHead.setBounds(185, 20, 500, 25);
+        delHead.setFont(new Font("Poppins", Font.BOLD, 25));
+        add(delHead);
 
-        prodLabel.setBounds(28, 110, 86, 14);descLabel.setBounds(28, 125, 87, 14);prodDescField.setBounds(112, 110, 137, 49);prodDescField.setEnabled(false);
-        quantityLabel.setBounds(272, 110, 97, 14);quantityField.setBounds(379, 110, 86, 20);
-        add(prodLabel);add(descLabel);add(prodDescField);add(quantityLabel);add(quantityField);
+        sCodeLabel.setBounds(28, 70, 100, 25);
+        sCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        sCodeLabel.setForeground(Color.decode("#31C198"));
+        cmbSupplier.setBounds(130, 70, 137, 25);
+        add(sCodeLabel); add(cmbSupplier);
 
-        textArea.setBounds(28, 186, 488, 33);
-        add(textArea);
+        sNameLabel.setBounds(280, 70, 100, 25);
+        sNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        sNameLabel.setForeground(Color.decode("#31C198"));
+        sNameField.setBounds(383, 70, 137, 25);
+        sNameField.setEnabled(false);
+        add(sNameLabel); add(sNameField);
 
-        newButton.setBounds(45, 244, 89, 23);addButton.setBounds(224, 244, 89, 23);backButton.setBounds(413, 244, 89, 23);
-        add(newButton);add(addButton);add(backButton);
+        pCodeLabel.setBounds(28, 110, 100, 25);
+        pCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        pCodeLabel.setForeground(Color.decode("#31C198"));
+        cmbProduct.setBounds(130, 110, 137, 25);
+        add(pCodeLabel); add(cmbProduct);
+
+        pNameLabel.setBounds(280, 110, 97, 25);
+        pNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        pNameLabel.setForeground(Color.decode("#31C198"));
+        pNameField.setBounds(383, 110, 137, 25);
+        pNameField.setEnabled(false);
+        add(pNameLabel); add(pNameField);
+
+        prodLabel.setBounds(28, 150, 86, 25);
+        prodLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        prodLabel.setForeground(Color.decode("#31C198"));
+        descLabel.setBounds(28, 165, 87, 25);
+        descLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        descLabel.setForeground(Color.decode("#31C198"));
+        prodDescField.setBounds(130, 150, 137, 60);
+        prodDescField.setEnabled(false);
+        // prodDescField.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        add(prodLabel); add(descLabel); add(prodDescField);
+
+        quantityLabel.setBounds(280, 150, 97, 25);
+        quantityLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        quantityLabel.setForeground(Color.decode("#31C198"));
+        delLabel.setBounds(280,165,97,25);
+        delLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        delLabel.setForeground(Color.decode("#31C198"));
+        quantityField.setBounds(383, 150, 86, 25);
+        add(quantityLabel); add(delLabel); add(quantityField);
+
+        disLabel.setBounds(28,215,488,33);
+        disLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        disLabel.setForeground(Color.decode("#31C198"));
+        textArea.setBounds(28, 243, 488, 70);
+        textArea.setEnabled(false);
+        //textArea.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+        add(disLabel); add(textArea);
+
+        newButton.setBounds(45, 335, 89, 25);
+        newButton.setBackground(Color.decode("#31C198"));
+        newButton.setForeground(Color.decode("#1E1E1F"));
+        newButton.setFont(new Font("Poppins", Font.BOLD,12));
+        addButton.setBounds(224, 335, 89, 25);
+        addButton.setBackground(Color.decode("#31C198"));
+        addButton.setForeground(Color.decode("#1E1E1F"));
+        addButton.setFont(new Font("Poppins", Font.BOLD,12));
+        backButton.setBounds(413, 335, 89, 25);
+        backButton.setBackground(Color.decode("#31C198"));
+        backButton.setForeground(Color.decode("#1E1E1F"));
+        backButton.setFont(new Font("Poppins", Font.PLAIN,12));
+        add(newButton); add(addButton); add(backButton);
+
+        // ACTION LISTENERS
+        newButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                enableNewSupplierSelection();
+                populateProductComboBox();
+            }
+        });
+
+        addButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addProductToDelivery();
+            }
+        });
+
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+        cmbSupplier.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateSupplierName();
+            }
+        });
+
+        cmbProduct.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateProductName();
+                updateProductDescription();
+            }
+        });
 
         setResizable(false);
         setVisible(true);
     }
 
+    private void enableNewSupplierSelection() {
+        cmbSupplier.setEnabled(true);
+        cmbSupplier.removeAllItems();
+        if (supplierData != null) {
+            for (String[] entry : supplierData) {
+                cmbSupplier.addItem(entry[0]);
+            }
+        }
+        cmbProduct.removeAllItems();
+    }
+
+    private void updateSupplierName() {
+        String selectedCode = (String) cmbSupplier.getSelectedItem();
+        for (String[] entry : supplierData) {
+            if (entry[0].equals(selectedCode)) {
+                sNameField.setText(entry[1]);
+                break;
+            }
+        }
+    }
+
+    private void updateProductName() {
+        String selectedCode = (String) cmbProduct.getSelectedItem();
+        for (String[] entry : productData) {
+            if (entry[6].equals(selectedCode)) {
+                pNameField.setText(entry[7]);
+                break;
+            }
+        }
+    }
+
+    private void updateProductDescription() {
+        String selectedCode = (String) cmbProduct.getSelectedItem();
+        for (String[] entry : productData) {
+            if (entry[6].equals(selectedCode)) {
+                prodDescField.setText("Package Code/Name : " + entry[2] + ", " + entry[3] +"\nVariant Code/Name   : " + entry[4] + ", " + entry[5]);
+                break;
+            }
+        }
+    }
+
+    private void populateProductComboBox() {
+        cmbProduct.removeAllItems();
+        if (productData != null) {
+            for (String[] entry : productData) {
+                cmbProduct.addItem(entry[6]);
+            }
+        }
+    }
+
+    private void addProductToDelivery() {
+        String supplierCode = (String) cmbSupplier.getSelectedItem();
+        String supplierName = sNameField.getText();
+        String productCode = (String) cmbProduct.getSelectedItem();
+        String productName = pNameField.getText();
+        String productDescription = prodDescField.getText();
+        String quantity = quantityField.getText();
+
+        if (supplierCode.isEmpty() || productCode.isEmpty() || quantity.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String deliveryInfo = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
+        deliveryData.add(deliveryInfo);
+        updateTextArea();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Delivery.txt", true))) {
+            writer.write(deliveryInfo);
+            writer.newLine();
+            JOptionPane.showMessageDialog(this, "Product added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving product data.", "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+
+        cmbSupplier.setEnabled(false);
+    }
+
+    private void updateTextArea() {
+        textArea.setText("");
+        for (String entry : deliveryData) {
+            textArea.append(entry + "\n");
+        }
+    }
+
+    private void clearFields() {
+        cmbProduct.setSelectedItem(null);
+        pNameField.setText("");
+        prodDescField.setText("");
+        quantityField.setText("");
+    }
+
+    private List<String[]> loadDataFromFile(String fileName) {
+        List<String[]> data = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",\\s*");
+                if (parts.length >= 2) {
+                    data.add(parts);
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error loading data from " + fileName, "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+
     public static void main(String[] args) {
-        FlatLightLaf.setup();
+        FlatMacDarkLaf.setup();
         SwingUtilities.invokeLater(() -> new deliveryForm());
     }
 
@@ -98,7 +334,7 @@ class deliveryForm extends JFrame {
         TODO Create an ActionEventListener for AddBtn that appends the details
 
         Details Contains:
-            1.  Product Code
+            1. Product Code
             2. Name
             3. Description
             4. Quantity
