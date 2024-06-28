@@ -1,20 +1,16 @@
-import java.awt.*;
 import javax.swing.*;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.BufferedWriter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class supplierForm extends JFrame {
 
-    // components
-    JLabel sCodeLabel = new JLabel("Supplier Code:");
-    JLabel sNameLabel = new JLabel("Supplier Name:");
-
-    JTextField sCodeField = new JTextField();
-    JTextField sNameField = new JTextField();
-
+    JLabel cCodeLabel = new JLabel("Supplier Code:");
+    JLabel cNameLabel = new JLabel("Supplier Name:");
+    JTextField cCodeField = new JTextField();
+    JTextField cNameField = new JTextField();
     JButton addButton = new JButton("Add");
     JButton backButton = new JButton("Back");
 
@@ -25,49 +21,28 @@ public class supplierForm extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
-        // Window Icon
-        String imagePath = "media/tempcon.jpg";
-        try {
-            ImageIcon logoIcon = new ImageIcon(imagePath);
-            Image logoImage = logoIcon.getImage();
-            setIconImage(logoImage);
-        } catch (Exception e) {
-            System.err.println("Error loading image: " + e.getMessage());
-            e.printStackTrace();
-        }
+        cCodeLabel.setBounds(10, 20, 100, 25);
+        cCodeField.setBounds(120, 20, 150, 25);
+        add(cCodeLabel); add(cCodeField);
 
-        sCodeLabel.setBounds(10, 20, 100, 25);
-        sCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
-        sCodeLabel.setForeground(Color.decode("#31C198"));
-        sCodeField.setBounds(120, 20, 150, 25);
-        add(sCodeLabel); add(sCodeField);
-
-        sNameLabel.setBounds(10, 60, 100, 25);
-        sNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
-        sNameLabel.setForeground(Color.decode("#31C198"));
-        sNameField.setBounds(120, 60, 150, 25);
-        add(sNameLabel); add(sNameField);
+        cNameLabel.setBounds(10, 60, 100, 25);
+        cNameField.setBounds(120, 60, 150, 25);
+        add(cNameLabel); add(cNameField);
 
         addButton.setBounds(30, 110, 100, 25);
-        addButton.setBackground(Color.decode("#31C198"));
-        addButton.setForeground(Color.decode("#1E1E1F"));
-        addButton.setFont(new Font("Poppins", Font.BOLD,12));
         backButton.setBounds(150, 110, 100, 25);
-        backButton.setBackground(Color.decode("#31C198"));
-        backButton.setForeground(Color.decode("#1E1E1F"));
-        backButton.setFont(new Font("Poppins", Font.PLAIN,12));
-        add(addButton); add(backButton);
+        add(addButton);add(backButton);
 
-        // ACTION LISTENERS
+        // Action Listeners
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String supplierCode = sCodeField.getText();
-                String supplierName = sNameField.getText();
-                addSupplierToFile(supplierCode, supplierName);
-                JOptionPane.showMessageDialog(null,  "Supplier successfully added.", "Recorded!",
+                String categoryCode = cCodeField.getText();
+                String categoryName = cNameField.getText();
+                addCategoryToFile(categoryCode, categoryName);
+                JOptionPane.showMessageDialog(null,  "Supplier successfully recorded.", "Processed!",
                         JOptionPane.INFORMATION_MESSAGE);
-                sCodeField.setText("");
-                sNameField.setText("");
+                cCodeField.setText("");
+                cNameField.setText("");
             }
         });
 
@@ -81,13 +56,17 @@ public class supplierForm extends JFrame {
         setVisible(true);
     }
 
-    // Writing to "Supplier.txt"
-    private void addSupplierToFile(String supplierCode, String supplierName) {
+    // Writing to "Category.txt"
+    private void addCategoryToFile(String categoryCode, String categoryName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Supplier.txt", true))) {
-            writer.write(supplierCode + "," + supplierName);
+            writer.write(categoryCode + ",\t" + categoryName);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+    //TODO Create A functions thats write the informations into 'Supplier.txt'
+    //TODO Create ActionEventListener for add and Back buttons
 }

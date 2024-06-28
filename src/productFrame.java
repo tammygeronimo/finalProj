@@ -1,6 +1,10 @@
-import javax.print.attribute.standard.JobName;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
+
 
 public class productFrame extends JFrame{
 
@@ -8,17 +12,23 @@ public class productFrame extends JFrame{
     JLabel packageLabel = new JLabel("Package Code: ");
     JLabel variantLabel = new JLabel("Variant Code: ");
     JLabel productCodeLabel = new JLabel("Product Code: ");
-
+    JLabel priceLabel = new JLabel("Price: ");
     JLabel categoryNameLabel = new JLabel("Category Name: ");
     JLabel packageNameLabel = new JLabel("Package Name: ");
     JLabel variantNameLabel = new JLabel("Variant Name: ");
     JLabel productNameLabel = new JLabel("Product Name: ");
 
-    JLabel priceLabel = new JLabel("Price: ");
+    private static String[] categList;
+    static JComboBox<String> categoryComboBox;
+    static JComboBox<String> packageBox;
+    static JComboBox<String> variantBox;
 
-    JComboBox categoryBox = new JComboBox();
-    JComboBox packageBox = new JComboBox();
-    JComboBox variantBox = new JComboBox();
+    private static ArrayList<String> categoryCodes = new ArrayList<>();
+    private static ArrayList<String> categoryNames = new ArrayList<>();
+    private static ArrayList<String> packageCodes = new ArrayList<>();
+    private static ArrayList<String> packageNames = new ArrayList<>();
+    private static ArrayList<String> variantCodes = new ArrayList<>();
+    private static ArrayList<String> variantNames = new ArrayList<>();
 
     JTextField productCodeField = new JTextField(11);
     JTextField CategoryNameField = new JTextField(20);
@@ -30,6 +40,14 @@ public class productFrame extends JFrame{
     JButton addBtn = new JButton("Add");
     JButton backBtn = new JButton("Back");
 
+    static File categoryFile = new File("Category.txt");
+    static File packageFile = new File("Package.txt");
+    static File variantFile = new File("Variant.txt");
+
+    static String infoWrite;
+    static String categoryInfo, packageInfo, variantInfo, productCode, productName;
+    static int productPrice;
+
     productFrame() {
 
         setTitle("Product Form");
@@ -39,21 +57,16 @@ public class productFrame extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Window Icon
-        String imagePath = "media/tempcon.jpg";
-        try {
-            ImageIcon logoIcon = new ImageIcon(imagePath);
-            Image logoImage = logoIcon.getImage();
-            setIconImage(logoImage);
-        } catch (Exception e) {
-            System.err.println("Error loading image: " + e.getMessage());
-            e.printStackTrace();
-        }
+        categoryComboBox = new JComboBox<>();
+        packageBox = new JComboBox<>();
+        variantBox = new JComboBox<>();
+
+        infoLoads();
 
         JPanel head = new JPanel();
         head.setPreferredSize(new Dimension(700, 35));
 
-        JLabel titleHead = new JLabel("Product");
+        JLabel titleHead = new JLabel("Product Form");
         titleHead.setFont(new Font("Verdana", Font.BOLD, 25));
         head.add(titleHead);
         add(head);
@@ -71,12 +84,17 @@ public class productFrame extends JFrame{
         panel2.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));
         panel2.setPreferredSize(new Dimension(135, 240));
 
-        categoryBox.setPreferredSize(new Dimension(125, 30));
+        comboActions infoBox = new comboActions();
+        categoryComboBox.addActionListener(infoBox);
+        packageBox.addActionListener(infoBox);
+        variantBox.addActionListener(infoBox);
+
+        categoryComboBox.setPreferredSize(new Dimension(125, 30));
         packageBox.setPreferredSize(new Dimension(125, 30));
         variantBox.setPreferredSize(new Dimension(125, 30));
         productCodeField.setPreferredSize(new Dimension(125, 30));
 
-        panel2.add(categoryBox);
+        panel2.add(categoryComboBox);
         panel2.add(packageBox);
         panel2.add(variantBox);
         panel2.add(productCodeField);
@@ -95,13 +113,13 @@ public class productFrame extends JFrame{
         panel4.setPreferredSize(new Dimension(250, 240));
 
         CategoryNameField.setPreferredSize(new Dimension(245, 30));
-        CategoryNameField.setEditable(false);
+        CategoryNameField.setEditable(false); CategoryNameField.setEnabled(false);
 
         packageField.setPreferredSize(new Dimension(245, 30));
-        packageField.setEditable(false);
+        packageField.setEditable(false); packageField.setEnabled(false);
 
         variantField.setPreferredSize(new Dimension(245, 30));
-        variantField.setEditable(false);
+        variantField.setEditable(false); variantField.setEnabled(false);
 
         productNameField.setPreferredSize(new Dimension(245, 30));
 
@@ -118,11 +136,167 @@ public class productFrame extends JFrame{
         add(priceLabel); // TODO wag natin pantay sa buttons
         add(priceField); // TODO wag natin pantay sa buttons
 
+        buttonActions btnFunction = new buttonActions();
+        addBtn.addActionListener(btnFunction);
+        backBtn.addActionListener(btnFunction);
+
         add(addBtn);
         add(backBtn);
 
         setResizable(false);
         setVisible(true);
+
+    }
+
+    public class buttonActions implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            if(e.getSource() == addBtn){
+
+
+                productName = productNameField.getText();
+                productCode = productCodeField.getText();
+                productPrice = Integer.parseInt(priceField.getText());
+
+                infoWrite = categoryInfo + "\t" + packageInfo + "\t" + variantInfo + "\t" + productCode + "\t" + productName + "\t" + productPrice;
+                System.out.println(infoWrite);
+
+                JOptionPane.showMessageDialog(null,  "Product successfully added.", "Recorded!",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("Product.txt", true))) {
+                    writer.write(infoWrite + "\n");
+                    writer.newLine();
+
+                } catch (IOException ae) {
+                    ae.printStackTrace();
+                }
+
+                categoryComboBox.setSelectedIndex(0);
+                CategoryNameField.setText("");
+                packageBox.setSelectedIndex(0);
+                packageField.setText("");
+                variantBox.setSelectedIndex(0);
+                variantField.setText("");
+                productCodeField.setText("");
+                productNameField.setText("");
+                priceField.setText("");
+
+
+
+            } else {
+                dispose();
+
+            }
+
+        }
+    }
+
+    public class comboActions implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == categoryComboBox){
+                int categoryIndex = categoryComboBox.getSelectedIndex();
+
+                if(categoryIndex != -1){
+
+                    String catCode = (String) categoryComboBox.getSelectedItem();
+                    String catName = categoryNames.get(categoryIndex);
+                    CategoryNameField.setText(catName);
+
+                    categoryInfo = catCode + "\t" + catName;
+
+                }
+
+            } else if (e.getSource() == packageBox) {
+                int packageIndex = packageBox.getSelectedIndex();
+
+                if (packageIndex != -1) {
+
+                    String packCode = (String) packageBox.getSelectedItem();
+                    String packName = packageNames.get(packageIndex);
+                    packageField.setText(packName);
+
+                    packageInfo = packCode + "\t" + packName;
+                }
+
+            } else if (e.getSource() == variantBox) {
+                    int variantIndex = variantBox.getSelectedIndex();
+
+                    if(variantIndex != -1){
+
+                        String varCode = (String) variantBox.getSelectedItem();
+                        String varName = variantNames.get(variantIndex);
+                        variantField.setText(varName);
+
+                        variantInfo = varCode + "\t" + varName;
+                    }
+                }
+
+            }
+    }
+
+    public static void infoLoads() {
+        try(BufferedReader br = new BufferedReader(new FileReader(categoryFile))){
+            String line;
+            while((line = br.readLine()) != null) {
+                String[] categoryBox = line.split("\t");
+
+                if (categoryBox.length >= 2) {
+                    String CategoryCode = categoryBox[0];
+                    String CategoryName = categoryBox[1];
+
+                    categoryCodes.add(CategoryCode);
+                    categoryNames.add(CategoryName);
+                    categoryComboBox.addItem(CategoryCode);
+                }
+            }
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
+        try(BufferedReader br = new BufferedReader((new FileReader(packageFile)))){
+            String line;
+            while ((line = br.readLine()) != null){
+                String[] packBox = line.split("\t");
+
+                if (packBox.length >= 2){
+                    String packCode = packBox[0];
+                    String packName = packBox[1];
+
+                    packageCodes.add(packCode);
+                    packageNames.add(packName);
+                    packageBox.addItem(packCode);
+                }
+            }
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
+
+        try(BufferedReader br = new BufferedReader(new FileReader(variantFile))){
+            String line;
+            while ((line = br.readLine()) != null){
+                String[] varBox = line.split("\t");
+
+                if (varBox.length >= 2){
+
+                    String varCode = varBox[0];
+                    String varName = varBox[1];
+
+                    variantCodes.add(varCode);
+                    variantNames.add(varName);
+                    variantBox.addItem(varCode);
+                }
+            }
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     //TODO Create A Function that Read the 'Package.txt' for and setText the Package Name

@@ -1,0 +1,103 @@
+Index: src/productFrame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.print.attribute.standard.JobName;\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.io.BufferedReader;\r\nimport java.io.File;\r\nimport java.io.FileReader;\r\nimport java.io.IOException;\r\n\r\n\r\npublic class productFrame extends JFrame{\r\n\r\n    JLabel categoryLabel = new JLabel(\"Category Code: \");\r\n    JLabel packageLabel = new JLabel(\"Package Code: \");\r\n    JLabel variantLabel = new JLabel(\"Variant Code: \");\r\n    JLabel productCodeLabel = new JLabel(\"Product Code: \");\r\n    JLabel priceLabel = new JLabel(\"Price: \");\r\n    JLabel categoryNameLabel = new JLabel(\"Category Name: \");\r\n    JLabel packageNameLabel = new JLabel(\"Package Name: \");\r\n    JLabel variantNameLabel = new JLabel(\"Variant Name: \");\r\n    JLabel productNameLabel = new JLabel(\"Product Name: \");\r\n\r\n    static String[] categoryList;\r\n\r\n    JComboBox categoryBox = new JComboBox(categoryList);\r\n    JComboBox packageBox = new JComboBox();\r\n    JComboBox variantBox = new JComboBox();\r\n\r\n    static String[] categList;\r\n\r\n    JTextField productCodeField = new JTextField(11);\r\n    JTextField CategoryNameField = new JTextField(20);\r\n    JTextField packageField = new JTextField(20);\r\n    JTextField variantField = new JTextField(20);\r\n    JTextField productNameField = new JTextField(20);\r\n    JTextField priceField = new JTextField(17);\r\n\r\n    JButton addBtn = new JButton(\"Add\");\r\n    JButton backBtn = new JButton(\"Back\");\r\n\r\n\r\n    static String addCategory = \"\";\r\n    static File categoryFile = new File(\"Category.txt\");\r\n\r\n    productFrame() {\r\n\r\n        setTitle(\"Product Form\");\r\n        setSize(700, 400);\r\n        setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));\r\n\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n\r\n        categoryInfo();\r\n\r\n//        comboItems comboActions = new comboItems();\r\n//        categoryBox.addActionListener(comboActions);\r\n\r\n        JPanel head = new JPanel();\r\n        head.setPreferredSize(new Dimension(700, 35));\r\n\r\n        JLabel titleHead = new JLabel(\"Product Form\");\r\n        titleHead.setFont(new Font(\"Verdana\", Font.BOLD, 25));\r\n        head.add(titleHead);\r\n        add(head);\r\n\r\n        JPanel panel1 = new JPanel();\r\n        panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 33));\r\n        panel1.setPreferredSize(new Dimension(120, 240));\r\n\r\n        panel1.add(categoryLabel);\r\n        panel1.add(packageLabel);\r\n        panel1.add(variantLabel);\r\n        panel1.add(productCodeLabel);\r\n\r\n        JPanel panel2 = new JPanel();\r\n        panel2.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));\r\n        panel2.setPreferredSize(new Dimension(135, 240));\r\n\r\n        categoryBox.setPreferredSize(new Dimension(125, 30));\r\n        packageBox.setPreferredSize(new Dimension(125, 30));\r\n        variantBox.setPreferredSize(new Dimension(125, 30));\r\n        productCodeField.setPreferredSize(new Dimension(125, 30));\r\n\r\n        panel2.add(categoryBox);\r\n        panel2.add(packageBox);\r\n        panel2.add(variantBox);\r\n        panel2.add(productCodeField);\r\n\r\n        JPanel panel3 = new JPanel();\r\n        panel3.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 33));\r\n        panel3.setPreferredSize(new Dimension(105, 240));\r\n\r\n        panel3.add(categoryNameLabel);\r\n        panel3.add(packageNameLabel);\r\n        panel3.add(variantNameLabel);\r\n        panel3.add(productNameLabel);\r\n\r\n        JPanel panel4 = new JPanel();\r\n        panel4.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));\r\n        panel4.setPreferredSize(new Dimension(250, 240));\r\n\r\n        CategoryNameField.setPreferredSize(new Dimension(245, 30));\r\n        CategoryNameField.setEditable(false);\r\n\r\n        packageField.setPreferredSize(new Dimension(245, 30));\r\n        packageField.setEditable(false);\r\n\r\n        variantField.setPreferredSize(new Dimension(245, 30));\r\n        variantField.setEditable(false);\r\n\r\n        productNameField.setPreferredSize(new Dimension(245, 30));\r\n\r\n        panel4.add(CategoryNameField);\r\n        panel4.add(packageField);\r\n        panel4.add(variantField);\r\n        panel4.add(productNameField);\r\n\r\n        add(panel1);\r\n        add(panel2);\r\n        add(panel3);\r\n        add(panel4);\r\n\r\n        add(priceLabel); // TODO wag natin pantay sa buttons\r\n        add(priceField); // TODO wag natin pantay sa buttons\r\n\r\n        add(addBtn);\r\n        add(backBtn);\r\n\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n\r\n\r\n\r\n    }\r\n\r\n    private static void categoryInfo() {\r\n        try{\r\n            BufferedReader br = new BufferedReader(new FileReader(categoryFile));\r\n            String addCategory2 = \"\";\r\n\r\n            while((addCategory = br.readLine()) != null)\r\n            {\r\n                String[] categoryBox = addCategory.split(\"\\t\");\r\n                addCategory2 += categoryBox[0] + \" \";\r\n\r\n            }\r\n\r\n            categList = addCategory2.split(\" \");\r\n            br.close();\r\n        }\r\n        catch(IOException e){\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public class comboAcations implements ActionListener{\r\n        @Override\r\n        public void actionPerformed(ActionEvent e) {\r\n            if(e.getSource() == categoryBox){\r\n\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n    //TODO Create A Function that Read the 'Package.txt' for and setText the Package Name\r\n    //TODO Create A Function that Read the 'Package.txt' and added and trim the items to JComboBox [Product Code]\r\n\r\n    //TODO Create A Function that Read the 'Category.txt' for and setText the Category Name\r\n    //TODO Create A Function that Read the 'Category.txt' and added and trim the items to JComboBox [Category Code]\r\n\r\n    //TODO Create A Function that Read the 'Variant.txt' for and setText the Variant Name\r\n    //TODO Create A Function that Read the 'Variant.txt' and added and trim the items to JComboBox [Variant Code]\r\n\r\n    //TODO Create A Function that Write Information in 'Product.txt' for and setText the Product Code & Name\r\n    // when clicked\r\n\r\n\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/productFrame.java b/src/productFrame.java
+--- a/src/productFrame.java	(revision 792596358a8bd37b5ad1e20895f33404088345c8)
++++ b/src/productFrame.java	(date 1719538537619)
+@@ -1,4 +1,3 @@
+-import javax.print.attribute.standard.JobName;
+ import javax.swing.*;
+ import java.awt.*;
+ import java.awt.event.ActionEvent;
+@@ -21,14 +20,12 @@
+     JLabel variantNameLabel = new JLabel("Variant Name: ");
+     JLabel productNameLabel = new JLabel("Product Name: ");
+ 
+-    static String[] categoryList;
++    private static String[] categList;
++    private JComboBox<String> categoryBox;
+ 
+-    JComboBox categoryBox = new JComboBox(categoryList);
+     JComboBox packageBox = new JComboBox();
+     JComboBox variantBox = new JComboBox();
+ 
+-    static String[] categList;
+-
+     JTextField productCodeField = new JTextField(11);
+     JTextField CategoryNameField = new JTextField(20);
+     JTextField packageField = new JTextField(20);
+@@ -53,9 +50,8 @@
+         setLocationRelativeTo(null);
+ 
+         categoryInfo();
++        categoryBox = new JComboBox<>(categList);
+ 
+-//        comboItems comboActions = new comboItems();
+-//        categoryBox.addActionListener(comboActions);
+ 
+         JPanel head = new JPanel();
+         head.setPreferredSize(new Dimension(700, 35));
+@@ -139,6 +135,7 @@
+     private static void categoryInfo() {
+         try{
+             BufferedReader br = new BufferedReader(new FileReader(categoryFile));
++
+             String addCategory2 = "";
+ 
+             while((addCategory = br.readLine()) != null)
+@@ -156,15 +153,6 @@
+         }
+     }
+ 
+-    public class comboAcations implements ActionListener{
+-        @Override
+-        public void actionPerformed(ActionEvent e) {
+-            if(e.getSource() == categoryBox){
+-
+-            }
+-        }
+-    }
+-
+ 
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9dee99c0-e3b6-45fa-bb2f-671313585466\" name=\"Changes\" comment=\"Added new Classes for GUI\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/OrderForm.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/OrderForm.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/productFrame.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/productFrame.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2iPmUTVH6qzUPwhUpk9EuqtMmIh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.mainForm.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.systemClass.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;Add-Branch&quot;,\r\n    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Justine Apdal/Downloads/flatlaf-3.4.1.jar&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"mainForm\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"mainForm\" />\r\n      <module name=\"finalProject\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.mainForm\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9dee99c0-e3b6-45fa-bb2f-671313585466\" name=\"Changes\" comment=\"\" />\r\n      <created>1719400601562</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1719400601562</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"JUSTINE FILE\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719451733643</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719451733643</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Added new Classes for GUI\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719536891418</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719536891418</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"JUSTINE FILE\" />\r\n    <MESSAGE value=\"Added new Classes for GUI\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Added new Classes for GUI\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Main.java</url>\r\n          <line>11</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 792596358a8bd37b5ad1e20895f33404088345c8)
++++ b/.idea/workspace.xml	(date 1719537815832)
+@@ -5,7 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="Added new Classes for GUI">
+-      <change beforePath="$PROJECT_DIR$/src/OrderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderForm.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -89,7 +89,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1719536891418</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Added new Classes for GUI">
++      <option name="closed" value="true" />
++      <created>1719537198799</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1719537198799</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
