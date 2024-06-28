@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="Added new Classes for GUI">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OrderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/categoryForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packagingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packagingForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supplierForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supplierForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/variantForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/variantForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,12 +81,21 @@
       <option name="project" value="LOCAL" />
       <updated>1719451733643</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added new Classes for GUI">
+      <option name="closed" value="true" />
+      <created>1719536891418</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719536891418</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JUSTINE FILE" />
-    <option name="LAST_COMMIT_MESSAGE" value="JUSTINE FILE" />
+    <MESSAGE value="Added new Classes for GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new Classes for GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

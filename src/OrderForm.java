@@ -39,28 +39,28 @@ class orderForm extends JFrame{
 
     public orderForm() {
         setTitle("Delivery Information");
-        setSize(550, 427);
+        setSize(600, 427);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
 
-        nameLabel.setBounds(35, 25, 100, 14);nameField.setBounds(145, 22, 350, 20);
+        nameLabel.setBounds(35, 25, 100, 14);nameField.setBounds(145, 22, 362, 20);
         add(nameLabel);add(nameField);
 
         pNameLabel.setBounds(35, 57, 100, 14);cmbProduct.setBounds(145, 53, 149, 22);
-        qtyLabel.setBounds(307, 57, 100, 14);qtyField.setBounds(409, 54, 86, 20);qtyField.setEnabled(false);
+        qtyLabel.setBounds(307, 57, 100, 14);qtyField.setBounds(414, 54, 93, 20);qtyField.setEnabled(false);
         add(pNameLabel);add(cmbProduct);add(qtyLabel);add(qtyField);
 
         qtyOrderLabel.setBounds(35, 90, 100, 14);qtyOrderField.setBounds(145, 87, 149, 20);
-        priceLabel.setBounds(307, 90, 100, 14);priceField.setBounds(346, 87, 149, 20);priceField.setEnabled(false);
+        priceLabel.setBounds(307, 90, 100, 14);priceField.setBounds(346, 87, 160, 20);priceField.setEnabled(false);
         add(qtyOrderLabel);add(qtyOrderField);add(priceLabel);add(priceField);
 
-        totalLabel.setBounds(35, 123, 68, 14);totalField.setBounds(107, 120, 75, 20);totalField.setEditable(false);
-        cashLabel.setBounds(206, 123, 68, 14);cashField.setBounds(277, 120, 75, 20);
-        changeLabel.setBounds(373, 123, 46, 14);changeField.setBounds(420, 120, 75, 20);changeField.setEditable(false);
+        totalLabel.setBounds(35, 123, 75, 14);totalField.setBounds(145, 120, 75, 20);totalField.setEditable(false);
+        cashLabel.setBounds(225, 123, 68, 14);cashField.setBounds(297, 120, 75, 20);
+        changeLabel.setBounds(378, 123, 46, 14);changeField.setBounds(430, 120, 75, 20);changeField.setEditable(false);
         add(totalLabel);add(totalField);add(cashLabel);add(cashField);add(changeLabel);add(changeField);
 
-        textArea.setBounds(35, 162, 460, 118);
+        textArea.setBounds(35, 162, 470, 118);
         add(textArea);
 
         newButton.setBounds(107, 302, 89, 23);addButton.setBounds(330, 302, 89, 23);computeButton.setBounds(107, 340, 89, 23);;backButton.setBounds(330, 340, 89, 23);

@@ -21,7 +21,9 @@ public class productFrame extends JFrame{
     JLabel variantNameLabel = new JLabel("Variant Name: ");
     JLabel productNameLabel = new JLabel("Product Name: ");
 
-    JComboBox categoryBox = new JComboBox();
+    static String[] categoryList;
+
+    JComboBox categoryBox = new JComboBox(categoryList);
     JComboBox packageBox = new JComboBox();
     JComboBox variantBox = new JComboBox();
 
@@ -37,9 +39,8 @@ public class productFrame extends JFrame{
     JButton addBtn = new JButton("Add");
     JButton backBtn = new JButton("Back");
 
-    static String[] categoryList;
-    static String addCategory = "";
 
+    static String addCategory = "";
     static File categoryFile = new File("Category.txt");
 
     productFrame() {
@@ -53,8 +54,8 @@ public class productFrame extends JFrame{
 
         categoryInfo();
 
-        comboItems comboActions = new comboItems();
-        categoryBox.addActionListener(comboActions);
+//        comboItems comboActions = new comboItems();
+//        categoryBox.addActionListener(comboActions);
 
         JPanel head = new JPanel();
         head.setPreferredSize(new Dimension(700, 35));
