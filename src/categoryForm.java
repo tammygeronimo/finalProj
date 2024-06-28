@@ -19,6 +19,7 @@ public class categoryForm extends JFrame {
     JButton backButton = new JButton("Back");
 
     public categoryForm() {
+
         setTitle("Product Information : Category");
         setSize(300, 190);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

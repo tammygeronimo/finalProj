@@ -1,14 +1,11 @@
-import javax.print.attribute.standard.JobName;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //Changes Update 8:29
-
-
 public class productFrame extends JFrame{
 
     JLabel categoryLabel = new JLabel("Category Code: ");

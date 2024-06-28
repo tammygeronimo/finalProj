@@ -19,8 +19,9 @@ public class packagingForm extends JFrame {
     JButton backButton = new JButton("Back");
 
     public packagingForm() {
+
         setTitle("Product Information : Packaging");
-        setSize(300, 190);
+        setSize(305, 190);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);

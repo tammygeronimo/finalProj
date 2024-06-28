@@ -1,24 +1,24 @@
-import java.awt.Color;
 import java.awt.Font;
+import java.awt.Color;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.util.List;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 // toDos are on end of class
@@ -43,7 +43,7 @@ class deliveryForm extends JFrame {
 
     JTextField sNameField = new JTextField();
     JTextField pNameField = new JTextField();
-    JTextField prodDescField = new JTextField();
+    JTextArea prodDescField = new JTextArea();
     JTextField quantityField = new JTextField();
     JTextArea textArea = new JTextArea();
 
@@ -221,7 +221,7 @@ class deliveryForm extends JFrame {
         String selectedCode = (String) cmbProduct.getSelectedItem();
         for (String[] entry : productData) {
             if (entry[6].equals(selectedCode)) {
-                prodDescField.setText("Package Code/Name : " + entry[2] + ", " + entry[3] +"\nVariant Code/Name   : " + entry[4] + ", " + entry[5]);
+                prodDescField.setText(entry[2] + "\t" + entry[3] + "\n" + entry[4] + "\t" + entry[5]);
                 break;
             }
         }
@@ -280,7 +280,6 @@ class deliveryForm extends JFrame {
         prodDescField.setText("");
         quantityField.setText("");
     }
-
 
     private  List<String[]> loadDataFromFile(String fileName) {
         List<String[]> data = new ArrayList<>();
@@ -343,6 +342,5 @@ class deliveryForm extends JFrame {
             2. Name
             3. Description
             4. Quantity
-
      */
 }
