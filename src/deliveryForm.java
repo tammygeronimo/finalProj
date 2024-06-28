@@ -1,7 +1,24 @@
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 // toDos are on end of class
@@ -34,7 +51,15 @@ class deliveryForm extends JFrame {
     JButton addButton = new JButton("Add");
     JButton backButton = new JButton("Back");
 
+    private List<String[]> supplierData;
+    private List<String[]> productData;
+    private List<String> deliveryData = new ArrayList<>();
+
     public deliveryForm() {
+
+        supplierData = loadDataFromFile("Supplier.txt");
+        productData = loadDataFromFile("Product.txt");
+
         setTitle("Delivery");
         setSize(565,420);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -127,13 +152,14 @@ class deliveryForm extends JFrame {
         // ACTION LISTENERS
         newButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // TODO add functionality
+                enableNewSupplierSelection();
+                populateProductComboBox();
             }
         });
 
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // TODO add functionality
+                addProductToDelivery();
             }
         });
 
@@ -143,9 +169,134 @@ class deliveryForm extends JFrame {
             }
         });
 
+        cmbSupplier.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateSupplierName();
+            }
+        });
+
+        cmbProduct.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateProductName();
+                updateProductDescription();
+            }
+        });
+
         setResizable(false);
         setVisible(true);
     }
+
+    private void enableNewSupplierSelection() {
+        cmbSupplier.setEnabled(true);
+        cmbSupplier.removeAllItems();
+        if (supplierData != null) {
+            for (String[] entry : supplierData) {
+                cmbSupplier.addItem(entry[0]);
+            }
+        }
+        cmbProduct.removeAllItems();
+    }
+
+    private void updateSupplierName() {
+        String selectedCode = (String) cmbSupplier.getSelectedItem();
+        for (String[] entry : supplierData) {
+            if (entry[0].equals(selectedCode)) {
+                sNameField.setText(entry[1]);
+                break;
+            }
+        }
+    }
+
+    private void updateProductName() {
+        String selectedCode = (String) cmbProduct.getSelectedItem();
+        for (String[] entry : productData) {
+            if (entry[6].equals(selectedCode)) {
+                pNameField.setText(entry[7]);
+                break;
+            }
+        }
+    }
+
+    private void updateProductDescription() {
+        String selectedCode = (String) cmbProduct.getSelectedItem();
+        for (String[] entry : productData) {
+            if (entry[6].equals(selectedCode)) {
+                prodDescField.setText("Package Code/Name : " + entry[2] + ", " + entry[3] +"\nVariant Code/Name   : " + entry[4] + ", " + entry[5]);
+                break;
+            }
+        }
+    }
+
+    private void populateProductComboBox() {
+        cmbProduct.removeAllItems();
+        if (productData != null) {
+            for (String[] entry : productData) {
+                cmbProduct.addItem(entry[6]);
+            }
+        }
+    }
+
+    private void addProductToDelivery() {
+        String supplierCode = (String) cmbSupplier.getSelectedItem();
+        String supplierName = sNameField.getText();
+        String productCode = (String) cmbProduct.getSelectedItem();
+        String productName = pNameField.getText();
+        String productDescription = prodDescField.getText();
+        String quantity = quantityField.getText();
+
+        if (supplierCode.isEmpty() || productCode.isEmpty() || quantity.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String deliveryInfo = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
+        deliveryData.add(deliveryInfo);
+        updateTextArea();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Delivery.txt", true))) {
+            writer.write(deliveryInfo);
+            writer.newLine();
+            JOptionPane.showMessageDialog(this, "Product added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving product data.", "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+
+        cmbSupplier.setEnabled(false);
+    }
+
+    private void updateTextArea() {
+        textArea.setText("");
+        for (String entry : deliveryData) {
+            textArea.append(entry + "\n");
+        }
+    }
+
+    private void clearFields() {
+        cmbProduct.setSelectedItem(null);
+        pNameField.setText("");
+        prodDescField.setText("");
+        quantityField.setText("");
+    }
+
+    private List<String[]> loadDataFromFile(String fileName) {
+        List<String[]> data = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",\\s*");
+                if (parts.length >= 2) {
+                    data.add(parts);
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error loading data from " + fileName, "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+        return data;
+    }
+
 
     public static void main(String[] args) {
         FlatMacDarkLaf.setup();
