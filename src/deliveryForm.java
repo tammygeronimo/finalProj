@@ -57,8 +57,8 @@ class deliveryForm extends JFrame {
 
     public deliveryForm() {
 
-        supplierData = loadDataFromFile("Supplier.txt");
-        productData = loadDataFromFile("Product.txt");
+        supplierData = loadDataFromFile("File Handling/Supplier.txt");
+        productData = loadDataFromFile("File Handling/Product.txt");
 
         setTitle("Delivery");
         setSize(565,420);
@@ -252,8 +252,9 @@ class deliveryForm extends JFrame {
         String deliveryInfo = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
         deliveryData.add(deliveryInfo);
         updateTextArea();
+        System.out.print(deliveryInfo);
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Delivery.txt", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("File Handling/Delivery.txt", true))) {
             writer.write(deliveryInfo);
             writer.newLine();
             JOptionPane.showMessageDialog(this, "Product added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -280,12 +281,16 @@ class deliveryForm extends JFrame {
         quantityField.setText("");
     }
 
-    private List<String[]> loadDataFromFile(String fileName) {
+
+    private  List<String[]> loadDataFromFile(String fileName) {
         List<String[]> data = new ArrayList<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",\\s*");
+                String[] parts = line.split("\t");
+
                 if (parts.length >= 2) {
                     data.add(parts);
                 }

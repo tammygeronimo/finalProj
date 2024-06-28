@@ -27,7 +27,8 @@ class orderForm extends JFrame{
     JTextField cashField = new JTextField(10);
     JTextField changeField = new JTextField(10);
 
-    JComboBox cmbProduct = new JComboBox();
+    private static String[] prodList;
+    static JComboBox<String> cmbProduct;
 
     JTextField qtyField = new JTextField(10);
     JTextArea textArea = new JTextArea();
@@ -54,6 +55,8 @@ class orderForm extends JFrame{
             System.err.println("Error loading image: " + e.getMessage());
             e.printStackTrace();
         }
+
+        cmbProduct = new JComboBox<>();
 
         orderHead.setBounds(190, 20, 500, 25);
         orderHead.setFont(new Font("Poppins", Font.BOLD, 25));

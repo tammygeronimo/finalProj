@@ -83,8 +83,8 @@ public class supplierForm extends JFrame {
 
     // Writing to "Supplier.txt"
     private void addSupplierToFile(String supplierCode, String supplierName) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Supplier.txt", true))) {
-            writer.write(supplierCode + "," + supplierName);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("File Handling/Supplier.txt", true))) {
+            writer.write(supplierCode + "\t" + supplierName);
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
