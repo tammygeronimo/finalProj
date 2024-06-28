@@ -1,0 +1,308 @@
+Index: src/deliveryForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.JButton;\r\nimport javax.swing.JComboBox;\r\nimport javax.swing.JFrame;\r\nimport javax.swing.JLabel;\r\nimport javax.swing.JTextArea;\r\nimport javax.swing.JTextField;\r\nimport javax.swing.SwingUtilities;\r\n\r\nimport com.formdev.flatlaf.FlatLightLaf;\r\n\r\n@SuppressWarnings(\"serial\")\r\nclass deliveryForm extends JFrame {\r\n    JLabel sCodeLabel = new JLabel(\"Supplier Code:\");\r\n    JLabel sNameLabel = new JLabel(\"Supplier Name:\");\r\n    JComboBox cmbSupplier = new JComboBox();\r\n    JTextField sNameField = new JTextField();\r\n\r\n    JLabel pCodeLabel = new JLabel(\"Product Code:\");\r\n    JLabel pNameLabel = new JLabel(\"Product Name:\");\r\n    JComboBox cmbProduct = new JComboBox();\r\n    JTextField pNameField = new JTextField();\r\n\r\n    JLabel prodLabel = new JLabel(\"Product\");\r\n    JLabel descLabel = new JLabel(\"Description:\");\r\n    JLabel quantityLabel = new JLabel(\"Quantity Delivered:\");\r\n    JTextArea prodDescField = new JTextArea();\r\n    JTextField quantityField = new JTextField();\r\n\r\n    JTextArea textArea = new JTextArea();\r\n\r\n    JButton newButton = new JButton(\"New\");\r\n    JButton addButton = new JButton(\"Add\");\r\n    JButton backButton = new JButton(\"Back\");\r\n\r\n\r\n    public deliveryForm() {\r\n        setTitle(\"Delivery Information\");\r\n        setSize(565,330);\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n        setLayout(null);\r\n\r\n        sCodeLabel.setBounds(28, 30, 86, 14);cmbSupplier.setBounds(112, 26, 137, 22);\r\n        sNameLabel.setBounds(272, 30, 97, 14);sNameField.setBounds(379, 27, 137, 20);sNameField.setEnabled(false);\r\n        add(sCodeLabel);add(cmbSupplier);add(sNameLabel);add(sNameField);\r\n\r\n        pCodeLabel.setBounds(28, 70, 86, 14);cmbProduct.setBounds(112, 66, 137, 22);\r\n        pNameLabel.setBounds(272, 70, 97, 14);pNameField.setBounds(379, 67, 137, 20);pNameField.setEnabled(false);\r\n        add(pCodeLabel);add(cmbProduct);add(pNameLabel);add(pNameField);\r\n\r\n        prodLabel.setBounds(28, 110, 86, 14);descLabel.setBounds(28, 125, 87, 14);prodDescField.setBounds(112, 110, 137, 49);prodDescField.setEnabled(false);\r\n        quantityLabel.setBounds(272, 110, 97, 14);quantityField.setBounds(379, 110, 86, 20);\r\n        add(prodLabel);add(descLabel);add(prodDescField);add(quantityLabel);add(quantityField);\r\n\r\n        textArea.setBounds(28, 186, 488, 33);\r\n        add(textArea);\r\n\r\n        newButton.setBounds(45, 244, 89, 23);addButton.setBounds(224, 244, 89, 23);backButton.setBounds(413, 244, 89, 23);\r\n        add(newButton);add(addButton);add(backButton);\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        FlatLightLaf.setup();\r\n        SwingUtilities.invokeLater(() -> new deliveryForm());\r\n    }\r\n\r\n    /*\r\n      TODO Create a Function that READ the 'Supplier.txt' and trim the indexes to add into SupplierBox AND set the text\r\n       in product Supplier Name\r\n\r\n     */\r\n    /*\r\n       TODO Create a Functions that READ the 'Package.txt' and trim the indexes to add into ProductBox AND set the text\r\n        in Product Name\r\n\r\n     */\r\n\r\n    /*\r\n       TODO Create A Function that READS the 'Package.txt' & 'Variant.txt' and trim the indexes to add the\r\n        package details and variant details\r\n\r\n         Description includes:\r\n         1. Package Code\r\n         2. Package Name\r\n         3. Variant Code //not sure\r\n         4. Variant Name\r\n\r\n         Ex. Package Code: 1223\r\n             Package Name: CellPhone\r\n             Variant Code; 1562\r\n             Variant Name: Xiaomi\r\n     */\r\n\r\n    /*\r\n        TODO Create an ActionEventListener for AddBtn that appends the details\r\n\r\n        Details Contains:\r\n            1.  Product Code\r\n            2. Name\r\n            3. Description\r\n            4. Quantity\r\n\r\n     */\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/deliveryForm.java b/src/deliveryForm.java
+--- a/src/deliveryForm.java	(revision e47810eb3cd052da0a0a621c4543c0e14701ff34)
++++ b/src/deliveryForm.java	(date 1719472061049)
+@@ -32,7 +32,6 @@
+     JButton addButton = new JButton("Add");
+     JButton backButton = new JButton("Back");
+ 
+-
+     public deliveryForm() {
+         setTitle("Delivery Information");
+         setSize(565,330);
+@@ -48,7 +47,7 @@
+         pNameLabel.setBounds(272, 70, 97, 14);pNameField.setBounds(379, 67, 137, 20);pNameField.setEnabled(false);
+         add(pCodeLabel);add(cmbProduct);add(pNameLabel);add(pNameField);
+ 
+-        prodLabel.setBounds(28, 110, 86, 14);descLabel.setBounds(28, 125, 87, 14);prodDescField.setBounds(112, 110, 137, 49);prodDescField.setEnabled(false);
++        prodLabel.setBounds(28, 110, 86, 14);descLabel.setBounds(28, 125, 87, 14);prodDescField.setBounds(112, 110, 137, 49); prodDescField.setEnabled(true);
+         quantityLabel.setBounds(272, 110, 97, 14);quantityField.setBounds(379, 110, 86, 20);
+         add(prodLabel);add(descLabel);add(prodDescField);add(quantityLabel);add(quantityField);
+ 
+Index: src/systemClass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\nimport javax.swing.text.html.HTMLEditorKit;\r\nimport java.awt.*;\r\nimport java.awt.geom.RoundRectangle2D;\r\n\r\npublic class systemClass extends JFrame {\r\n    JLabel sysHead = new JLabel(\"About the System.\");\r\n    JLabel sysSubHead = new JLabel(\"What is iTMS?\");\r\n    JLabel sysSubHead1 = new JLabel(\"<html><div style='text-align: right;'>What can iTMS do?</div></html>\");\r\n    JPanel divider = new JPanel();\r\n\r\n    public systemClass() {\r\n        setTitle(\"System Information\");\r\n        setSize(1000, 600);\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n        setLayout(null);\r\n        getContentPane().setBackground(Color.decode(\"#EAE5DF\"));\r\n\r\n        sysHead.setBounds(200, 0, 800, 95);\r\n        sysHead.setFont(new Font(\"Segoe UI\", Font.BOLD, 70));\r\n        sysHead.setForeground(Color.decode(\"#1C1F20\"));\r\n        add(sysHead);\r\n\r\n        divider.setBounds(30, 105, 940, 2);\r\n        divider.setBackground(Color.LIGHT_GRAY);\r\n        add(divider);\r\n\r\n        sysSubHead.setBounds(100, 115, 500, 35);\r\n        sysSubHead.setFont(new Font(\"Segoe UI\", Font.BOLD, 30));\r\n        sysSubHead.setForeground(Color.decode(\"#450202\"));\r\n        add(sysSubHead);\r\n\r\n        sysSubHead1.setBounds(550, 115, 500, 35);\r\n        sysSubHead1.setFont(new Font(\"Segoe UI\", Font.BOLD, 30));\r\n        sysSubHead1.setForeground(Color.decode(\"#450202\"));\r\n        add(sysSubHead1);\r\n\r\n        RoundedTextArea roundedTextArea1 = new RoundedTextArea();\r\n        roundedTextArea1.setText(\"<html><div style='font-family: Microsoft Sans Serif; font-size: 16px; text-align: justify; color: white;'>\" +\r\n                \"The Java-based Inventory and Transaction Management System (iTMS), designed to streamline business operations, is a comprehensive solution that seamlessly integrates product management, supplier coordination, and transaction processing, ensuring unparalleled efficiency and accuracy all in one application.<br><br>\" +\r\n                \"Additional features include:<br>\" +\r\n                \"- Secure storage of product information<br>\" +\r\n                \"- Supplier management and coordination<br>\" +\r\n                \"- Automated transaction processing</div></html>\");\r\n        roundedTextArea1.setBounds(30, 160, 400, 370);\r\n        add(roundedTextArea1);\r\n\r\n        RoundedTextArea roundedTextArea2 = new RoundedTextArea();\r\n        roundedTextArea2.setText(\"<html><div style='font-family: Microsoft Sans Serif; font-size: 14.9px; text-align: justify; color: white;'>With the iTMS, one can effortlessly manage product categories, packages, and variants, all stored securely in dedicated text files. Streamline supplier interactions by maintaining detailed supplier information and tracking deliveries with ease. The intuitive interface allows for smooth order management, automatically calculating total order amounts and facilitating cash transactions. <br></br><br>Generate insightful reports on product details and sales to make informed business decisions. The system also includes an [About] section, offering transparency with information about the system and its developers. Elevate your business with the iTMS – where innovation meets simplicity.</br></div></html>\");\r\n        roundedTextArea2.setBounds(455, 160, 500, 370);\r\n        add(roundedTextArea2);\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        new systemClass();\r\n    }\r\n\r\n    // Custom JTextPane with rounded corners\r\n    class RoundedTextArea extends JEditorPane {\r\n        private static final int ARC_WIDTH = 20;\r\n        private static final int ARC_HEIGHT = 20;\r\n\r\n        public RoundedTextArea() {\r\n            setOpaque(false); // Make it transparent\r\n            setEditable(false);\r\n            setBackground(Color.decode(\"#450202\"));\r\n            setContentType(\"text/html\"); // Set content type to HTML\r\n            setMargin(new Insets(10, 10, 10, 10));\r\n            //setFont(new Font(\"Segoe UI\", Font.PLAIN, 18)); // Set Segoe UI font, size 18\r\n            setEditorKit(new HTMLEditorKit()); // Use HTMLEditorKit for HTML rendering\r\n        }\r\n\r\n        @Override\r\n        protected void paintComponent(Graphics g) {\r\n            Graphics2D g2 = (Graphics2D) g.create();\r\n            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);\r\n            g2.setColor(getBackground());\r\n            g2.fill(new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, ARC_WIDTH, ARC_HEIGHT));\r\n            super.paintComponent(g2);\r\n            g2.dispose();\r\n        }\r\n\r\n        @Override\r\n        protected void paintBorder(Graphics g) {\r\n            Graphics2D g2 = (Graphics2D) g.create();\r\n            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);\r\n            g2.setColor(Color.GRAY); // Border color\r\n            g2.draw(new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, ARC_WIDTH, ARC_HEIGHT));\r\n            g2.dispose();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/systemClass.java b/src/systemClass.java
+--- a/src/systemClass.java	(revision e47810eb3cd052da0a0a621c4543c0e14701ff34)
++++ b/src/systemClass.java	(date 1719458193800)
+@@ -1,3 +1,5 @@
++import javax.swing.JFrame;
++import javax.swing.JPanel;
+ import javax.swing.*;
+ import javax.swing.text.html.HTMLEditorKit;
+ import java.awt.*;
+@@ -5,8 +7,7 @@
+ 
+ public class systemClass extends JFrame {
+     JLabel sysHead = new JLabel("About the System.");
+-    JLabel sysSubHead = new JLabel("What is iTMS?");
+-    JLabel sysSubHead1 = new JLabel("<html><div style='text-align: right;'>What can iTMS do?</div></html>");
++    JLabel sysSubHead = new JLabel("Why use iTMS?");
+     JPanel divider = new JPanel();
+ 
+     public systemClass() {
+@@ -14,83 +15,32 @@
+         setSize(1000, 600);
+         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+         setLocationRelativeTo(null);
+-        setLayout(null);
++        getContentPane().setLayout(null);
+         getContentPane().setBackground(Color.decode("#EAE5DF"));
++        sysHead.setHorizontalAlignment(SwingConstants.RIGHT);
+ 
+-        sysHead.setBounds(200, 0, 800, 95);
+-        sysHead.setFont(new Font("Segoe UI", Font.BOLD, 70));
++        sysHead.setBounds(467, 10, 489, 93);
++        sysHead.setFont(new Font("Segoe UI", Font.BOLD, 55));
+         sysHead.setForeground(Color.decode("#1C1F20"));
+-        add(sysHead);
++        getContentPane().add(sysHead);
+ 
+-        divider.setBounds(30, 105, 940, 2);
+-        divider.setBackground(Color.LIGHT_GRAY);
+-        add(divider);
+-
+-        sysSubHead.setBounds(100, 115, 500, 35);
++        sysSubHead.setBounds(30, 113, 215, 35);
+         sysSubHead.setFont(new Font("Segoe UI", Font.BOLD, 30));
+         sysSubHead.setForeground(Color.decode("#450202"));
+-        add(sysSubHead);
++        getContentPane().add(sysSubHead);
+ 
+-        sysSubHead1.setBounds(550, 115, 500, 35);
+-        sysSubHead1.setFont(new Font("Segoe UI", Font.BOLD, 30));
+-        sysSubHead1.setForeground(Color.decode("#450202"));
+-        add(sysSubHead1);
++        divider.setBounds(467, 101, 489, 2);
++        divider.setBackground(Color.LIGHT_GRAY);
++        add(divider);
+ 
+-        RoundedTextArea roundedTextArea1 = new RoundedTextArea();
+-        roundedTextArea1.setText("<html><div style='font-family: Microsoft Sans Serif; font-size: 16px; text-align: justify; color: white;'>" +
+-                "The Java-based Inventory and Transaction Management System (iTMS), designed to streamline business operations, is a comprehensive solution that seamlessly integrates product management, supplier coordination, and transaction processing, ensuring unparalleled efficiency and accuracy all in one application.<br><br>" +
+-                "Additional features include:<br>" +
+-                "- Secure storage of product information<br>" +
+-                "- Supplier management and coordination<br>" +
+-                "- Automated transaction processing</div></html>");
+-        roundedTextArea1.setBounds(30, 160, 400, 370);
+-        add(roundedTextArea1);
+-
+-        RoundedTextArea roundedTextArea2 = new RoundedTextArea();
+-        roundedTextArea2.setText("<html><div style='font-family: Microsoft Sans Serif; font-size: 14.9px; text-align: justify; color: white;'>With the iTMS, one can effortlessly manage product categories, packages, and variants, all stored securely in dedicated text files. Streamline supplier interactions by maintaining detailed supplier information and tracking deliveries with ease. The intuitive interface allows for smooth order management, automatically calculating total order amounts and facilitating cash transactions. <br></br><br>Generate insightful reports on product details and sales to make informed business decisions. The system also includes an [About] section, offering transparency with information about the system and its developers. Elevate your business with the iTMS – where innovation meets simplicity.</br></div></html>");
+-        roundedTextArea2.setBounds(455, 160, 500, 370);
+-        add(roundedTextArea2);
++        JLabel lblNewLabel = new JLabel("<html>The Java-based Inventory and Transaction Management System (iTMS), designed to streamline business operations, is a comprehensive solution that seamlessly integrates product management, supplier coordination, and transaction processing, ensuring unparalleled efficiency and accuracy all in one application. With the iTMS, one can effortlessly manage product categories, packages, and variants, all stored securely in dedicated text files. Streamline supplier interactions by maintaining detailed supplier information and tracking deliveries with ease. The intuitive interface allows for smooth order management, automatically calculating total order amounts and facilitating cash transactions. <br></br><br>Generate insightful reports on product details and sales to make informed business decisions. The system also includes an [About] section, offering transparency with information about the system and its developers. Elevate your business with the iTMS – where innovation meets simplicity.</br></html>");
++        lblNewLabel.setLabelFor(this);
++        lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
++        lblNewLabel.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 18));
++        lblNewLabel.setBounds(30, 148, 529, 393);
++        getContentPane().add(lblNewLabel);
+ 
+         setResizable(false);
+         setVisible(true);
+     }
+-
+-    public static void main(String[] args) {
+-        new systemClass();
+-    }
+-
+-    // Custom JTextPane with rounded corners
+-    class RoundedTextArea extends JEditorPane {
+-        private static final int ARC_WIDTH = 20;
+-        private static final int ARC_HEIGHT = 20;
+-
+-        public RoundedTextArea() {
+-            setOpaque(false); // Make it transparent
+-            setEditable(false);
+-            setBackground(Color.decode("#450202"));
+-            setContentType("text/html"); // Set content type to HTML
+-            setMargin(new Insets(10, 10, 10, 10));
+-            //setFont(new Font("Segoe UI", Font.PLAIN, 18)); // Set Segoe UI font, size 18
+-            setEditorKit(new HTMLEditorKit()); // Use HTMLEditorKit for HTML rendering
+-        }
+-
+-        @Override
+-        protected void paintComponent(Graphics g) {
+-            Graphics2D g2 = (Graphics2D) g.create();
+-            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+-            g2.setColor(getBackground());
+-            g2.fill(new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, ARC_WIDTH, ARC_HEIGHT));
+-            super.paintComponent(g2);
+-            g2.dispose();
+-        }
+-
+-        @Override
+-        protected void paintBorder(Graphics g) {
+-            Graphics2D g2 = (Graphics2D) g.create();
+-            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+-            g2.setColor(Color.GRAY); // Border color
+-            g2.draw(new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, ARC_WIDTH, ARC_HEIGHT));
+-            g2.dispose();
+-        }
+-    }
+ }
+Index: src/productFrame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nimport javax.print.attribute.standard.JobName;\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\n\r\npublic class productFrame extends JFrame{\r\n\r\n    JLabel categoryLabel = new JLabel(\"Category Code: \");\r\n    JLabel packageLabel = new JLabel(\"Package Code: \");\r\n    JLabel variantLabel = new JLabel(\"Variant Code: \");\r\n    JLabel productCodeLabel = new JLabel(\"Product Code: \");\r\n\r\n    JLabel categoryNameLabel = new JLabel(\"Category Name: \");\r\n    JLabel packageNameLabel = new JLabel(\"Package Name: \");\r\n    JLabel variantNameLabel = new JLabel(\"Variant Name: \");\r\n    JLabel productNameLabel = new JLabel(\"Product Name: \");\r\n\r\n    JLabel priceLabel = new JLabel(\"Price: \");\r\n\r\n    JComboBox categoryBox = new JComboBox();\r\n    JComboBox packageBox = new JComboBox();\r\n    JComboBox variantBox = new JComboBox();\r\n\r\n    JTextField productCodeField = new JTextField(11);\r\n    JTextField CategoryNameField = new JTextField(20);\r\n    JTextField packageField = new JTextField(20);\r\n    JTextField variantField = new JTextField(20);\r\n    JTextField productNameField = new JTextField(20);\r\n    JTextField priceField = new JTextField(17);\r\n\r\n    JButton addBtn = new JButton(\"Add\");\r\n    JButton backBtn = new JButton(\"Back\");\r\n\r\n    productFrame() {\r\n\r\n        setTitle(\"Product Form\");\r\n        setSize(700, 400);\r\n        setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));\r\n\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n\r\n        JPanel head = new JPanel();\r\n        head.setPreferredSize(new Dimension(700, 35));\r\n\r\n        JLabel titleHead = new JLabel(\"Product Form\");\r\n        titleHead.setFont(new Font(\"Verdana\", Font.BOLD, 25));\r\n        head.add(titleHead);\r\n        add(head);\r\n\r\n        JPanel panel1 = new JPanel();\r\n        panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 33));\r\n        panel1.setPreferredSize(new Dimension(120, 240));\r\n\r\n        panel1.add(categoryLabel);\r\n        panel1.add(packageLabel);\r\n        panel1.add(variantLabel);\r\n        panel1.add(productCodeLabel);\r\n\r\n        JPanel panel2 = new JPanel();\r\n        panel2.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));\r\n        panel2.setPreferredSize(new Dimension(135, 240));\r\n\r\n        categoryBox.setPreferredSize(new Dimension(125, 30));\r\n        packageBox.setPreferredSize(new Dimension(125, 30));\r\n        variantBox.setPreferredSize(new Dimension(125, 30));\r\n        productCodeField.setPreferredSize(new Dimension(125, 30));\r\n\r\n        panel2.add(categoryBox);\r\n        panel2.add(packageBox);\r\n        panel2.add(variantBox);\r\n        panel2.add(productCodeField);\r\n\r\n        JPanel panel3 = new JPanel();\r\n        panel3.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 33));\r\n        panel3.setPreferredSize(new Dimension(105, 240));\r\n\r\n        panel3.add(categoryNameLabel);\r\n        panel3.add(packageNameLabel);\r\n        panel3.add(variantNameLabel);\r\n        panel3.add(productNameLabel);\r\n\r\n        JPanel panel4 = new JPanel();\r\n        panel4.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));\r\n        panel4.setPreferredSize(new Dimension(250, 240));\r\n\r\n        CategoryNameField.setPreferredSize(new Dimension(245, 30));\r\n        CategoryNameField.setEditable(false);\r\n\r\n        packageField.setPreferredSize(new Dimension(245, 30));\r\n        packageField.setEditable(false);\r\n\r\n        variantField.setPreferredSize(new Dimension(245, 30));\r\n        variantField.setEditable(false);\r\n\r\n        productNameField.setPreferredSize(new Dimension(245, 30));\r\n\r\n        panel4.add(CategoryNameField);\r\n        panel4.add(packageField);\r\n        panel4.add(variantField);\r\n        panel4.add(productNameField);\r\n\r\n        add(panel1);\r\n        add(panel2);\r\n        add(panel3);\r\n        add(panel4);\r\n\r\n        add(priceLabel);\r\n        add(priceField);\r\n\r\n        add(addBtn);\r\n        add(backBtn);\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    //TODO Create A Function that Read the 'Package.txt' for and setText the Package Name\r\n    //TODO Create A Function that Read the 'Package.txt' and added and trim the items to JComboBox [Product Code]\r\n\r\n    //TODO Create A Function that Read the 'Category.txt' for and setText the Category Name\r\n    //TODO Create A Function that Read the 'Category.txt' and added and trim the items to JComboBox [Category Code]\r\n\r\n    //TODO Create A Function that Read the 'Variant.txt' for and setText the Variant Name\r\n    //TODO Create A Function that Read the 'Variant.txt' and added and trim the items to JComboBox [Variant Code]\r\n\r\n    //TODO Create A Function that Write Information in 'Product.txt' for and setText the Product Code & Name\r\n    // when clicked\r\n\r\n\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/productFrame.java b/src/productFrame.java
+--- a/src/productFrame.java	(revision e47810eb3cd052da0a0a621c4543c0e14701ff34)
++++ b/src/productFrame.java	(date 1719471039465)
+@@ -1,4 +1,3 @@
+-
+ import javax.print.attribute.standard.JobName;
+ import javax.swing.*;
+ import java.awt.*;
+@@ -105,8 +104,8 @@
+         add(panel3);
+         add(panel4);
+ 
+-        add(priceLabel);
+-        add(priceField);
++        add(priceLabel); // TODO wag natin pantay sa buttons
++        add(priceField); // TODO wag natin pantay sa buttons
+ 
+         add(addBtn);
+         add(backBtn);
+Index: src/supplierForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.io.BufferedWriter;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\n\r\npublic class supplierForm extends JFrame {\r\n\r\n    JLabel cCodeLabel = new JLabel(\"Supplier Code:\");\r\n    JLabel cNameLabel = new JLabel(\"Supplier Name:\");\r\n    JTextField cCodeField = new JTextField();\r\n    JTextField cNameField = new JTextField();\r\n    JButton addButton = new JButton(\"Add\");\r\n    JButton backButton = new JButton(\"Back\");\r\n\r\n    public supplierForm() {\r\n        setTitle(\"Product Information : Supplier\");\r\n        setSize(300, 190);\r\n        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n        setLocationRelativeTo(null);\r\n        setLayout(null);\r\n\r\n        cCodeLabel.setBounds(10, 20, 100, 25);\r\n        cCodeField.setBounds(120, 20, 150, 25);\r\n        add(cCodeLabel); add(cCodeField);\r\n\r\n        cNameLabel.setBounds(10, 60, 100, 25);\r\n        cNameField.setBounds(120, 60, 150, 25);\r\n        add(cNameLabel); add(cNameField);\r\n\r\n        addButton.setBounds(30, 110, 100, 25);\r\n        backButton.setBounds(150, 110, 100, 25);\r\n        add(addButton);add(backButton);\r\n\r\n        // Action Listeners\r\n        addButton.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent e) {\r\n                String categoryCode = cCodeField.getText();\r\n                String categoryName = cNameField.getText();\r\n                addCategoryToFile(categoryCode, categoryName);\r\n                JOptionPane.showMessageDialog(null,  \"Supplier successfully recorded.\", \"Processed!\",\r\n                        JOptionPane.INFORMATION_MESSAGE);\r\n                cCodeField.setText(\"\");\r\n                cNameField.setText(\"\");\r\n            }\r\n        });\r\n\r\n        backButton.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent e) {\r\n                dispose();\r\n            }\r\n        });\r\n\r\n        setResizable(false);\r\n        setVisible(true);\r\n    }\r\n\r\n    // Writing to \"Category.txt\"\r\n    private void addCategoryToFile(String categoryCode, String categoryName) {\r\n        try (BufferedWriter writer = new BufferedWriter(new FileWriter(\"Supplier.txt\", true))) {\r\n            writer.write(categoryCode + \",\" + categoryName);\r\n            writer.newLine();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n    //TODO Create A functions thats write the informations into 'Supplier.txt'\r\n    //TODO Create ActionEventListener for add and Back buttons\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/supplierForm.java b/src/supplierForm.java
+--- a/src/supplierForm.java	(revision e47810eb3cd052da0a0a621c4543c0e14701ff34)
++++ b/src/supplierForm.java	(date 1719461986225)
+@@ -15,7 +15,7 @@
+     JButton backButton = new JButton("Back");
+ 
+     public supplierForm() {
+-        setTitle("Product Information : Supplier");
++        setTitle("Supplier Information");
+         setSize(300, 190);
+         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+         setLocationRelativeTo(null);
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"openjdk-22\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision e47810eb3cd052da0a0a621c4543c0e14701ff34)
++++ b/.idea/misc.xml	(date 1719458205411)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9dee99c0-e3b6-45fa-bb2f-671313585466\" name=\"Changes\" comment=\"JUSTINE FILE\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/mainForm.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/mainForm.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2iPmUTVH6qzUPwhUpk9EuqtMmIh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.mainForm.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.systemClass.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;Add-Branch&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"mainForm\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"mainForm\" />\r\n      <module name=\"finalProject\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.mainForm\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9dee99c0-e3b6-45fa-bb2f-671313585466\" name=\"Changes\" comment=\"\" />\r\n      <created>1719400601562</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1719400601562</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"JUSTINE FILE\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1719451733643</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1719451733643</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"JUSTINE FILE\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"JUSTINE FILE\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Main.java</url>\r\n          <line>11</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e47810eb3cd052da0a0a621c4543c0e14701ff34)
++++ b/.idea/workspace.xml	(date 1719471851198)
+@@ -5,8 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="JUSTINE FILE">
++      <change afterPath="$PROJECT_DIR$/src/ListFonts.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_4_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_4_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/supplierForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supplierForm.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/systemClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systemClass.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -20,6 +26,12 @@
+       </list>
+     </option>
+   </component>
++  <component name="Git.Merge.Settings">
++    <option name="BRANCH" value="origin/master" />
++  </component>
++  <component name="Git.Rebase.Settings">
++    <option name="NEW_BASE" value="origin/master" />
++  </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+@@ -34,16 +46,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.mainForm.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.systemClass.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;Add-Branch&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.deliveryForm.executor": "Run",
++    "Application.mainForm.executor": "Run",
++    "Application.systemClass.executor": "Run",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "master",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "C:/Users/Tamara/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar",
++    "onboarding.tips.debug.path": "C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java",
++    "project.structure.last.edited": "Libraries",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager">
+     <configuration name="mainForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="mainForm" />
+Index: .idea/libraries/flatlaf_3_4_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"flatlaf-3.4.1\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/Downloads/flatlaf-3.4.1.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/flatlaf_3_4_1.xml b/.idea/libraries/flatlaf_3_4_1.xml
+--- a/.idea/libraries/flatlaf_3_4_1.xml	(revision e47810eb3cd052da0a0a621c4543c0e14701ff34)
++++ b/.idea/libraries/flatlaf_3_4_1.xml	(date 1719458279084)
+@@ -1,7 +1,7 @@
+ <component name="libraryTable">
+   <library name="flatlaf-3.4.1">
+     <CLASSES>
+-      <root url="jar://$USER_HOME$/Downloads/flatlaf-3.4.1.jar!/" />
++      <root url="jar://$USER_HOME$/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar!/" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES />
+diff --git a/src/ListFonts.java b/src/ListFonts.java
+new file mode 100644
