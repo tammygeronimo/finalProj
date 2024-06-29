@@ -221,7 +221,7 @@ class deliveryForm extends JFrame {
         String selectedCode = (String) cmbProduct.getSelectedItem();
         for (String[] entry : productData) {
             if (entry[6].equals(selectedCode)) {
-                prodDescField.setText(entry[2] + "\t" + entry[3] + "\n" + entry[4] + "\t" + entry[5]);
+                prodDescField.setText(entry[2] + "\t" + entry[3] + "\t" + entry[4] + "\t" + entry[5]);
                 break;
             }
         }
@@ -250,8 +250,12 @@ class deliveryForm extends JFrame {
         }
 
         String deliveryInfo = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
+        String deliveryWrite = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
+
+
         deliveryData.add(deliveryInfo);
         updateTextArea();
+
         System.out.print(deliveryInfo);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("File Handling/Delivery.txt", true))) {
