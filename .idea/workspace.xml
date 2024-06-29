@@ -195,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719580665939</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Some Changes in Product Frame">
+      <option name="closed" value="true" />
+      <created>1719626564769</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719626564769</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,7 +227,8 @@
     <MESSAGE value="guipolish_codecleaning" />
     <MESSAGE value="Delivery Form and Product Functionalities" />
     <MESSAGE value="File Handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="File Handling" />
+    <MESSAGE value="Some Changes in Product Frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some Changes in Product Frame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
