@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -19,13 +20,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
-// toDos are on end of class
+import com.formdev.flatlaf.FlatLightLaf;
 
 @SuppressWarnings("serial")
 class deliveryForm extends JFrame {
-
     // components
     JLabel delHead = new JLabel("Delivery Form");
     JLabel sCodeLabel = new JLabel("Supplier Code:");
@@ -221,7 +220,7 @@ class deliveryForm extends JFrame {
         String selectedCode = (String) cmbProduct.getSelectedItem();
         for (String[] entry : productData) {
             if (entry[6].equals(selectedCode)) {
-                prodDescField.setText("Package Code/Name : " + entry[2] + ", " + entry[3] +"\nVariant Code/Name   : " + entry[4] + ", " + entry[5]);
+                prodDescField.setText(entry[2] + "," + entry[3] + " & " + entry[4] + "," + entry[5]);
                 break;
             }
         }
@@ -250,9 +249,10 @@ class deliveryForm extends JFrame {
         }
 
         String deliveryInfo = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
+        String deliveryWrite = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + quantity;
+
         deliveryData.add(deliveryInfo);
         updateTextArea();
-        System.out.print(deliveryInfo);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("File Handling/Delivery.txt", true))) {
             writer.write(deliveryInfo);
@@ -281,16 +281,12 @@ class deliveryForm extends JFrame {
         quantityField.setText("");
     }
 
-
-    private  List<String[]> loadDataFromFile(String fileName) {
+    private List<String[]> loadDataFromFile(String fileName) {
         List<String[]> data = new ArrayList<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("\t");
-
                 if (parts.length >= 2) {
                     data.add(parts);
                 }
@@ -302,47 +298,8 @@ class deliveryForm extends JFrame {
         return data;
     }
 
-
     public static void main(String[] args) {
-        FlatMacDarkLaf.setup();
+        FlatLightLaf.setup();
         SwingUtilities.invokeLater(() -> new deliveryForm());
     }
-
-    /*
-      TODO Create a Function that READ the 'Supplier.txt' and trim the indexes to add into SupplierBox AND set the text
-       in product Supplier Name
-
-     */
-    /*
-       TODO Create a Functions that READ the 'Package.txt' and trim the indexes to add into ProductBox AND set the text
-        in Product Name
-
-     */
-
-    /*
-       TODO Create A Function that READS the 'Package.txt' & 'Variant.txt' and trim the indexes to add the
-        package details and variant details
-
-         Description includes:
-         1. Package Code
-         2. Package Name
-         3. Variant Code //not sure
-         4. Variant Name
-
-         Ex. Package Code: 1223
-             Package Name: CellPhone
-             Variant Code; 1562
-             Variant Name: Xiaomi
-     */
-
-    /*
-        TODO Create an ActionEventListener for AddBtn that appends the details
-
-        Details Contains:
-            1. Product Code
-            2. Name
-            3. Description
-            4. Quantity
-
-     */
 }

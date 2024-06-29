@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="Delivery Form and Product Functionalities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Handling/Delivery.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Delivery.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Handling/Product.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Product.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OrderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719578071942</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="File Handling">
+      <option name="closed" value="true" />
+      <created>1719580665939</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719580665939</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

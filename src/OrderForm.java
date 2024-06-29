@@ -3,6 +3,12 @@ import javax.swing.*;
 import javax.swing.SwingUtilities;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 // TODO add functionality to actionlisteners
@@ -38,6 +44,13 @@ class orderForm extends JFrame{
     JButton computeButton = new JButton("Compute");
     JButton backButton = new JButton("Back");
 
+    private static ArrayList<String> productCodes = new ArrayList<>();
+    private static ArrayList<String> productNames = new ArrayList<>();
+    private static ArrayList<String> productPrices = new ArrayList<>();
+
+    static File productFile = new File("File Handling/Product.txt");
+
+
     public orderForm() {
         setTitle("Order");
         setSize(550, 480);
@@ -58,6 +71,9 @@ class orderForm extends JFrame{
 
         cmbProduct = new JComboBox<>();
 
+        productActions prodAct = new productActions();
+        cmbProduct.addActionListener(prodAct);
+
         orderHead.setBounds(190, 20, 500, 25);
         orderHead.setFont(new Font("Poppins", Font.BOLD, 25));
         add(orderHead);
@@ -65,7 +81,7 @@ class orderForm extends JFrame{
         nameLabel.setBounds(35, 60, 110, 25);
         nameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
         nameLabel.setForeground(Color.decode("#31C198"));
-        nameField.setBounds(150, 60, 345, 25);
+        nameField.setBounds(150, 60, 345, 25); nameField.setEnabled(false);
         add(nameLabel); add(nameField);
 
         pNameLabel.setBounds(35, 92, 100, 25);
@@ -143,18 +159,27 @@ class orderForm extends JFrame{
         newButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // TODO add functionality
+                nameField.setEnabled(true);
+                loadDetails();
+
             }
         });
 
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // TODO add functionality
+
+
+                nameField.setEnabled(false);
+                System.out.println("Disabled");
             }
         });
 
         computeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // TODO add functionality
+
+
             }
         });
 
@@ -168,8 +193,56 @@ class orderForm extends JFrame{
         setVisible(true);
     }
 
+    public class productActions implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == cmbProduct){
+                int prodIndex = cmbProduct.getSelectedIndex();
+
+                if (prodIndex != -1){
+                    String prodCode = (String) cmbProduct.getSelectedItem();
+                    String prodName = productNames.get(prodIndex);
+                    String prodPrice = productPrices.get(prodIndex);
+
+                    priceField.setText(prodPrice);
+
+                }
+            }
+        }
+    }
+
+    public  static void loadDetails(){
+        try(BufferedReader br = new BufferedReader(new FileReader(productFile))) {
+            String line;
+            while ((line = br.readLine()) != null){
+                String[] prodBox = line.split("\t");
+
+                if (prodBox.length >= 3){
+
+                    String prodCode = prodBox[6];
+                    String prodName = prodBox[7];
+                    String productPrice = prodBox[8];
+
+                    productCodes.add(prodCode);
+                    productNames.add(prodName);
+                    productPrices.add(productPrice);
+
+                    cmbProduct.addItem(prodName);
+                }
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         FlatMacDarkLaf.setup();
         SwingUtilities.invokeLater(() -> new orderForm());
     }
+
+
+    //TODO Read the Product File and add to Combo Box then set the Available Quantity to the textField
+    //TODO Set the Price to the priceField coming from the 'Product.txt'
+    //TODO
 }
