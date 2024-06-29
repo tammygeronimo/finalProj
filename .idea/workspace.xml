@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="updated write on del.txt">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_28_2024_8_07_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_28_2024_8_07_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="upd system frame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Category.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Handling/Delivery.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Delivery.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Handling/Product.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Product.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supplier.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/categoryForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packagingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packagingForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,12 +39,12 @@
     &quot;assignee&quot;: &quot;tammygeronimo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/tammygeronimo/finalProj.git&quot;,
-    &quot;accountId&quot;: &quot;afcb2256-6f47-4f63-b3d3-78c77cad7bd0&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/tammygeronimo/finalProj.git",
+    "accountId": "7c6004ae-545e-4a13-af95-76edeae08802"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -193,7 +182,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719581418754</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="commit eme">
+      <option name="closed" value="true" />
+      <created>1719581441107</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719581441107</updated>
+    </task>
+    <task id="LOCAL-00012" summary="upd system frame">
+      <option name="closed" value="true" />
+      <created>1719592331055</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719592331055</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,7 +223,9 @@
     <MESSAGE value="Delivery Form and Product Functionalities" />
     <MESSAGE value="product frame" />
     <MESSAGE value="updated write on del.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated write on del.txt" />
+    <MESSAGE value="commit eme" />
+    <MESSAGE value="upd system frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd system frame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
