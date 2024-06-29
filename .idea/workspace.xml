@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="Delivery Form and Product Functionalities">
+    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="updated write on del.txt">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_28_2024_8_07_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_28_2024_8_07_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Category.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/File Handling/Delivery.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Delivery.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Handling/Product.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Product.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supplier.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/categoryForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packagingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packagingForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,39 +177,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719569329443</updated>
     </task>
-    <task id="LOCAL-00009" summary="Delivery Form and Product Functionalities">
+    <task id="LOCAL-00009" summary="product frame">
       <option name="closed" value="true" />
-      <created>1719577806571</created>
+      <created>1719578455995</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1719577806571</updated>
+      <updated>1719578455995</updated>
     </task>
-    <task id="LOCAL-00010" summary="File Handling">
+    <task id="LOCAL-00010" summary="updated write on del.txt">
       <option name="closed" value="true" />
-      <created>1719578071942</created>
+      <created>1719581418754</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1719578071942</updated>
+      <updated>1719581418754</updated>
     </task>
-    <task id="LOCAL-00011" summary="File Handling">
-      <option name="closed" value="true" />
-      <created>1719580665939</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1719580665939</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Some Changes in Product Frame">
-      <option name="closed" value="true" />
-      <created>1719626564769</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1719626564769</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,9 +216,9 @@
     <MESSAGE value="layout except product and order form" />
     <MESSAGE value="guipolish_codecleaning" />
     <MESSAGE value="Delivery Form and Product Functionalities" />
-    <MESSAGE value="File Handling" />
-    <MESSAGE value="Some Changes in Product Frame" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some Changes in Product Frame" />
+    <MESSAGE value="product frame" />
+    <MESSAGE value="updated write on del.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated write on del.txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

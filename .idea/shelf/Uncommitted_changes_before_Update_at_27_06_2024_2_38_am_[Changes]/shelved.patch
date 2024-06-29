@@ -7,20 +7,67 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 ===================================================================
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
 --- a/.idea/workspace.xml	(revision fee6670add9f39e05f65d6e32bf4f3ab666b90e6)
-+++ b/.idea/workspace.xml	(date 1719426940889)
-@@ -4,10 +4,8 @@
++++ b/.idea/workspace.xml	(date 1719427049159)
+@@ -4,7 +4,7 @@
      <option name="autoReloadType" value="SELECTIVE" />
    </component>
    <component name="ChangeListManager">
 -    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="added system frame">
 +    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="systemframe-torevise">
        <change afterPath="$PROJECT_DIR$/src/ListFonts.java" afterDir="false" />
--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
--      <change beforePath="$PROJECT_DIR$/src/systemClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systemClass.java" afterDir="false" />
-     </list>
-     <option name="SHOW_DIALOG" value="false" />
-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
-@@ -119,7 +117,15 @@
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/systemClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systemClass.java" afterDir="false" />
+@@ -20,6 +20,9 @@
+         <option value="Class" />
+       </list>
+     </option>
++  </component>
++  <component name="Git.Rebase.Settings">
++    <option name="NEW_BASE" value="master" />
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -45,23 +48,23 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.ListFonts.executor": "Run",
+-    "Application.mainForm.executor": "Run",
+-    "Application.systemClass.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "master",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/Tamara/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar",
+-    "onboarding.tips.debug.path": "C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java",
+-    "project.structure.last.edited": "Libraries",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.ListFonts.executor&quot;: &quot;Run&quot;,
++    &quot;Application.mainForm.executor&quot;: &quot;Run&quot;,
++    &quot;Application.systemClass.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tamara/Documents/2324 - 2nd Semester/E) Java - Eclipse Workspace/flatlaf-3.4.1.jar&quot;,
++    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Tamara/IdeaProjects/finalProject/src/Main.java&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -119,7 +122,15 @@
        <option name="project" value="LOCAL" />
        <updated>1719417330888</updated>
      </task>
@@ -37,7 +84,7 @@ diff --git a/.idea/workspace.xml b/.idea/workspace.xml
      <servers />
    </component>
    <component name="VcsManagerConfiguration">
-@@ -129,6 +135,7 @@
+@@ -129,6 +140,7 @@
      <MESSAGE value="category txt" />
      <MESSAGE value="deleted trial classes" />
      <MESSAGE value="added system frame" />
@@ -54,8 +101,8 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 ===================================================================
 diff --git a/src/ListFonts.java b/src/ListFonts.java
 new file mode 100644
---- /dev/null	(date 1719419918556)
-+++ b/src/ListFonts.java	(date 1719419918556)
+--- /dev/null	(date 1719426995255)
++++ b/src/ListFonts.java	(date 1719426995255)
 @@ -0,0 +1,13 @@
 +import java.awt.GraphicsEnvironment;
 +

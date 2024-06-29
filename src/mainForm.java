@@ -1,11 +1,9 @@
-import javax.swing.*;
-import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import com.formdev.flatlaf.FlatDarkLaf;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-
 
 public class mainForm extends JFrame {
 
@@ -77,7 +75,37 @@ public class mainForm extends JFrame {
         bar.add(aboutMenu);
         setJMenuBar(bar);
 
-        // Add ActionListener to catItem
+        // JTextArea & JScrollPane
+        JTextArea textArea = new JTextArea(28, 75);
+        JLabel def_label = new JLabel("[ Display reports here via the Report Menu ]");
+        def_label.setBounds(255, 220, 300, 15);
+        def_label.setFont(new Font("Poppins", Font.ITALIC, 11));
+        def_label.setForeground(Color.GRAY);
+        textArea.add(def_label);
+        textArea.setBackground(Color.decode("#323232"));
+        // textArea.setBorder(BorderFactory.createLineBorder(Color.decode("#050505"), 5));
+        textArea.setEnabled(false);
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        // Customize the scrollbar appearance
+        JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
+        verticalScrollBar.setUI(new CustomScrollBarUI());
+
+        // Create a panel with BorderLayout to center the scroll pane
+        JPanel centerPanel = new JPanel(new BorderLayout());
+        centerPanel.add(scrollPane, BorderLayout.CENTER);
+
+        // Create a panel with FlowLayout to add spacing around the centered panel
+        JPanel outerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        outerPanel.setBorder(BorderFactory.createEmptyBorder(50, 20, 20, 20));
+        outerPanel.add(centerPanel);
+
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(outerPanel, BorderLayout.CENTER);
+
+        // ACTION LISTENERS
         catItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -127,7 +155,6 @@ public class mainForm extends JFrame {
             }
         });
 
-
         orderItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -135,45 +162,12 @@ public class mainForm extends JFrame {
             }
         });
 
-
         suppItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new supplierForm();
             }
         });
-
-        // JTextArea & JScrollPane
-        JTextArea textArea = new JTextArea(28, 75);
-        JLabel def_label = new JLabel("[ Display reports here via the Report Menu ]");
-        def_label.setBounds(255, 220, 300, 15);
-        def_label.setFont(new Font("Verdana", Font.ITALIC, 11));
-        def_label.setForeground(Color.GRAY);
-        textArea.add(def_label);
-        textArea.setBackground(Color.decode("#323232"));
-
-        // Set custom border color
-        // textArea.setBorder(BorderFactory.createLineBorder(Color.decode("#050505"), 5));
-
-        textArea.setEnabled(false);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-        // Customize the scrollbar appearance
-        JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
-        verticalScrollBar.setUI(new CustomScrollBarUI());
-
-        // Create a panel with BorderLayout to center the scroll pane
-        JPanel centerPanel = new JPanel(new BorderLayout());
-        centerPanel.add(scrollPane, BorderLayout.CENTER);
-
-        // Create a panel with FlowLayout to add spacing around the centered panel
-        JPanel outerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        outerPanel.setBorder(BorderFactory.createEmptyBorder(50, 20, 20, 20));
-        outerPanel.add(centerPanel);
-
-        getContentPane().setLayout(new BorderLayout());
-        getContentPane().add(outerPanel, BorderLayout.CENTER);
 
         setResizable(false);
         setVisible(true);

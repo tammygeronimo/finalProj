@@ -5,8 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-
+//Changes Update 8:29
 public class productFrame extends JFrame{
 
     JLabel categoryLabel = new JLabel("Category Code: ");
@@ -19,6 +21,7 @@ public class productFrame extends JFrame{
     JLabel variantNameLabel = new JLabel("Variant Name: ");
     JLabel productNameLabel = new JLabel("Product Name: ");
 
+    private static String[] categList;
     static JComboBox<String> categoryComboBox;
     static JComboBox<String> packageBox;
     static JComboBox<String> variantBox;
@@ -163,22 +166,22 @@ public class productFrame extends JFrame{
                 productCode = productCodeField.getText();
                 productPrice = priceField.getText();
 
-
                 if (productName.isEmpty() || productCode.isEmpty() || productPrice.isEmpty() || catCode.isEmpty()
                         || pBox.isEmpty() || vBox.isEmpty()){
                     JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
+
+
                 infoWrite = categoryInfo + "\t" + packageInfo + "\t" + variantInfo + "\t" + productCode + "\t" + productName + "\t" + productPrice;
-                //infoWrite = productCode + "\t" + productName + "\t" + productPrice;
+                //infoWrite = "\t" + productCode + "\t" + productName + "\t" + productPrice;
 
                 System.out.println(infoWrite);
 
 
                 JOptionPane.showMessageDialog(null,  "Product successfully added.", "Recorded!",
                         JOptionPane.INFORMATION_MESSAGE);
-
 
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter("File Handling/Product.txt", true))) {
                     writer.write(infoWrite);
@@ -246,7 +249,6 @@ public class productFrame extends JFrame{
                     variantField.setText(varName);
 
                     variantInfo = varCode + "\t" + varName;
-
                 }
             }
 
@@ -314,6 +316,17 @@ public class productFrame extends JFrame{
         }
     }
 
+    //TODO Create A Function that Read the 'Package.txt' for and setText the Package Name
+    //TODO Create A Function that Read the 'Package.txt' and added and trim the items to JComboBox [Product Code]
+
+    //TODO Create A Function that Read the 'Category.txt' for and setText the Category Name
+    //TODO Create A Function that Read the 'Category.txt' and added and trim the items to JComboBox [Category Code]
+
+    //TODO Create A Function that Read the 'Variant.txt' for and setText the Variant Name
+    //TODO Create A Function that Read the 'Variant.txt' and added and trim the items to JComboBox [Variant Code]
+
+    //TODO Create A Function that Write Information in 'Product.txt' for and setText the Product Code & Name
+    // when clicked
 
 
 }
