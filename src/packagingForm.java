@@ -27,7 +27,7 @@ public class packagingForm extends JFrame {
         setLayout(null);
 
         // Window Icon
-        String imagePath = "media/tempcon.jpg";
+        String imagePath = "media/Logo-Final.png";
         try {
             ImageIcon logoIcon = new ImageIcon(imagePath);
             Image logoImage = logoIcon.getImage();

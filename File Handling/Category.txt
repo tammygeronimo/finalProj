@@ -1,1 +1,3 @@
-ASDH1	JAS
+electronic	laptop
+clothing	jacket
+market	milk

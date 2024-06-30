@@ -1,3 +1,4 @@
-123ASD	ASD	12SAD	Phone	12HAS	AUQW    SADH1	JSA	5
-ASD1	ASD1	ASDA	ASDAS	12HAS	AUQW    SADH1	JSA	10
-123ASD	ASD	12SAD	Phone	12HAS	AUQW	SADH1	JSA	20
+S001	supplier A	ELECT.P1.V1	Laptop.S.VA	P001,small & V001,variant A	3
+S002	supplier B	CLOTH.P2.V2	Jacket.M.VB	P002,medium & V002,variant B	5
+S003	supplier C	MARKET.P3.V3	Milk.L.VC	P003,large & V003,variant C	7
+S002	supplier B	ELECT.P1.V1	Laptop.S.VA	P001,small & V001,variant A	20

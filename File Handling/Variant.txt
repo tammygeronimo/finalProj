@@ -1,1 +1,3 @@
-SADH1	JSA
+V001	variant A
+V002	variant B
+V003	variant C

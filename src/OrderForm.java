@@ -1,15 +1,13 @@
 import java.awt.*;
 import javax.swing.*;
+import java.io.*;
 import java.util.List;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 class orderForm extends JFrame{
 
@@ -48,6 +46,11 @@ class orderForm extends JFrame{
     private float change=0;
     private float total;
 
+    LocalDateTime currentTime = LocalDateTime.now();
+    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    String writeTime = currentTime.format(timeFormatter);
+
     public orderForm() {
 
         deliveryData = loadDataFromDelivery("File Handling/Delivery.txt");
@@ -60,7 +63,7 @@ class orderForm extends JFrame{
         setLayout(null);
 
         // Window Icon
-        String imagePath = "media/tempcon.jpg";
+        String imagePath = "media/Logo-Final.png";
         try {
             ImageIcon logoIcon = new ImageIcon(imagePath);
             Image logoImage = logoIcon.getImage();
@@ -281,7 +284,11 @@ class orderForm extends JFrame{
 
     private void addToSalesFile(float total) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("File Handling/Sales.txt", true))) {
-            writer.write(total + "");
+
+            String customerName = nameField.getText();
+
+
+            writer.write(writeTime + "\t" + customerName + "\t" + total);
             writer.newLine();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error writing to Sales.txt", "Error", JOptionPane.ERROR_MESSAGE);

@@ -6,6 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="upd system frame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Handling/Category.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Category.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Handling/Delivery.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Delivery.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Handling/Package.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Package.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Handling/Product.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Product.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Handling/Supplier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Supplier.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/File Handling/Variant.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Variant.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/apdal.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/apdal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OrderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/authorClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authorClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/categoryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/packagingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packagingForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/supplierForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supplierForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/systemClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systemClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/variantForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/variantForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +56,12 @@
     &quot;assignee&quot;: &quot;tammygeronimo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/tammygeronimo/finalProj.git",
-    "accountId": "7c6004ae-545e-4a13-af95-76edeae08802"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/tammygeronimo/finalProj.git&quot;,
+    &quot;accountId&quot;: &quot;7c6004ae-545e-4a13-af95-76edeae08802&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -75,6 +92,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Justine Apdal\IdeaProjects\finalProj\finalProj\media" />
       <recent name="C:\Users\Justine Apdal\IdeaProjects\finalProj\finalProj\File Handling" />
       <recent name="C:\Users\Justine Apdal\IdeaProjects\finalProj\finalProj\File Handling (Text File)" />
     </key>

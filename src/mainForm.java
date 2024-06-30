@@ -1,20 +1,33 @@
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 public class mainForm extends JFrame {
+    private List<String[]> deliveryData;
+    private List<String[]> salesData;
 
     public mainForm() {
+
+        deliveryData = loadDataFromDelivery("File Handling/Delivery.txt");
+        salesData = loadDataFromDelivery("File Handling/Sales.txt");
+
         setTitle("Home");
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         // Window Icon
-        String imagePath = "media/tempcon.jpg";
+        String imagePath = "media/Logo-Final.png";
         try {
             ImageIcon logoIcon = new ImageIcon(imagePath);
             Image logoImage = logoIcon.getImage();
@@ -183,6 +196,67 @@ public class mainForm extends JFrame {
             }
         });
 
+        repSalesItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder salesInfo = new StringBuilder();
+                Float totalSales = (float) 0;
+
+                def_label.setText("");
+                salesInfo.append("\tDate\t\t\tCustomer Name\t\tTotal Price\n");
+                salesInfo.append("-------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+
+                for (String[] sales : salesData){
+                    String salesDate = sales[0];
+                    String salesName= sales[1];
+                    Float amount = Float.valueOf(sales[2]);
+
+                    salesInfo.append("\t");
+                    salesInfo.append(salesDate).append("\t\t");
+                    salesInfo.append(salesName).append("\t\t\t");
+                    salesInfo.append(amount).append("\n");
+                    totalSales += amount;
+
+                }
+
+                salesInfo.append("\n\n");
+                salesInfo.append("Computed Accumulated Total Sales: ").append(totalSales);
+
+
+
+                textArea.setText(salesInfo.toString());
+                textArea.setEnabled(true);
+            }
+        });
+
+        repProdItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder productInfo = new StringBuilder();
+
+                def_label.setText("");
+                productInfo.append("Product Code\tProduct Name\tPackage Code & Name\tVariant Code & Name\tAvailable Quantity\n");
+                productInfo.append("-----------------------------------------------------------------------------------------------------------------------------\n");
+
+                for (String[] delivery : deliveryData) {
+                    String productCode = delivery[2];
+                    String productName = delivery[3];
+                    String packageCodeAndName = delivery[4].split("&")[0];
+                    String variantCodeAndName = delivery[4].split("&")[1];
+                    String availableQuantity = delivery[5];
+
+                    productInfo.append(productCode).append("\t")
+                            .append(productName).append("\t")
+                            .append(packageCodeAndName).append("\t\t")
+                            .append(variantCodeAndName).append("\t\t")
+                            .append(availableQuantity).append("\n");
+                }
+
+                textArea.setText(productInfo.toString());
+                textArea.setEnabled(true);
+            }
+        });
+
         setResizable(false);
         setVisible(true);
     }
@@ -223,6 +297,23 @@ public class mainForm extends JFrame {
         menu.setBackground(bgColor);
         return menu;
     }
+
+    private List<String[]> loadDataFromDelivery(String fileName) {
+        List<String[]> data = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\t");
+                if (parts.length >= 2) {
+                    data.add(parts);
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error loading data from " + fileName, "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+        return data;
+    }
 }
 
 @SuppressWarnings("serial")
@@ -253,4 +344,3 @@ class SplashScreen extends JWindow {
         add(content);
     }
 }
-

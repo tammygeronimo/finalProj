@@ -1,1 +1,3 @@
-12HAS	AUQW
+P001	small
+P002	medium
+P003	large
