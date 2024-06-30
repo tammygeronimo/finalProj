@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="upd system frame">
+    <list default="true" id="9dee99c0-e3b6-45fa-bb2f-671313585466" name="Changes" comment="Functionalities Done!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Handling/Category.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Category.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/File Handling/Delivery.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Delivery.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Handling/Package.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Package.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Handling/Product.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Product.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Handling/Supplier.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Supplier.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/File Handling/Variant.txt" beforeDir="false" afterPath="$PROJECT_DIR$/File Handling/Variant.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/apdal.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/apdal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authorClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authorClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/categoryForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/deliveryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/deliveryForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/packagingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/packagingForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/productFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/productFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supplierForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supplierForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/systemClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systemClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/variantForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/variantForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719592331055</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Functionalities Done!!">
+      <option name="closed" value="true" />
+      <created>1719762481333</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1719762481333</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,7 +235,8 @@
     <MESSAGE value="updated write on del.txt" />
     <MESSAGE value="commit eme" />
     <MESSAGE value="upd system frame" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd system frame" />
+    <MESSAGE value="Functionalities Done!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Functionalities Done!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -220,7 +220,7 @@ class orderForm extends JFrame{
         String selectedCode = (String) cmbProduct.getSelectedItem();
         for (String[] del : deliveryData) {
             if (del[3].equals(selectedCode)) {
-                qtyField.setText(del[7]);
+                qtyField.setText(del[8]);
                 for (String[] pro : productData) {
                     if (del[3].equals(pro[7])) {
                         priceField.setText(pro[8]);
