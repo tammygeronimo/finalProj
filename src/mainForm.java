@@ -176,7 +176,7 @@ public class mainForm extends JFrame {
     public static void main(String[] args) {
         FlatMacDarkLaf.setup();
 
-    /*    // Create and show the splash screen
+        // Create and show the splash screen
         SplashScreen splash = new SplashScreen();
         splash.setVisible(true);
 
@@ -188,7 +188,7 @@ public class mainForm extends JFrame {
         }
 
         // Close the splash screen
-        splash.dispose(); */
+        splash.dispose();
 
 
         // Start the main application
@@ -242,7 +242,7 @@ class SplashScreen extends JWindow {
         content.add(label, BorderLayout.SOUTH);
 
         // Add the content to the splash screen
-        getContentPane().add(content);
+        add(content);
     }
 }
 
