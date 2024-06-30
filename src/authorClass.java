@@ -36,7 +36,7 @@ public class authorClass extends JFrame {
     public authorClass() {
 
         setTitle("System Authors");
-        setSize(1000, 600);
+        setSize(1000, 610);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);

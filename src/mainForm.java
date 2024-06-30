@@ -123,14 +123,14 @@ public class mainForm extends JFrame {
         exitItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+                // Show the confirmation dialog
+                int result = JOptionPane.showConfirmDialog(
+                        mainForm.this, "Are you sure you want to exit the iTMS?", "Exit?",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-        sysItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new systemClass();
+                if (result == JOptionPane.YES_OPTION) {
+                    dispose();
+                }
             }
         });
 
@@ -169,6 +169,20 @@ public class mainForm extends JFrame {
             }
         });
 
+        sysItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new systemClass();
+            }
+        });
+
+        authorsItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new authorClass();
+            }
+        });
+
         setResizable(false);
         setVisible(true);
     }
@@ -176,20 +190,15 @@ public class mainForm extends JFrame {
     public static void main(String[] args) {
         FlatMacDarkLaf.setup();
 
-        // Create and show the splash screen
         SplashScreen splash = new SplashScreen();
         splash.setVisible(true);
-
-        // Simulate some startup work (e.g., loading resources)
+        // Simulate some startup work
         try {
             Thread.sleep(3000); // Simulate loading time
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        // Close the splash screen
         splash.dispose();
-
 
         // Start the main application
         SwingUtilities.invokeLater(() -> new mainForm());
@@ -228,7 +237,7 @@ class SplashScreen extends JWindow {
 
         // Create a panel to hold the splash screen contents
         JPanel content = new JPanel(new BorderLayout());
-        content.setBackground(Color.WHITE);
+        content.setBackground(Color.BLACK);
 
         // Load the image
         String imagePath = "C:\\Users\\Tamara\\Downloads\\yoga.jpg";
