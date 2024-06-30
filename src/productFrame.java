@@ -1,16 +1,14 @@
-import javax.print.attribute.standard.JobName;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
+import java.awt.*;
+import javax.swing.*;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
-//Changes Update 8:29
 public class productFrame extends JFrame{
 
+    // components
     JLabel categoryLabel = new JLabel("Category Code: ");
     JLabel packageLabel = new JLabel("Package Code: ");
     JLabel variantLabel = new JLabel("Variant Code: ");
@@ -54,11 +52,21 @@ public class productFrame extends JFrame{
     productFrame() {
 
         setTitle("Product Form");
-        setSize(700, 400);
-        setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-
+        setSize(685, 335);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
+        setLayout(null);
+
+        // Window Icon
+        String imagePath = "media/tempcon.jpg";
+        try {
+            ImageIcon logoIcon = new ImageIcon(imagePath);
+            Image logoImage = logoIcon.getImage();
+            setIconImage(logoImage);
+        } catch (Exception e) {
+            System.err.println("Error loading image: " + e.getMessage());
+            e.printStackTrace();
+        }
 
         categoryComboBox = new JComboBox<>();
         packageBox = new JComboBox<>();
@@ -66,89 +74,118 @@ public class productFrame extends JFrame{
 
         infoLoads();
 
-        JPanel head = new JPanel();
-        head.setPreferredSize(new Dimension(700, 35));
-
         JLabel titleHead = new JLabel("Product Form");
-        titleHead.setFont(new Font("Verdana", Font.BOLD, 25));
-        head.add(titleHead);
-        add(head);
+        titleHead.setFont(new Font("Poppins", Font.BOLD, 25));
+        titleHead.setBounds(247, 5, 180, 30);
+        add(titleHead);
 
-        JPanel panel1 = new JPanel();
-        panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 33));
-        panel1.setPreferredSize(new Dimension(120, 240));
+        categoryLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        categoryLabel.setForeground(Color.decode("#31C198"));
+        categoryLabel.setBounds(25, 60, 120, 25);
+        add(categoryLabel);
 
-        panel1.add(categoryLabel);
-        panel1.add(packageLabel);
-        panel1.add(variantLabel);
-        panel1.add(productCodeLabel);
+        packageLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        packageLabel.setForeground(Color.decode("#31C198"));
+        packageLabel.setBounds(25, 95, 120, 25);
+        add(packageLabel);
 
-        JPanel panel2 = new JPanel();
-        panel2.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));
-        panel2.setPreferredSize(new Dimension(135, 240));
+        variantLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        variantLabel.setForeground(Color.decode("#31C198"));
+        variantLabel.setBounds(25, 130, 120, 25);
+        add(variantLabel);
+
+        productCodeLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        productCodeLabel.setForeground(Color.decode("#31C198"));
+        productCodeLabel.setBounds(25, 165, 120, 25);
+        add(productCodeLabel);
 
         comboActions infoBox = new comboActions();
         categoryComboBox.addActionListener(infoBox);
         packageBox.addActionListener(infoBox);
         variantBox.addActionListener(infoBox);
 
-        categoryComboBox.setPreferredSize(new Dimension(125, 30));
-        packageBox.setPreferredSize(new Dimension(125, 30));
-        variantBox.setPreferredSize(new Dimension(125, 30));
-        productCodeField.setPreferredSize(new Dimension(125, 30));
+        categoryComboBox.setBounds(144, 60, 150, 25);
+        add(categoryComboBox);
 
-        panel2.add(categoryComboBox);
-        panel2.add(packageBox);
-        panel2.add(variantBox);
-        panel2.add(productCodeField);
+        packageBox.setBounds(144, 95, 150, 25);
+        add(packageBox);
 
-        JPanel panel3 = new JPanel();
-        panel3.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 33));
-        panel3.setPreferredSize(new Dimension(105, 240));
+        variantBox.setBounds(144, 130, 150, 25);
+        add(variantBox);
 
-        panel3.add(categoryNameLabel);
-        panel3.add(packageNameLabel);
-        panel3.add(variantNameLabel);
-        panel3.add(productNameLabel);
+        productCodeField.setBounds(144, 165, 150, 25);
+        add(productCodeField);
 
-        JPanel panel4 = new JPanel();
-        panel4.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 21));
-        panel4.setPreferredSize(new Dimension(250, 240));
+        categoryNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        categoryNameLabel.setForeground(Color.decode("#31C198"));
+        categoryNameLabel.setBounds(318, 60, 120, 25);
+        add(categoryNameLabel);
 
-        CategoryNameField.setPreferredSize(new Dimension(245, 30));
-        CategoryNameField.setEditable(false); CategoryNameField.setEnabled(false);
+        packageNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        packageNameLabel.setForeground(Color.decode("#31C198"));
+        packageNameLabel.setBounds(318, 95, 120, 25);
+        add(packageNameLabel);
 
-        packageField.setPreferredSize(new Dimension(245, 30));
-        packageField.setEditable(false); packageField.setEnabled(false);
+        variantNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        variantNameLabel.setForeground(Color.decode("#31C198"));
+        variantNameLabel.setBounds(318, 130, 120, 25);
+        add(variantNameLabel);
 
-        variantField.setPreferredSize(new Dimension(245, 30));
-        variantField.setEditable(false); variantField.setEnabled(false);
+        productNameLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        productNameLabel.setForeground(Color.decode("#31C198"));
+        productNameLabel.setBounds(318, 165, 120, 25);
+        add(productNameLabel);
 
-        productNameField.setPreferredSize(new Dimension(245, 30));
+        CategoryNameField.setBounds(445, 60, 200, 25);
+        CategoryNameField.setEditable(false);
+        CategoryNameField.setEnabled(false);
+        add(CategoryNameField);
 
-        panel4.add(CategoryNameField);
-        panel4.add(packageField);
-        panel4.add(variantField);
-        panel4.add(productNameField);
+        packageField.setBounds(445, 95, 200, 25);
+        packageField.setEditable(false);
+        packageField.setEnabled(false);
+        add(packageField);
 
-        add(panel1);
-        add(panel2);
-        add(panel3);
-        add(panel4);
+        variantField.setBounds(445, 130, 200, 25);
+        variantField.setEditable(false);
+        variantField.setEnabled(false);
+        add(variantField);
 
-        add(priceLabel); // TODO wag natin pantay sa buttons
-        add(priceField); // TODO wag natin pantay sa buttons
+        productNameField.setBounds(445, 165, 200, 25);
+        add(productNameField);
+
+        priceLabel.setFont(new Font("Poppins", Font.PLAIN, 13));
+        priceLabel.setForeground(Color.decode("#31C198"));
+        priceLabel.setBounds(233, 200, 50, 25);
+        add(priceLabel);
+
+        priceField.setBounds(293, 200, 150, 25);
+        add(priceField);
 
         buttonActions btnFunction = new buttonActions();
         addBtn.addActionListener(btnFunction);
         backBtn.addActionListener(btnFunction);
 
+        addBtn.setBounds(216, 249, 100, 30);
+        addBtn.setBackground(Color.decode("#31C198"));
+        addBtn.setForeground(Color.decode("#1E1E1F"));
+        addBtn.setFont(new Font("Poppins", Font.BOLD, 12));
         add(addBtn);
+
+        backBtn.setBounds(355, 249, 100, 30);
+        backBtn.setBackground(Color.decode("#31C198"));
+        backBtn.setForeground(Color.decode("#1E1E1F"));
+        backBtn.setFont(new Font("Poppins", Font.PLAIN,12));
         add(backBtn);
 
         setResizable(false);
         setVisible(true);
+    }
 
+    public static void main(String[] args) {
+        FlatMacDarkLaf.setup();
+        // Start the main application
+        SwingUtilities.invokeLater(() -> new productFrame());
     }
 
     public class buttonActions extends Component implements ActionListener{
@@ -172,13 +209,10 @@ public class productFrame extends JFrame{
                     return;
                 }
 
-
-
                 infoWrite = categoryInfo + "\t" + packageInfo + "\t" + variantInfo + "\t" + productCode + "\t" + productName + "\t" + productPrice;
                 //infoWrite = "\t" + productCode + "\t" + productName + "\t" + productPrice;
 
                 System.out.println(infoWrite);
-
 
                 JOptionPane.showMessageDialog(null,  "Product successfully added.", "Recorded!",
                         JOptionPane.INFORMATION_MESSAGE);
@@ -200,8 +234,6 @@ public class productFrame extends JFrame{
                 productCodeField.setText("");
                 productNameField.setText("");
                 priceField.setText("");
-
-
 
             } else {
                 dispose();
@@ -314,23 +346,6 @@ public class productFrame extends JFrame{
         catch(IOException e){
             e.printStackTrace();
         }
+
     }
-
-    //TODO Create A Function that Read the 'Package.txt' for and setText the Package Name
-    //TODO Create A Function that Read the 'Package.txt' and added and trim the items to JComboBox [Product Code]
-
-    //TODO Create A Function that Read the 'Category.txt' for and setText the Category Name
-    //TODO Create A Function that Read the 'Category.txt' and added and trim the items to JComboBox [Category Code]
-
-    //TODO Create A Function that Read the 'Variant.txt' for and setText the Variant Name
-    //TODO Create A Function that Read the 'Variant.txt' and added and trim the items to JComboBox [Variant Code]
-
-    //TODO Create A Function that Write Information in 'Product.txt' for and setText the Product Code & Name
-    // when clicked
-
-
 }
-
-
-
-

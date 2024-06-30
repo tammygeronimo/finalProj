@@ -125,7 +125,7 @@ public class mainForm extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Show the confirmation dialog
                 int result = JOptionPane.showConfirmDialog(
-                        mainForm.this, "Are you sure you want to exit the iTMS?", "Exit?",
+                        mainForm.this, "Do you want to exit the iTMS?", "Exit?",
                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
                 if (result == JOptionPane.YES_OPTION) {
@@ -194,7 +194,7 @@ public class mainForm extends JFrame {
         splash.setVisible(true);
         // Simulate some startup work
         try {
-            Thread.sleep(3000); // Simulate loading time
+            Thread.sleep(2000); // Simulate loading time
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -229,7 +229,7 @@ public class mainForm extends JFrame {
 class SplashScreen extends JWindow {
     public SplashScreen() {
         // Set the size of the splash screen
-        setSize(600, 600);
+        setSize(700, 700);
 
         // Center the splash screen on the screen
         setLocationRelativeTo(null);
@@ -239,7 +239,7 @@ class SplashScreen extends JWindow {
         content.setBackground(Color.BLACK);
 
         // Load the image
-        String imagePath = "C:\\Users\\Tamara\\Downloads\\yoga.jpg";
+        String imagePath = "media/yoga.jpg";
         ImageIcon imageIcon = new ImageIcon(imagePath);
         JLabel imageLabel = new JLabel(imageIcon, SwingConstants.CENTER);
 
