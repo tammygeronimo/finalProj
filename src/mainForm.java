@@ -225,7 +225,6 @@ public class mainForm extends JFrame {
     }
 }
 
-
 @SuppressWarnings("serial")
 class SplashScreen extends JWindow {
     public SplashScreen() {
