@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import javax.swing.*;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
@@ -21,7 +22,10 @@ public class authorClass extends JFrame {
     JLabel contR = new JLabel("Contributions:");
     JLabel apdCont1 = new JLabel("• GUI Frame Layout(s)");
     JLabel apdCont2 = new JLabel("• Functionalities");
-    JLabel apdCont3 = new JLabel("- Product Form");
+    JLabel apdCont3 = new JLabel("- Product Frame");
+    JLabel apdCont4 = new JLabel("- Show Reports");
+    JLabel apdCont5 = new JLabel("- Order/Delivery Form*");
+    JLabel apdCont6 = new JLabel("- File Handling");
     JLabel gerCont1 = new JLabel("• GUI design");
     JLabel gerCont2 = new JLabel("- Frame Layout(s)");
     JLabel gerCont3 = new JLabel("- Themes, Colors, Fonts");
@@ -29,7 +33,10 @@ public class authorClass extends JFrame {
     JLabel gerCont5 = new JLabel("• Loading/Splash Screen");
     JLabel embCont1 = new JLabel("• GUI Frame Layout(s)");
     JLabel embCont2 = new JLabel("• Functionalities");
-    JLabel embCont3 = new JLabel("- Product Form");
+    JLabel embCont3 = new JLabel("- Show Reports (Product)");
+    JLabel embCont4 = new JLabel("- Order/Delivery Form*");
+    JLabel embCont5 = new JLabel("- Variant/Supplier Form");
+    JLabel embCont6 = new JLabel("- File Handling");
 
     JPanel head = new JPanel();
 
@@ -105,6 +112,16 @@ public class authorClass extends JFrame {
         apdCont3.setFont(new Font("Poppins", Font.PLAIN, 12));
         apdCont3.setBounds(157, 498, 158, 25);
         add(apdCont3);
+        apdCont4.setFont(new Font("Poppins", Font.PLAIN, 12));
+        apdCont4.setBounds(157, 512, 158, 25);
+        add(apdCont4);
+        apdCont5.setFont(new Font("Poppins", Font.PLAIN, 12));
+        apdCont5.setBounds(157, 526, 158, 25);
+        add(apdCont5);
+        apdCont6.setFont(new Font("Poppins", Font.PLAIN, 12));
+        apdCont6.setBounds(157, 540, 158, 25);
+        add(apdCont6);
+
 
         contG.setFont(new Font("Poppins", Font.ITALIC, 14));
         contG.setBounds(406, 442, 114, 25);
@@ -137,13 +154,17 @@ public class authorClass extends JFrame {
         embCont3.setFont(new Font("Poppins", Font.PLAIN, 12));
         embCont3.setBounds(710, 498, 158, 25);
         add(embCont3);
+        embCont4.setFont(new Font("Poppins", Font.PLAIN, 12));
+        embCont4.setBounds(710, 512, 158, 25);
+        add(embCont4);
+        embCont5.setFont(new Font("Poppins", Font.PLAIN, 12));
+        embCont5.setBounds(710, 526, 158, 25);
+        add(embCont5);
+        embCont6.setFont(new Font("Poppins", Font.PLAIN, 12));
+        embCont6.setBounds(710, 540, 158, 25);
+        add(embCont6);
 
         setResizable(false);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        FlatMacDarkLaf.setup();
-        SwingUtilities.invokeLater(() -> new authorClass());
     }
 }

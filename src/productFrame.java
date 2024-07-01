@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.awt.*;
 import javax.swing.*;
@@ -180,12 +181,6 @@ public class productFrame extends JFrame{
 
         setResizable(false);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        FlatMacDarkLaf.setup();
-        // Start the main application
-        SwingUtilities.invokeLater(() -> new productFrame());
     }
 
     public class buttonActions extends Component implements ActionListener{

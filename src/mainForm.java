@@ -1,14 +1,13 @@
 
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
+import java.util.List;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-
+import java.io.BufferedReader;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
@@ -138,7 +137,7 @@ public class mainForm extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Show the confirmation dialog
                 int result = JOptionPane.showConfirmDialog(
-                        mainForm.this, "Do you want to exit the iTMS?", "Exit?",
+                        mainForm.this, "Do you want to exit the iTMS?", "Exit",
                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
                 if (result == JOptionPane.YES_OPTION) {
@@ -206,18 +205,29 @@ public class mainForm extends JFrame {
                 salesInfo.append("\tDate\t\t\tCustomer Name\t\tTotal Price\n");
                 salesInfo.append("-------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
-                for (String[] sales : salesData){
-                    String salesDate = sales[0];
-                    String salesName= sales[1];
-                    Float amount = Float.valueOf(sales[2]);
+                try(BufferedReader br = new BufferedReader(new FileReader("File Handling/Sales.txt"))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
 
-                    salesInfo.append("\t");
-                    salesInfo.append(salesDate).append("\t\t");
-                    salesInfo.append(salesName).append("\t\t\t");
-                    salesInfo.append(amount).append("\n");
-                    totalSales += amount;
+                        String[] salesRep = line.split("\t");
 
+                        if (salesRep.length >= 2) {
+                            String saleDate = salesRep[0];
+                            String customerName = salesRep[1];
+                            Float amount = Float.valueOf(salesRep[2]);
+
+                            salesInfo.append("\t");
+                            salesInfo.append(saleDate).append("\t\t");
+                            salesInfo.append(customerName).append("\t\t\t");
+                            salesInfo.append(amount).append("\n");
+                            totalSales += amount;
+
+                        }
+                    }
+                } catch (IOException ea){
+                    ea.printStackTrace();
                 }
+
 
                 salesInfo.append("\n\n");
                 salesInfo.append("Computed Accumulated Total Sales: ").append(totalSales);
@@ -235,22 +245,36 @@ public class mainForm extends JFrame {
                 StringBuilder productInfo = new StringBuilder();
 
                 def_label.setText("");
-                productInfo.append("Product Code\tProduct Name\tPackage Code & Name\tVariant Code & Name\tAvailable Quantity\n");
-                productInfo.append("-----------------------------------------------------------------------------------------------------------------------------\n");
+                productInfo.append("Product Code\t\tProduct Name\t\tPackage Code & Name\tVariant Code & Name\tAvailable Quantity\n");
+                productInfo.append("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
-                for (String[] delivery : deliveryData) {
-                    String productCode = delivery[2];
-                    String productName = delivery[3];
-                    String packageCodeAndName = delivery[4].split("&")[0];
-                    String variantCodeAndName = delivery[4].split("&")[1];
-                    String availableQuantity = delivery[5];
+                try(BufferedReader br = new BufferedReader(new FileReader("File Handling/Delivery.txt")))
+                {
+                    String line;
+                    while ((line = br.readLine()) != null){
 
-                    productInfo.append(productCode).append("\t")
-                            .append(productName).append("\t")
-                            .append(packageCodeAndName).append("\t\t")
-                            .append(variantCodeAndName).append("\t\t")
-                            .append(availableQuantity).append("\n");
+                        String[] prodRep = line.split("\t");
+
+                        if (prodRep.length >= 2){
+                            String productCode = prodRep[2];
+                            String productName = prodRep[3];
+                            String packageCodeAndName = prodRep[4];
+                            String variantCodeAndName = prodRep[4];
+                            String availableQuantity = prodRep[8];
+
+                            productInfo.append(productCode).append("\t\t");
+                            productInfo.append(productName).append("\t\t");
+                            productInfo.append(packageCodeAndName).append("\t\t");
+                            productInfo.append(variantCodeAndName).append("\t\t");
+                            productInfo.append(availableQuantity).append("\n");
+                        }
+                    }
+
+
+                } catch (IOException ea){
+                    ea.printStackTrace();
                 }
+
 
                 textArea.setText(productInfo.toString());
                 textArea.setEnabled(true);
@@ -330,15 +354,15 @@ class SplashScreen extends JWindow {
         content.setBackground(Color.BLACK);
 
         // Load the image
-        String imagePath = "media/yoga.jpg";
+        String imagePath = "media/Loading-Cover.jpg";
         ImageIcon imageIcon = new ImageIcon(imagePath);
         JLabel imageLabel = new JLabel(imageIcon, SwingConstants.CENTER);
 
         // Add an image or text to the splash screen
-        JLabel label = new JLabel("Loading, please wait...", SwingConstants.CENTER);
-        label.setFont(new Font("Sans-Serif", Font.BOLD, 20));
+        //JLabel label = new JLabel("Loading, please wait...", SwingConstants.CENTER);
+        //label.setFont(new Font("Sans-Serif", Font.BOLD, 20));
         content.add(imageLabel, BorderLayout.CENTER);
-        content.add(label, BorderLayout.SOUTH);
+        //content.add(label, BorderLayout.SOUTH);
 
         // Add the content to the splash screen
         add(content);

@@ -1,1 +1,3 @@
-S001	supplier A	ELECT.P1.V1	Laptop.S.VA	P001	small	V001	variant A	12
+S001	supplier A	EC-LPS1	ThinkPad	P001	small	V001	variant A	18.0
+S002	supplier B	EC-LPL3	Alienware	P003	large	V001	variant A	29.0
+S001	supplier A	CL-JKS1	Gnarly-Small	P001	small	V001	variant A	45.0

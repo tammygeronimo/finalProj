@@ -1,10 +1,12 @@
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.*;
-import java.awt.*;
+        import java.awt.*;
 
 public class systemClass extends JFrame {
 
+    JLabel iTMS = new JLabel(new ImageIcon("media/trans-logo.png"));
     JLabel sysHead = new JLabel("About the System.");
     JLabel sysSubHead = new JLabel("Identity");
     JLabel sysSubHead2 = new JLabel("Purpose");
@@ -36,6 +38,9 @@ public class systemClass extends JFrame {
             System.err.println("Error loading image: " + e.getMessage());
             e.printStackTrace();
         }
+
+        iTMS.setBounds(700, 210, 190, 190);
+        add(iTMS);
 
         sysHead.setHorizontalAlignment(SwingConstants.RIGHT);
         sysHead.setBounds(400, 10, 520, 93);

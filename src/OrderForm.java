@@ -51,6 +51,8 @@ class orderForm extends JFrame{
 
     String writeTime = currentTime.format(timeFormatter);
 
+    Float availableQty;
+
     public orderForm() {
 
         deliveryData = loadDataFromDelivery("File Handling/Delivery.txt");
@@ -221,6 +223,8 @@ class orderForm extends JFrame{
         for (String[] del : deliveryData) {
             if (del[3].equals(selectedCode)) {
                 qtyField.setText(del[8]);
+                availableQty = Float.parseFloat(qtyField.getText());
+
                 for (String[] pro : productData) {
                     if (del[3].equals(pro[7])) {
                         priceField.setText(pro[8]);
@@ -237,7 +241,7 @@ class orderForm extends JFrame{
             float cash = Float.parseFloat(cashField.getText());
             float total = Float.parseFloat(totalField.getText());
             if(total>cash) {
-                JOptionPane.showMessageDialog(this, "Kulang bayad mo!!", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please Input the Exact Amount for Payment!", "Error", JOptionPane.ERROR_MESSAGE);
             }else {
                 change = cash - total;
                 changeField.setText(String.valueOf(change));
@@ -264,13 +268,57 @@ class orderForm extends JFrame{
                     addToSalesFile(total);
                 }
                 else {
-                    JOptionPane.showMessageDialog(this, "Kulang bayad mo!!", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Please Input the Exact Amount for Payment!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
 
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "You need to fill all the Fields", "Error", JOptionPane.ERROR_MESSAGE);
         }
+
+
+        String selectedCode = (String) cmbProduct.getSelectedItem();
+
+        Float updateQty;
+        Float order = Float.parseFloat(qtyOrderField.getText());
+        String lines;
+
+        List<String> linesUpdate = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader("File Handling/Delivery.txt"))) {
+            String line;
+
+            while ((line = br.readLine()) != null){
+                linesUpdate.add(line);
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+        for (int i = 0; i < linesUpdate.size(); i++){
+            String line = linesUpdate.get(i);
+            String[] parts = line.split("\t");
+
+            if (parts[3].equals(selectedCode)){
+                updateQty = availableQty - order;
+                parts[8] = updateQty.toString();
+
+                String updatedLine = String.join("\t", parts);
+                linesUpdate.set(i, updatedLine);
+
+                break;
+            }
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("File Handling/Delivery.txt"))) {
+            for (String line : linesUpdate) {
+                bw.write(line);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void populateProductComboBox() {

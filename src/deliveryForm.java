@@ -250,7 +250,7 @@ class deliveryForm extends JFrame {
         }
 
         String deliveryInfo = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
-        String deliveryWrite = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
+        //String deliveryWrite = supplierCode + "\t" + supplierName + "\t" + productCode + "\t" + productName + "\t" + productDescription + "\t" + quantity;
 
 
         deliveryData.add(deliveryInfo);
@@ -311,40 +311,4 @@ class deliveryForm extends JFrame {
         SwingUtilities.invokeLater(() -> new deliveryForm());
     }
 
-    /*
-      TODO Create a Function that READ the 'Supplier.txt' and trim the indexes to add into SupplierBox AND set the text
-       in product Supplier Name
-
-     */
-    /*
-       TODO Create a Functions that READ the 'Package.txt' and trim the indexes to add into ProductBox AND set the text
-        in Product Name
-
-     */
-
-    /*
-       TODO Create A Function that READS the 'Package.txt' & 'Variant.txt' and trim the indexes to add the
-        package details and variant details
-
-         Description includes:
-         1. Package Code
-         2. Package Name
-         3. Variant Code //not sure
-         4. Variant Name
-
-         Ex. Package Code: 1223
-             Package Name: CellPhone
-             Variant Code; 1562
-             Variant Name: Xiaomi
-     */
-
-    /*
-        TODO Create an ActionEventListener for AddBtn that appends the details
-
-        Details Contains:
-            1. Product Code
-            2. Name
-            3. Description
-            4. Quantity
-     */
 }
